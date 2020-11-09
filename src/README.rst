@@ -5,6 +5,6 @@ This folder contains for the source code the serverside interactions for the pro
 
 The modules are as follows:
 
-1. Portal: 
-2. Menu:
-3. Db: This stores the database classes and methods used for modifying the database tables
+1. ``portal``: 
+2. ``menu``:
+3. ``db``: This stores the database classes and methods used for modifying the database tables
