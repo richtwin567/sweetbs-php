@@ -52,12 +52,12 @@ body{
     font-weight:bold;
 }
 
-.wrapper a:hover{
+.wrapper a:hover,
+.wrapper svg:hover{
     background-color: white;
     color:black;
+    fill:inherit;
 }
-
-
 
 
 .sidebar svg{
