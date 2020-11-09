@@ -4,12 +4,14 @@
 body{
     font-size: 14px;
 }
+/* TODO - Make the Nav and Sidebar responsive */
+
+/* Styling the Nav */
 #page-logo{
     display:flex;
     color:white;
     align-items: center;
     width:10%;
-    padding:0 12px;
 }
 
 #page-logo img{
@@ -28,9 +30,11 @@ body{
     display:flex;
     justify-content: space-around;
     width:23%;
-    margin-left:70vw;
+    margin-left:77vw;
+    padding:0 20px;
 }
 
+/* Styling the Sidebar */
 .wrapper{
     display:flex;
     position: relative;
@@ -56,8 +60,12 @@ body{
     background-color: white;
     color:black;
     fill:inherit;
+    transition: all ease 0.3s;
 }
 
+svg path {
+    transition: all ease 0.3s;
+  }
 
 .sidebar svg{
     margin: 0 10px;
