@@ -15,7 +15,7 @@ body{
 }
 
 #page-logo img{
-    height:120px;
+    height:50px;
 }
 
 #horizontal{
@@ -31,11 +31,15 @@ body{
 #horizontal ul{
     display:flex;
     justify-content: space-around;
-    width:23%;
-    margin-left:77vw;
+    width:20%;
+    margin-left:70vw;
     padding:0 20px;
 }
 
+ul img{
+    height:25px;
+    margin:0 10px;
+}
 /* Styling the Sidebar */
 .wrapper{
     display:flex;
