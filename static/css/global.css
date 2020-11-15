@@ -109,6 +109,7 @@ section{
     color:white;
     background-color:#BC3B81;
     padding:5vh 2vw;
+    
 }
 
 section img{
@@ -119,6 +120,15 @@ section img{
 section a{
     color:white;
 }
+
+/* This fixes the footer in place, but it doesn't seem to allow much space within the page
+section, footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width:100%;
+}
+*/
 #newsletter{
     grid-column-start: 1;
     grid-row-start:1;
