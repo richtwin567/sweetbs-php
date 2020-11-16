@@ -1,0 +1,46 @@
+h1{
+    color: #9C3B82;
+}
+hr{
+    margin:25px 0;
+}
+#login{
+    width:100%;
+    display:flex;
+    justify-content: space-around;
+}
+.container{
+    margin-left:100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#login form{
+    margin-right:230px;
+    margin-top: 50px;
+}
+#login img{
+    width:45vw;
+    height:80vh;
+}
+#login input[type=text]{
+    width:100%;
+    padding:8px 5px;
+    border-radius:5px;
+    border:1px solid #9C3B82;
+}
+
+#login a{
+    color:black;
+}
+
+#login p{
+    text-align: center;
+}
+#login a:hover{
+    color:#BC3B81;
+}
+#login input[type=submit]{
+    margin-top:30px;
+    width:100%;
+}
