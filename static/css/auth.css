@@ -1,5 +1,7 @@
+@import "colours.css";
+
 h1{
-    color: #9C3B82;
+    color: var(--title-text-on-light);
 }
 hr{
     margin:25px 0;
@@ -27,18 +29,18 @@ hr{
     width:100%;
     padding:8px 5px;
     border-radius:5px;
-    border:1px solid #9C3B82;
+    border:1px solid var(--input-outline);
 }
 
 #login a{
-    color:black;
+    color: var(--body-text-on-light);
 }
 
 #login p{
     text-align: center;
 }
 #login a:hover{
-    color:#BC3B81;
+    color: var(--accent-pink-main);
 }
 #login input[type=submit]{
     margin-top:30px;

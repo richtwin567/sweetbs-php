@@ -1,5 +1,6 @@
 /* Global Styles */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import "colours.css";
 
 *{
     list-style-type: none;
@@ -15,12 +16,12 @@ body{
 }
 
 footer{
-    background-color: #9C3B82;
+    background-color: var(--primary-dark);
     display:flex;
     width:100%;
     font-size:18px;
     justify-content: space-around;
-    color:white;
+    color: var(--body-text-on-dark);
 }
 
 footer ul{
@@ -31,7 +32,7 @@ footer ul{
 }
 
 svg {
-    fill:white;  
+    fill:var(--icons-on-dark);  
 }
 
 /* Global Styling for the nav */
@@ -39,8 +40,8 @@ nav{
     display:flex;
     justify-content: space-around;
     align-items:center;
-    background-color: #9C3B82;
-    color:white;
+    background-color: var(--website-navbar);
+    color: var(--body-text-on-dark);
     height:10vh;
     padding:0 20px;
 }
@@ -54,7 +55,7 @@ nav ul{
 
 nav a,
 footer a{
-    color:white;
+    color: var(--body-text-on-dark);
 }
 
 nav img{
@@ -77,24 +78,16 @@ nav svg{
 
 /*Button styles*/
 .btn-light{
-    color:black;
+    color: var(--body-text-on-light);
     font-weight: 700;
     text-transform: uppercase;
-    background-color:#D8F2F1;
+    background-color: var(--btn-main);
     border-radius:5px;
     padding: 13px 20px;
     border:none;
-}
+} 
 
-.btn-powder{
-    color:black;
-    font-weight: 700;
-    text-transform: uppercase;
-    background-color:#B0DAD8;
-    border-radius:5px;
-    padding: 13px 20px;
-    border:none;
-}
+
 .wrapper{
     display:flex;
     flex-direction: column;
@@ -107,8 +100,8 @@ section{
     display: grid;
     grid-template-columns:3fr 1fr 1fr 1fr;
     grid-template-rows:1fr;
-    color:white;
-    background-color:#BC3B81;
+    color: var(--body-text-on-dark);
+    background-color: var(--primary-main);
     padding:5vh 2vw;
     
 }
@@ -119,7 +112,7 @@ section img{
 }
 
 section a{
-    color:white;
+    color:var(--footer-link);
 }
 
 /* This fixes the footer in place, but it doesn't seem to allow much space within the page

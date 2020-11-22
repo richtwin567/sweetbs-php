@@ -9,7 +9,6 @@ body{
 /* Styling the Nav */
 #page-logo{
     display:flex;
-    color:white;
     align-items: center;
     width:10%;
 }
@@ -22,9 +21,9 @@ body{
     display:flex; 
     justify-content: space-around;
     align-items: center;
-    background-color: #BC3B81;
-    box-shadow: 0px 2px 10px #B0DAD8;
-    height:12vh;
+    background-color: var(--portal-top-navbar);
+    box-shadow: 0px 2px 10px black;
+    height:2vh;
     
 }
 
@@ -50,21 +49,21 @@ ul img{
     position:fixed;
     width:200px;
     height:100%;
-    background-color: #9C3B82;
+    background-color: var(--portal-side-navbar);
 }
 
 .wrapper a{
     display:flex;
     padding:15px 0;
     align-items: center;
-    color:white;
+    color: var(--body-text-on-dark);
     font-weight:bold;
 }
 
 .wrapper a:hover,
 .wrapper svg:hover{
-    background-color: white;
-    color:black;
+    background-color: var(--bg-main);
+    color: var(--body-text-on-light);
     fill:inherit;
     transition: all ease 0.3s;
 }

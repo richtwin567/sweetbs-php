@@ -1,0 +1,69 @@
+/* https://coolors.co/9c649a-9c3b82-bc3b81-f171ab-f6c0d0-ebebeb-212121-ff5c5c-b0dad8-d8f2f1 - coolors */
+
+:root {
+	/* Primary colours */
+	--primary-main:#BC3B81;
+	--primary-dark:#9C3B82;
+	
+	/* accent colours */
+	--accent-pink-main: #F171AB;
+	--accent-pink-light: #F6C0D0;
+	--accent-blue-main: #B0DAD8;
+	--accent-blue-light: #D8F2F1;
+
+	--light: #ffffff;
+	--medium: #EBEBEB;
+	--dark: #212121;
+
+	/* Semantic colours */
+	--sucess:#1EB55A;
+	--info:#0088E2;
+	--critical:#FF5C5C;
+	--warning:#FFAA00;
+		
+	/* background colours */
+	--bg-main: var(--light);
+	--bg-alt: var(--medium);
+
+	/* Navigation bar colours */
+	--website-navbar: #9C649A;
+	--portal-side-navbar: var(--primary-dark);
+	--portal-top-navbar: var(--primary-main);
+
+	/* text colours */
+	--body-text-on-light: var(--dark);
+	--body-text-on-dark: var(--light);
+	--title-text-on-light: var(--primary-dark);
+	--title-text-on-dark: var(--light);
+
+	/* icon and icon button colours */
+	--icons-on-dark: var(--light);
+	--icons-on-light: var(--primary-dark);
+	--icons-on-light-alt: var(--dark);
+
+	/* Button colours */
+	--btn-main: var(--accent-blue-main);
+	--btn-alt: var(--primary-main);
+	--btn-critical: var(--critical);
+
+	/* Panel colours */
+	--panel-bg-main: var(--accent-blue-main);
+	--panel-bg-main-lighter: var(--accent-blue-light);
+	--panel-bg-alt: var(--light);
+	--panel-outline-main: var(--accent-blue-main);
+	--panel-outline-alt: var(--accent-pink-main);
+
+	--input-outline: var(--primary-dark);
+
+	/* link colours */
+	--footer-link: var(--accent-pink-light);
+	--footer-link-hover: var(--light);
+	--nav-link: var(--light);
+
+	/* List colours */
+	--list-item-even: var(--accent-blue-light);
+	--list-item-odd: var(--bg-main);
+	--list-item-selected: var(--accent-pink-light);
+	--list-accordion-bg: var(--bg-alt);
+	--list-accordion-even: var(--bg-main);
+}
