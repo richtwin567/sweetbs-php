@@ -58,12 +58,11 @@ nav div#nav-icons div{
 }
 
 nav div#shopping-cart-icon{
-    background-image: url("../../static/assets/icons/shopping_cart-white-48dp.svg");
+    background-image: url("../assets/icons/shopping_cart-white-48dp.svg");
 }
 
 nav div#account-icon{
-    background-image: url("../../static/assets/icons/account_circle-white-48dp.svg");
-
+    background-image: url("../assets/icons/account_circle-white-48dp.svg");
 }
 
 footer{
