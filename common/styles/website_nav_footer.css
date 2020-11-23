@@ -162,5 +162,7 @@ footer form{
 footer form input[type=submit]{
     margin-left: -10px;
     font-size: 0.8em;
+    cursor: pointer;
+    outline: none;
 }
 /* Global Styling for the footer */

@@ -7,42 +7,68 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/auth.css">
     <link rel='stylesheet' href="../static/css/global.css">
-    <!--<script src="" defer></script>-->
+    <script src="" defer></script>
 </head>
 
 <body>
     <nav>
         <img id="logo" src='../static/assets/client/sweet-b-long.png' alt='sweet-b-long'>
+
         <ul id="nav-links">
             <li><a href='index.html'>HOME</a></li>
-            <li><div class="nav-separator"></div></li>
+            <li>
+                <div class="nav-separator"></div>
+            </li>
             <li><a href='menu.html'>SHOP</a></li>
-            <li><div class="nav-separator"></div></li>
+            <li>
+                <div class="nav-separator"></div>
+            </li>
             <li><a href='menu.html'>MENU</a></li>
-            <li><div class="nav-separator"></div></li>
+            <li>
+                <div class="nav-separator"></div>
+            </li>
             <li><a href='contact.html'>CONTACT US</a></li>
-            <li><div class="nav-separator"></div></li>
+            <li>
+                <div class="nav-separator"></div>
+            </li>
             <li><a href='about.html'>ABOUT</a></li>
         </ul>
         <div id='nav-icons'>
-            <!--Shopping Cart SVG-->
-            <a href="#"><div id="shopping-cart-icon"></div></a>
+            <a href="#">
+                <div id="shopping-cart-icon"></div>
+            </a>
             <!--Profile SVG-->
-            <a href="#"><div id="account-icon"></div></a>
+            <a href="#">
+                <div id="account-icon"></div>
+            </a>
         </div>
     </nav>
     <main>
         <!-- Dynamic Content goes here-->
-        <div id='hero'>
-            <div id="hero-call-to-action">
-                <h1>WELCOME</h1>
-                <p>Order now to experience satisfaction beyond compare</p>
-                <a href='menu.html' class='btn btn-regular'>Shop Now</a>
-            </div>
+        <div id='login'>
+            <h1>Hey! Welcome back!</h1>
+
+            <form>
+                <label for='username'>Username</label><br>
+                <input type='text' id='username' name="username"><br>
+                <label for='password'>Password</label><br>
+                <input type='password' id='password' name="password"><br>
+                <label for='remember'>Remember Me</label>
+                <input type="checkbox" id="remember" value="true">
+                <input type='submit' class='btn btn-regular' value='sign-in'>
+                <hr>
+                <p>Don't have an account? <a href='register.html'>Sign Up</a></p>
+                <p><a href='#'>Forgot password?</a></p>
+            </form>
+
         </div>
+
+        <div id="feature-img"></div>
+
     </main>
+
     <footer>
         <section id="footer-links">
             <div id='newsletter'>
@@ -86,7 +112,6 @@
             </p>
         </section>
     </footer>
-    </div>
 </body>
 
 </html>
