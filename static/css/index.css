@@ -1,12 +1,26 @@
-body{
-    font-size:20px;
-}
-
-#container{
+#hero{
     height:100%;
     background-image: url("../assets/images/home.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size:cover;
-    padding:20vh 0;
+    background-size: cover;
+    height:85vh;
+}
+
+#hero-call-to-action{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 40%;
+    height: 100%;
+    padding-left: 2em;
+}
+
+#hero-call-to-action h1{
+    font-size: 3.5em;
+    margin-bottom: 0.3em;
+}
+#hero-call-to-action p{
+    font-size: 1.3em;
+    margin-bottom: 3em;
 }

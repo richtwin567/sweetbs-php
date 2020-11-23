@@ -1,0 +1,29 @@
+
+/*Button styles*/
+.btn {
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius:10px;
+    padding: 0.8em 1.8em;
+    border:none;
+}
+
+.btn-regular{
+    color: var(--body-text-on-light);
+    background-color: var(--btn-main);
+} 
+
+.btn-critical {
+    color: var(--body-text-on-dark);
+    background-color: var(--btn-critical);
+}
+
+.btn-call-to-action {
+    color: var(--body-text-on-dark);
+    background-color: var(--btn-alt);
+}
+
+.btn-outline{
+    color: var(--primary-main);
+    color: var(--btn-alt);
+}

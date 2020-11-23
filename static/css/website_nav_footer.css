@@ -1,0 +1,166 @@
+/* Global Styling for the nav */
+nav{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    background-color: var(--website-navbar);
+    color: var(--body-text-on-dark);
+    height:15vh;
+    padding:0 20px;
+}
+
+nav ul{
+    display:flex;
+    justify-content: center;
+    height:70%;
+}
+
+nav ul li{
+    font-size: 14px;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+nav ul li a {
+    width: 10em;
+    text-align: center;
+}
+
+.nav-separator {
+    width: 2px;
+    background-color: var(--accent-blue-main);
+    height: 100%;
+}
+
+nav a,
+footer a{
+    color: var(--body-text-on-dark);
+}
+
+nav img#logo{
+    height:3em;
+}
+
+nav #nav-icons{
+    display: flex;
+    flex-direction: row;
+}
+
+nav div#nav-icons div{
+    height: 2em;
+    width: 2em;
+    background-position:center;
+    background-size: contain;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+nav div#shopping-cart-icon{
+    background-image: url("../../static/assets/icons/shopping_cart-white-48dp.svg");
+}
+
+nav div#account-icon{
+    background-image: url("../../static/assets/icons/account_circle-white-48dp.svg");
+
+}
+
+footer{
+    height: 45vh;
+}
+/* Global Styling for the newsletter */
+footer section#footer-links{
+    display: grid;
+    height: 90%;
+    grid-template-columns:3fr 1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr;
+    gap: 1em;
+    color: var(--body-text-on-dark);
+    background-color: var(--primary-main);
+    padding: 2%;
+}
+
+footer section#terms-copyright{
+    height: 10%;
+    background-color: var(--primary-dark);
+    display:flex;
+    width:100%;
+    font-size:18px;
+    justify-content: space-around;
+    color: var(--body-text-on-dark);
+}
+
+footer #terms-copyright ul{
+    display:flex;
+    justify-content: space-around;
+    width:25%;
+    margin-right:50vw;
+}
+
+#newsletter{
+    grid-column-start: 1;
+    grid-row-start:1;
+}
+
+#social{
+    grid-column-start:1;
+    display:flex;
+}
+
+#acc-details{
+    grid-row:1/3;
+    grid-column-start:2;
+}
+
+#shop{
+    grid-row:1/3;
+    grid-column-start:3;
+}
+
+#additional-info{
+    grid-row:1/3;
+    grid-column-start:4;
+}
+
+#newsletter input[type=email]{
+    width:75%;
+    padding-left: 10px;
+
+    border:none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+footer div#social img{
+    height:40px;
+    margin:0 5vw;
+}
+
+footer #acc-details a,#shop a {
+    color:var(--footer-link);
+}
+
+footer #acc-details a:hover,#shop a:hover {
+    color:var(--light);
+}
+
+footer h3{
+    margin-bottom: 0.2em;
+    font-size: 1.3em;
+}
+
+footer #acc-details ul li,#shop ul li {
+    margin-bottom: 0.5em;
+}
+
+footer form{
+    display: flex;
+    flex-direction: row;
+}
+
+footer form input[type=submit]{
+    margin-left: -10px;
+    font-size: 0.8em;
+}
+/* Global Styling for the footer */
