@@ -9,7 +9,7 @@
         </div>
         <div id='social'>
             <h3>Social</h3>
-            <img src='../../../UWI-COMP2140-Project/common/assets/icons/instagram-white.svg'>
+            <img src="../icons/instagram-white.svg">
         </div>
         <div id='acc-details'>
             <h3>My Account</h3>
@@ -21,14 +21,14 @@
         <div id='shop'>
             <h3>Shop</h3>
             <ul>
-                <li><a href='menu.html'>Menu</a></li>
+                <li><a href='menu.php'>Menu</a></li>
                 <li><a href=''>Order</a></li>
-                <li><a href=''>My Cart</a></li>
+                <li><a href='cart.php'>My Cart</a></li>
             </ul>
         </div>
         <div id='additional-info'>
-            <h3><a href=''>Contact Us</a></h3>
-            <h3><a href=''>About Us</a></h3>
+            <h3><a href='contact.php'>Contact Us</a></h3>
+            <h3><a href='about.php'>About Us</a></h3>
         </div>
     </section>
     <section id="terms-copyright">
