@@ -3,7 +3,7 @@
     background-image: url("../../images/home.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height:85vh;
+    height:90vh;
 }
 
 #hero-call-to-action{
@@ -20,6 +20,7 @@
     font-size: 3.5em;
     margin-bottom: 0.3em;
 }
+
 #hero-call-to-action p{
     font-size: 1.3em;
     margin-bottom: 3em;
