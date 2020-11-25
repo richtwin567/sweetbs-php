@@ -1,10 +1,16 @@
+// Retrieve the ObjectID object from MongoDB
+const ObjectID = require('mongodb').ObjectID;
+const Customer = require('../../aggregation/accounts/user').Customer;
+console.log(ObjectID);
+console.log(Customer);
+
 class Order{
     /**
      * Initializes the attributes for the Order class
      * @param {Customer} customer The customer associated with the order.
      */
     constructor(customer){
-        this.id = null; // TODO - Implement function to generate the id based on the database records.
+        this.id = new ObjectID();; // TODO - Implement function to generate the id based on the database records.
         this.customer = customer;
         this.orderItems = []; // Initializing as an empty array so more orders can be added.
     }
@@ -72,3 +78,5 @@ class OrderItem{
         this.quantity = newQuantity;
     }
 }
+
+// let testItem = new Order()
