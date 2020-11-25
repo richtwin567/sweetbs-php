@@ -1,8 +1,5 @@
 // Retrieve the ObjectID object from MongoDB
 const ObjectID = require('mongodb').ObjectID;
-const Customer = require('../../aggregation/accounts/user').Customer;
-console.log(ObjectID);
-console.log(Customer);
 
 class Order{
     /**
@@ -10,7 +7,7 @@ class Order{
      * @param {Customer} customer The customer associated with the order.
      */
     constructor(customer){
-        this.id = new ObjectID();; // TODO - Implement function to generate the id based on the database records.
+        this.id = new ObjectID(); // TODO - Implement function to generate the id based on the database records.
         this.customer = customer;
         this.orderItems = []; // Initializing as an empty array so more orders can be added.
     }
@@ -27,6 +24,19 @@ class Order{
      */
     getOrderItems(){
         return this.orderItems;
+    }
+
+    /**
+     * Retrieves the menu item ids from the order items in the Order.
+     * @returns {Array} An array of the associated menu item ids
+     */
+    getMenuItemIds(){
+        let menuItemIds = []
+        for(let index in this.orderItems){
+            let orderItem = this.orderItems[index]
+            menuItemIds.push(orderItem.getMenuItem().getMenuItemId())
+        }
+        return menuItemIds;
     }
 
     /**
@@ -79,4 +89,30 @@ class OrderItem{
     }
 }
 
-// let testItem = new Order()
+// TODO - Place this code in a unittest
+
+/*
+// Imports for testing purposes 
+const Customer = require('../../aggregation/accounts/user').Customer;
+const {RealName, Address} = require('../../aggregation/accounts/customer_data');
+const {MenuItem} = require('../../aggregation/menu/menu_item');
+
+// Initializing test variables
+let testAddress = new Address(['20 Queensway', 'Willowdene','Spanish Town']);
+let testName = new RealName('Jason', 'Gayle');
+let testMenuItem1 = new MenuItem(52, 'Potatoes', 'Just potatoes', []);
+console.log(testMenuItem1.getMenuItemId());
+let testMenuItem2 = new MenuItem(42, 'Fries', 'Just potatoes', []);
+console.log(testMenuItem2.getMenuItemId());
+let testCustomer = new Customer('DangaRanga','test@person.com','welpthisworks', testName, testAddress);
+let testOrderItem1 = new OrderItem(testMenuItem1, 3);
+let testOrderItem2 = new OrderItem(testMenuItem2, 5); 
+let testOrder = new Order(testCustomer);
+
+testOrder.addOrderItem(testOrderItem1);
+testOrder.addOrderItem(testOrderItem2);
+
+console.log(testOrder.getMenuItemIds());
+ */
+
+module.exports = {Order, OrderItem};
