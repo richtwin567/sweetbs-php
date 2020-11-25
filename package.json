@@ -1,0 +1,26 @@
+{
+  "name": "uwi-comp2140-project",
+  "version": "1.0.0",
+  "description": "Semester 1 2020/21, COMP2140 project.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richtwin567/UWI-COMP2140-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richtwin567/UWI-COMP2140-Project/issues"
+  },
+  "homepage": "https://github.com/richtwin567/UWI-COMP2140-Project#readme",
+  "dependencies": {
+    "mongodb": "^3.6.3"
+  }
+}
