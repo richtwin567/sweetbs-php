@@ -23,7 +23,8 @@ This project utilizes a layered architecture, in which each component separated 
 
 
 
-Netlify Link - sweetbtesting.netlify.app  
+Hosting
+========
+Heroku Page  -  `Sweet B's Application <insert URL here>`_
 
-n.b) Go to ``/templates/<filename>`` to access the desired page
  
