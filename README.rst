@@ -9,11 +9,6 @@ Introduction
 
 This project is the implementation of the software system designed in the course COMP2140, for the client Sweet B's Bakery.
 
-Brief Client Description
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-Sweet Bs is a family bakery owned by The Benjamin's that sells various pastries. Currently, their method of collecting, organizing, and responding to orders is very inefficient and error-prone - requires too much manual entering of data and the method of ordering is very inconvenient for customers. Therefore, the goal of this project is to create a medium in which making orders is more seamless for the customers - your average person who is looking for pastries nearby or someone who already knows about the bakery - and collecting these orders and organizing them is less stressful for The Benjamins. 
-
 
 Project Structure
 =================
@@ -33,4 +28,8 @@ Hosting
 ========
 Heroku Page  -  `Sweet B's Application <insert URL here>`_
 
- 
+
+Brief Client Description
+========================
+
+Sweet Bs is a family bakery owned by The Benjamin's that sells various pastries. Currently, their method of collecting, organizing, and responding to orders is very inefficient and error-prone - requires too much manual entering of data and the method of ordering is very inconvenient for customers. Therefore, the goal of this project is to create a medium in which making orders is more seamless for the customers - your average person who is looking for pastries nearby or someone who already knows about the bakery - and collecting these orders and organizing them is less stressful for The Benjamins. 
