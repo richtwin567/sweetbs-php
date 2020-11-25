@@ -70,7 +70,17 @@ class Customer extends User{
         super(username, email, password);
         this.name = name;
         this.deliveryAddress = deliveryAddress;
+        
+        // TODO - Implement after the project
         this.card = null;
+    }
+
+    getRealName(){
+        return this.name;
+    }
+
+    getDeliveryAddress(){
+        return this.deliveryAddress;
     }
 }
 
@@ -84,6 +94,9 @@ class Admin extends User{
 
 
 
-const testUser = new User('bobross','bob@gmail.com', 'Testo');
+// const testUser = new User('bobross','bob@gmail.com', 'Testo');
 
-console.log(testUser.getPassword());
+// console.log(testUser.getPassword());
+
+// Exporting classes
+module.exports = {Customer, Admin};
