@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 async function connect(){
     // Initialize URI and Mongo Client
-    const uri = "mongodb+srv://admin_COMP2140:W62aZqXfeH4RrYkd@comp2140-project-2020-c.yvx5q.mongodb.net/sweebs?retryWrites=true&w=majority";
+    const uri = "mongodb+srv://admin_COMP2140:<password>@comp2140-project-2020-c.yvx5q.mongodb.net/sweebs?retryWrites=true&w=majority";
     const client = new MongoClient(uri, { useNewUrlParser: true});
 
     // Try-catch block to handle connecting to the database
