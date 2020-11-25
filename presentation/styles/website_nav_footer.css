@@ -1,11 +1,13 @@
 /* Global Styling for the nav */
+
 nav{
     display:flex;
     justify-content: space-between;
     align-items:center;
     background-color: var(--website-navbar);
     color: var(--body-text-on-dark);
-    height:15vh;
+    height:10vh;
+    width: 100vw;
     padding:0 20px;
 }
 
@@ -40,7 +42,7 @@ footer a{
 }
 
 nav img#logo{
-    height:3em;
+    height:2.5em;
 }
 
 nav #nav-icons{
@@ -49,8 +51,8 @@ nav #nav-icons{
 }
 
 nav div#nav-icons div{
-    height: 2em;
-    width: 2em;
+    height: 1.5em;
+    width: 1.5em;
     background-position:center;
     background-size: contain;
     margin-left: 0.5em;
@@ -58,16 +60,20 @@ nav div#nav-icons div{
 }
 
 nav div#shopping-cart-icon{
-    background-image: url("../assets/icons/shopping_cart-white-48dp.svg");
+    background-image: url("../icons/shopping_cart-white-48dp.svg");
 }
 
 nav div#account-icon{
-    background-image: url("../assets/icons/account_circle-white-48dp.svg");
+    background-image: url("../icons/account_circle-white-48dp.svg");
 }
 
 footer{
-    height: 45vh;
+    height: 50vh;
+    position: relative;
+    width: 100vw;
+    bottom: 0;
 }
+
 /* Global Styling for the newsletter */
 footer section#footer-links{
     display: grid;
@@ -77,16 +83,17 @@ footer section#footer-links{
     gap: 1em;
     color: var(--body-text-on-dark);
     background-color: var(--primary-main);
-    padding: 2%;
+    padding: 3% 5%;
 }
 
 footer section#terms-copyright{
-    height: 10%;
+    height: 13%;
     background-color: var(--primary-dark);
     display:flex;
     width:100%;
-    font-size:18px;
+    font-size:0.8em;
     justify-content: space-around;
+    align-items: center;
     color: var(--body-text-on-dark);
 }
 
@@ -125,10 +132,11 @@ footer #terms-copyright ul{
 #newsletter input[type=email]{
     width:75%;
     padding-left: 10px;
-
     border:none;
     border-radius: 5px 0 0 5px;
     outline: none;
+    font-size: 0.8em;
+    height: 3em;
 }
 
 footer div#social img{
@@ -138,6 +146,7 @@ footer div#social img{
 
 footer #acc-details a,#shop a {
     color:var(--footer-link);
+    font-size: 0.8em;
 }
 
 footer #acc-details a:hover,#shop a:hover {
@@ -145,12 +154,12 @@ footer #acc-details a:hover,#shop a:hover {
 }
 
 footer h3{
-    margin-bottom: 0.2em;
-    font-size: 1.3em;
+    margin-bottom: 0.4em;
+    font-size: 1.1em;
 }
 
 footer #acc-details ul li,#shop ul li {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.4em;
 }
 
 footer form{
@@ -161,7 +170,12 @@ footer form{
 footer form input[type=submit]{
     margin-left: -10px;
     font-size: 0.8em;
+    height:  3em;
     cursor: pointer;
     outline: none;
+}
+
+footer form {
+    width: 90%;
 }
 /* Global Styling for the footer */

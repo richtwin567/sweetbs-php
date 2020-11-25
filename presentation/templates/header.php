@@ -1,23 +1,23 @@
 <nav>
-    <img id="logo" src='../../../UWI-COMP2140-Project/common/assets/client/sweet-b-long.png' alt='sweet-b-long'>
+    <img id="logo" src='../client/sweet-b-long.png' alt='sweet-b-long'>
     <ul id="nav-links">
-        <li><a href='../../../UWI-COMP2140-Project/index.php'>HOME</a></li>
+        <li><a href='index.php'>HOME</a></li>
         <li>
             <div class="nav-separator"></div>
         </li>
-        <li><a href='../../../UWI-COMP2140-Project/app/website/menu/views/menu.html'>SHOP</a></li>
+        <li><a href='menu.php'>SHOP</a></li>
         <li>
             <div class="nav-separator"></div>
         </li>
-        <li><a href='../../../UWI-COMP2140-Project/app/website/menu/views/menu.html'>MENU</a></li>
+        <li><a href='menu.php'>MENU</a></li>
         <li>
             <div class="nav-separator"></div>
         </li>
-        <li><a href='.contact.html'>CONTACT US</a></li>
+        <li><a href='contact.php'>CONTACT US</a></li>
         <li>
             <div class="nav-separator"></div>
         </li>
-        <li><a href='about.html'>ABOUT</a></li>
+        <li><a href='about.php'>ABOUT</a></li>
     </ul>
     <div id='nav-icons'>
         <!--Shopping Cart SVG-->
