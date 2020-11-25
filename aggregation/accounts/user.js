@@ -82,6 +82,10 @@ class Customer extends User{
     getDeliveryAddress(){
         return this.deliveryAddress;
     }
+
+    setRealName(newName){
+        this.name = newName;
+    }
 }
 
 class Admin extends User{

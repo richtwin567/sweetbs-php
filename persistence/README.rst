@@ -25,4 +25,4 @@ This module defines the classes and methods used for connecting to the database 
 
 The files are:
 
-- ``models.js`` - The classes used to define the models for the database.
+- ``documentss.js`` - The classes used to define the documentss for the database.
