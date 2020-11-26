@@ -4,7 +4,7 @@
 */
 
 // Imports
-const hashing = new (require('../../persistence/security/hashing'));
+const hashing = new (require('../security/hashing'));
 
 class User{
     /**
@@ -14,6 +14,7 @@ class User{
      * @param {*} password 
      */
     constructor(username, email, password){
+        this.id = new ObjectID();
         this.username = username;
         this.email = email;
         this.salt = hashing.generateSalt(20);
