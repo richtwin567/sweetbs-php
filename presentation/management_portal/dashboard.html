@@ -7,8 +7,9 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../static/css/global.css">
-    <link rel="stylesheet" href="../static/css/portal.css">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="styles/portal.css">
+    <script src="../../business_logic/shopping_list/shopping_list.js"></script>
 </head>
 
 <body>
@@ -20,22 +21,22 @@
         <ul>
             <!-- Notification Center -->
             <li><a href='#'>
-                    <img src='../static/assets/icons/notifications-white-48dp.svg'>
+                    <img src='../icons/notifications-white-48dp.svg'>
                 </a>
             </li>
             <li><a href='#'>
                     <!-- Home -->
-                    <img src='../static/assets/icons/home-white-48dp.svg'>
+                    <img src='../icons/home-white-48dp.svg'>
                 </a>
             </li>
             <li><a href='#'>
                     <!-- Account -->
-                    <img src='../static/assets/icons/account_circle-white-48dp.svg'>
+                    <img src='../icons/account_circle-white-48dp.svg'>
                 </a>
             </li>
             <li><a href='#'>
                     <!-- Log out-->
-                    <img src='../static/assets/icons/power_settings_new-white-48dp.svg'> 
+                    <img src='../icons/power_settings_new-white-48dp.svg'>
                 </a>
             </li>
         </ul>
@@ -89,21 +90,36 @@
         </div>
     </div>
     <!-- The visibility of each segment will be toggled with javascript -->
-    <section id='dashboard' class='visible'>
+    <div id="portal-sections">
+      <section id='dashboard' class='hidden'>
 
-    </section>
-    <section id='orders' class='hidden'>
+      </section>
+      <section id='orders' class='hidden'>
 
-    </section>
-    <section id='shopping-list class=' hidden''>
+      </section>
 
-    </section>
-    <section id='sales' class='hidden'>
+      <section id='shopping-list' class='visible'>
+        <div id="shopcont">
+          <h1>Shopping List</h1>
+          <div id="innercont">
+            <div id="header">
+              <h2>Item</h2>
+              <h2>Description</h2>
+              <h2>Quantity</h2>
+            </div>
+          </div>
+          <button id="genbtn">Generate List</button>
 
-    </section>
-    <section id='menu-manager' class='hidden'>
+        </div>
+      </section>
+      <section id='sales' class='hidden'>
 
-    </section>
+      </section>
+      <section id='menu-manager' class='hidden'>
+
+      </section>
+    </div>
+
     <script src=""></script>
 </body>
 

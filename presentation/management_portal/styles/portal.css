@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @import "colours.css";
+@import "shoppinglist.css";
 
 body{
     font-size: 14px;
@@ -18,13 +19,13 @@ body{
 }
 
 #horizontal{
-    display:flex; 
+    display:flex;
     justify-content: space-around;
     align-items: center;
     background-color: var(--portal-top-navbar);
     box-shadow: 0px 2px 10px var(--medium);
     height:2vh;
-    
+
 }
 
 #horizontal ul{
@@ -42,7 +43,6 @@ ul img{
 /* Styling the Sidebar */
 .wrapper{
     display:flex;
-    position: relative;
 }
 
 .wrapper .sidebar{
@@ -76,6 +76,11 @@ svg path {
     margin: 0 10px;
 }
 
+#portal-sections{
+  width: 75%;
+  min-width: 40%;
+  margin-left: clamp(5%, 15%,15%);
+}
 .hidden{
     display:none;
 }
