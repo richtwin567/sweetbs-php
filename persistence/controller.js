@@ -20,8 +20,7 @@ module.exports = {
 		const reqUrl = url.parse(req.url, true);
 		const client = new MongoClient(dburi, { useNewUrlParser:true,useUnifiedTopology: true });
 		await client.connect();
-		await client.db("admin").command({ ping: 1 });
-		console.log("Connected");
+		console.log("Connected, getting menu items");
 		var col = client.db("sweetb").collection("menuitems");
         var curs = await col.find({}).toArray();
         res.statusCode=200;

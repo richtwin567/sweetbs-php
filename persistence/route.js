@@ -2,27 +2,28 @@ const http = require("http");
 const url = require("url");
 const ctrl = require("./controller.js");
 
-
 module.exports = http.createServer((req, res) => {
 	const reqUrl = url.parse(req.url, true);
-	if(req.method=="OPTIONS"){
-		ctrl.fetchOptions(req,res);
+	console.log(req.method);
+	console.log(reqUrl.pathname);
+	if (req.method == "OPTIONS") {
+		ctrl.fetchOptions(req, res).catch((err) => console.log(err));
 	}
 	switch (reqUrl.pathname) {
 		case "/users":
-			handleUsersRequest(req,res);
+			handleUsersRequest(req, res);
 			break;
 
 		case "/orders":
-			handleOrdersRequest(req,res);
+			handleOrdersRequest(req, res);
 			break;
 
 		case "/orderitems":
-			handleOrderItemsRequest(req,res);
+			handleOrderItemsRequest(req, res);
 			break;
 
 		case "/menuitems":
-			handleMenuItemsRequest(req,res);
+			handleMenuItemsRequest(req, res);
 			break;
 
 		case "/ingredients":
@@ -52,7 +53,7 @@ function handleIngredientsRequest(req) {
 function handleMenuItemsRequest(req, res) {
 	switch (req.method) {
 		case "GET":
-			ctrl.getMenuItems(req, res);
+			ctrl.getMenuItems(req, res).catch((err) => console.log(err));
 			break;
 		case "POST":
 			break;
@@ -109,4 +110,3 @@ function handleUsersRequest(req) {
 			break;
 	}
 }
-

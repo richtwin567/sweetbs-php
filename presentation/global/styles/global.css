@@ -63,5 +63,13 @@ input, button{
     opacity: 0;
     height: 0;
     width:0;
-    transition: all 5s ease;
 }
+
+/* 
+.show{
+    display: block;
+    opacity:1;
+    height: 100%;
+    width: 100%;
+    transition: all 1s ease;
+} */

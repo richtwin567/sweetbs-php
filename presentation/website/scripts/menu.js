@@ -26,64 +26,9 @@ getAllMenuItems()
 				console.log(tileid);
 				var sib1;
 				var sib2;
-				var ex = document.querySelector(".expanded");
-				var time = 0;
-				if (ex) {
-					time=1000;
-					if (["1", "2", "3"].includes(ex.id)) {
-						if (ex.id == "1") {
-							console.log("tr");
-						}
-						if (ex.id == "2") {
-							console.log("pad");
-							sib1 = document.getElementsByClassName("1")[0];
-							sib1.style.order = 1;
-						}
-						if (ex.id == "3") {
-							console.log("in");
-							sib1 = document.getElementsByClassName("1")[0];
-							sib1.style.order = 1;
-							sib2 = document.getElementsByClassName("2")[0];
-							sib2.style.order = 2;
-						}
-					} else if (["4", "5", "6"].includes(tileid)) {
-						if (ex.id == "4") {
-							console.log("tr");
-						}
-						if (ex.id == "5") {
-							console.log("pad");
-							sib1 = document.getElementsByClassName("4")[0];
-							sib1.style.order = 4;
-						}
-						if (ex.id == "6") {
-							console.log("in");
-							sib1 = document.getElementsByClassName("4")[0];
-							sib1.style.order = 4;
-							sib2 = document.getElementsByClassName("5")[0];
-							sib2.style.order = 5;
-						}
-					} else {
-						if (ex.id == "7") {
-							console.log("tr");
-						}
-						if (ex.id == "8") {
-							console.log("pad");
-							sib1 = document.getElementsByClassName("7")[0];
-							sib1.style.order = 7;
-						}
-						if (ex.id == "9") {
-							console.log("in");
-							sib1 = document.getElementsByClassName("7")[0];
-							sib1.style.order = 7;
-							sib2 = document.getElementsByClassName("8")[0];
-							sib2.style.order = 8;
-						}
-					}
-					ex.classList.toggle("expanded");
-					ex.style.flexBasis = "";
-					ex.style.order = ex.classList[1];
-				}
-				setTimeout(() => {
+				var ex = document.querySelector(".expanded-menu-tile");
+				console.log(ex);
+				if (!ex) {
 					if (["1", "2", "3"].includes(tileid)) {
 						if (tileid == "1") {
 							console.log("tr");
@@ -136,14 +81,84 @@ getAllMenuItems()
 						}
 						tile.style.order = 7;
 					}
-					tile.classList.toggle("expanded");
-					tile.style.flexBasis = "100%";
+					setTimeout(() => {
+						tile.classList.add("expanded-menu-tile");
+						tile.classList.remove("menu-tile");
+						var c = tile.children;
+						console.log(c);
+
+						c[2].classList.remove("hidden");
+
+						var cchil = c[1].children;
+
+						cchil[1].classList.remove("hidden");
+						cchil[2].classList.remove("hidden");
+						cchil[3].classList.remove("hidden");
+
+						cchil[4].classList.add("hidden");
+					}, 500);
 
 					//.style.backgroundColor="red";
 					//btn.style.gridColumn = "1/4";})
-				}, time);
+				}
 			});
+
+			/*if (["1", "2", "3"].includes(ex.id)) {
+						if (ex.id == "1") {
+							console.log("tr");
+						}
+						if (ex.id == "2") {
+							console.log("pad");
+							sib1 = document.getElementsByClassName("1")[0];
+							sib1.style.order = 1;
+						}
+						if (ex.id == "3") {
+							console.log("in");
+							sib1 = document.getElementsByClassName("1")[0];
+							sib1.style.order = 1;
+							sib2 = document.getElementsByClassName("2")[0];
+							sib2.style.order = 2;
+						}
+					} else if (["4", "5", "6"].includes(tileid)) {
+						if (ex.id == "4") {
+							console.log("tr");
+						}
+						if (ex.id == "5") {
+							console.log("pad");
+							sib1 = document.getElementsByClassName("4")[0];
+							sib1.style.order = 4;
+						}
+						if (ex.id == "6") {
+							console.log("in");
+							sib1 = document.getElementsByClassName("4")[0];
+							sib1.style.order = 4;
+							sib2 = document.getElementsByClassName("5")[0];
+							sib2.style.order = 5;
+						}
+					} else {
+						if (ex.id == "7") {
+							console.log("tr");
+						}
+						if (ex.id == "8") {
+							console.log("pad");
+							sib1 = document.getElementsByClassName("7")[0];
+							sib1.style.order = 7;
+						}
+						if (ex.id == "9") {
+							console.log("in");
+							sib1 = document.getElementsByClassName("7")[0];
+							sib1.style.order = 7;
+							sib2 = document.getElementsByClassName("8")[0];
+							sib2.style.order = 8;
+						}
+					}
+					ex.classList.toggle("expanded-menu-tile");
+					ex.classList.toggle("menu-tile");
+
+
+					ex.style.flexBasis = "";
+					ex.style.order = ex.classList[1];*/
 			hideSpinner();
 		}
 	})
-	.catch((err) => {});
+	.catch((err) => console.log(err));
