@@ -10,9 +10,8 @@
     border-radius: 0 0 20px 20px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 6fr 4fr;
+    grid-template-rows: 7fr 3fr;
 }
-
 
 .menu-item-info{
     display: flex;
@@ -27,16 +26,16 @@
 }
 
 #menu{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    width: 100%;
     grid-area: menu;
-    justify-content: space-around;
-    align-items: center;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 2em;
 }
 
 #filter{
     height:100%;
+    width:100%;
     grid-area: filter;
     background-color: var(--panel-bg-main);
 }
@@ -47,9 +46,10 @@ main{
     grid-template-rows: 1fr;
     grid-template-areas: "filter menu";
     width: 100vw;
-    gap: 1em;
-    padding: 3em;
+    gap: 2em;
+    padding: 2em;
 }
+
 
 
 

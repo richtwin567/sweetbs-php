@@ -2,8 +2,7 @@ const url = require("url");
 //const users = require("./userData.js");
 const MongoClient = require("mongodb").MongoClient;
 
-const dburi = `mongodb+srv://${USERNAME}:${PASSWORD}@${CLUSTERURL}/?authMechanism=${AUTHMETH}`;
-
+const dburi = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@${process.env.CLUSTERURL}/?authMechanism=${process.env.AUTHMETH}`;
 
 module.exports = {
 	fetchOptions:async(req,res)=>{
