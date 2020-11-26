@@ -28,7 +28,7 @@
   padding-left: 10px;
 }
 
-#innercont #shoplist-row{
+#innercont .shoplist-row{
   max-height: 200px;
   padding-top: 10px;
   padding-bottom: 20px;
@@ -36,17 +36,17 @@
   flex-direction: row;
 }
 
-#innercont #shoplist-row p:first-of-type{
+#innercont .shoplist-row p:first-of-type{
   margin-left: 16%;
   padding-top: 40px;
 }
-#innercont #shoplist-row p:last-of-type{
+#innercont .shoplist-row p:last-of-type{
   margin-left: 24%;
   padding-top: 40px;
 }
 
 
-#innercont #shoplist-row img{
+#innercont .shoplist-row img{
   width: 10%;
   height: auto;
   padding-left: 10px;
@@ -54,4 +54,21 @@
 
 .even{
   background: #B0DAD8;
+}
+
+#genbtn{
+  margin-left: 10px;
+  height: 50px;
+  width: 10%;
+  border: none;
+  border-radius: 5px;
+  background: #BC3B81;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#genbtn:hover{
+  background:  #a43572;
+  cursor: pointer;
 }
