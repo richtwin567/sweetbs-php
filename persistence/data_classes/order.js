@@ -7,7 +7,7 @@ class Order{
      * @param {Customer} customer The customer associated with the order.
      */
     constructor(customer){
-        this.id = new ObjectID(); // TODO - Implement function to generate the id based on the database records.
+        this.id = new ObjectID();
         this.customer = customer;
         this.orderItems = []; // Initializing as an empty array so more orders can be added.
     }
@@ -62,6 +62,7 @@ class OrderItem{
      * @param {number} quantity The quantity of the item being ordered.
      */
     constructor(menuItem, quantity){
+        this.id = new ObjectID();
         this.menuItem = menuItem;
         this.quantity = quantity;
     }

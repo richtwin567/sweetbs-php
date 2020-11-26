@@ -13,6 +13,10 @@ class Document{
 
 
 class UserDocuments extends Document{
+    /**
+     * 
+     * @param {*} customerObj 
+     */
     createCustomerDocument(customerObj){
         let customerName = customerObj.getRealName();
         let deliveryAddress = customerObj.getDeliveryAddress();
@@ -34,6 +38,10 @@ class UserDocuments extends Document{
 
 
 class OrderDocuments extends Document{
+    /**
+     * 
+     * @param {Order} orderObj 
+     */
     createOrderDocument(orderObj){
         let customer = orderObj.getCustomer()
         const orderDocument = {
@@ -43,6 +51,19 @@ class OrderDocuments extends Document{
         }
         return orderDocument;
     }
+
+    /**
+     * 
+     * @param {OrderItem} orderItemObj 
+     */
+    createOrderItemDocument(orderItemObj){
+        const orderItemDocument = {
+            _id: orderItemObj.id,
+            menuItem: orderItemObj.getMenuItem().getMenuItemId(), // Link to Menu Item in database
+            quantity: orderItemObj.getQuantity()
+        }
+        return orderItemDocument;
+    }
 }
 
 class MenuDocuments extends Document{
@@ -50,5 +71,15 @@ class MenuDocuments extends Document{
 }
 
 class IngredientDocument extends Document{
-
+    /**
+     * 
+     * @param {Ingredient} ingredientObj 
+     */
+    createIngredientDocument(ingredientObj){
+        const ingredientDocument = {
+            _id: ingredientObj.id,
+            name: ingredientObj.ingredientName
+        };
+        return ingredientDocument;
+    }
 }
