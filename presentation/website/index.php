@@ -21,7 +21,7 @@
             <div id="hero-call-to-action">
                 <h1>WELCOME</h1>
                 <p>Order now to experience satisfaction beyond compare</p>
-                <a href='menu.html' class='btn btn-regular'>Shop Now</a>
+                <a href='menu.php' class='btn btn-regular'>Shop Now</a>
             </div>
         </div>
     </main>

@@ -19,146 +19,192 @@ getAllMenuItems()
 	.then((mlist) => {
 		var buybtns = document.getElementsByClassName("price-buy-btn");
 		for (var btn of buybtns) {
-			btn.addEventListener("click", (e) => {
-				const tileid = e.target.parentNode.parentNode.classList[1];
-				const tile = e.target.parentNode.parentNode;
-				console.log(tile);
-				console.log(tileid);
-				var sib1;
-				var sib2;
-				var ex = document.querySelector(".expanded-menu-tile");
-				console.log(ex);
-				if (!ex) {
-					if (["1", "2", "3"].includes(tileid)) {
-						if (tileid == "1") {
-							console.log("tr");
-						}
-						if (tileid == "2") {
-							console.log("pad");
-							sib1 = document.getElementsByClassName("1")[0];
-							sib1.style.order = 2;
-						}
-						if (tileid == "3") {
-							console.log("in");
-							sib1 = document.getElementsByClassName("1")[0];
-							sib1.style.order = 2;
-							sib2 = document.getElementsByClassName("2")[0];
-							sib2.style.order = 3;
-						}
-						tile.style.order = 1;
-					} else if (["4", "5", "6"].includes(tileid)) {
-						if (tileid == "4") {
-							console.log("tr");
-						}
-						if (tileid == "5") {
-							console.log("pad");
-							sib1 = document.getElementsByClassName("4")[0];
-							sib1.style.order = 5;
-						}
-						if (tileid == "6") {
-							console.log("in");
-							sib1 = document.getElementsByClassName("4")[0];
-							sib1.style.order = 5;
-							sib2 = document.getElementsByClassName("5")[0];
-							sib2.style.order = 6;
-						}
-						tile.style.order = 4;
-					} else {
-						if (tileid == "7") {
-							console.log("tr");
-						}
-						if (tileid == "8") {
-							console.log("pad");
-							sib1 = document.getElementsByClassName("7")[0];
-							sib1.style.order = 8;
-						}
-						if (tileid == "9") {
-							console.log("in");
-							sib1 = document.getElementsByClassName("7")[0];
-							sib1.style.order = 8;
-							sib2 = document.getElementsByClassName("8")[0];
-							sib2.style.order = 9;
-						}
-						tile.style.order = 7;
-					}
-					setTimeout(() => {
-						tile.classList.add("expanded-menu-tile");
-						tile.classList.remove("menu-tile");
-						var c = tile.children;
-						console.log(c);
-
-						c[2].classList.remove("hidden");
-
-						var cchil = c[1].children;
-
-						cchil[1].classList.remove("hidden");
-						cchil[2].classList.remove("hidden");
-						cchil[3].classList.remove("hidden");
-
-						cchil[4].classList.add("hidden");
-					}, 500);
-
-					//.style.backgroundColor="red";
-					//btn.style.gridColumn = "1/4";})
-				}
-			});
-
-			/*if (["1", "2", "3"].includes(ex.id)) {
-						if (ex.id == "1") {
-							console.log("tr");
-						}
-						if (ex.id == "2") {
-							console.log("pad");
-							sib1 = document.getElementsByClassName("1")[0];
-							sib1.style.order = 1;
-						}
-						if (ex.id == "3") {
-							console.log("in");
-							sib1 = document.getElementsByClassName("1")[0];
-							sib1.style.order = 1;
-							sib2 = document.getElementsByClassName("2")[0];
-							sib2.style.order = 2;
-						}
-					} else if (["4", "5", "6"].includes(tileid)) {
-						if (ex.id == "4") {
-							console.log("tr");
-						}
-						if (ex.id == "5") {
-							console.log("pad");
-							sib1 = document.getElementsByClassName("4")[0];
-							sib1.style.order = 4;
-						}
-						if (ex.id == "6") {
-							console.log("in");
-							sib1 = document.getElementsByClassName("4")[0];
-							sib1.style.order = 4;
-							sib2 = document.getElementsByClassName("5")[0];
-							sib2.style.order = 5;
-						}
-					} else {
-						if (ex.id == "7") {
-							console.log("tr");
-						}
-						if (ex.id == "8") {
-							console.log("pad");
-							sib1 = document.getElementsByClassName("7")[0];
-							sib1.style.order = 7;
-						}
-						if (ex.id == "9") {
-							console.log("in");
-							sib1 = document.getElementsByClassName("7")[0];
-							sib1.style.order = 7;
-							sib2 = document.getElementsByClassName("8")[0];
-							sib2.style.order = 8;
-						}
-					}
-					ex.classList.toggle("expanded-menu-tile");
-					ex.classList.toggle("menu-tile");
-
-
-					ex.style.flexBasis = "";
-					ex.style.order = ex.classList[1];*/
-			hideSpinner();
+			btn.addEventListener("click", (e) => open(e));
 		}
+		var closebtns = document.getElementsByClassName("close");
+		console.log(closebtns);
+		for (var cbtn of closebtns) {
+			cbtn.addEventListener("click", (e) => close(e.target));
+		}
+
+		var cancelbtns = document.getElementsByClassName("cancel");
+		for (var cnlbtn of cancelbtns){
+			cnlbtn.addEventListener("click", (e)=> close(e.target.parentNode.parentNode))
+		}
+		hideSpinner();
 	})
 	.catch((err) => console.log(err));
+
+function close(e) {
+	const tileids = e.parentNode.classList;
+	const tile = e.parentNode;
+	console.log(tile);
+	var sib1;
+	var sib2;
+	if (tileids.contains("1") || tileids.contains("2") || tileids.contains("3")) {
+		if (tileids.contains("1")) {
+			console.log("tr");
+			tile.style.order = 1;
+
+		}
+		if (tileids.contains("2")) {
+			console.log("pad");
+			sib1 = document.getElementsByClassName("1")[0];
+			sib1.style.order = 1;
+			tile.style.order = 2;
+
+		}
+		if (tileids.contains("3")) {
+			console.log("in");
+			sib1 = document.getElementsByClassName("1")[0];
+			sib1.style.order = 1;
+			sib2 = document.getElementsByClassName("2")[0];
+			sib2.style.order = 2;
+			tile.style.order = 3;
+
+		}
+	} else if (tileids.contains("4") || tileids.contains("5") || tileids.contains("6")) {
+		if (tileids.contains("4")) {
+			console.log("tr");
+			tile.style.order = 4;
+
+		}
+		if (tileids.contains("5")) {
+			console.log("pad");
+			sib1 = document.getElementsByClassName("4")[0];
+			sib1.style.order = 4;
+			tile.style.order = 5;
+
+		}
+		if (tileids.contains("6")) {
+			console.log("in");
+			sib1 = document.getElementsByClassName("4")[0];
+			sib1.style.order = 4;
+			sib2 = document.getElementsByClassName("5")[0];
+			sib2.style.order = 5;
+			tile.style.order = 6;
+
+		}
+	} else {
+		if (tileids.contains("7")) {
+			console.log("tr");
+			tile.style.order = 7;
+
+		}
+		if (tileids.contains("8")) {
+			console.log("pad");
+			sib1 = document.getElementsByClassName("7")[0];
+			sib1.style.order = 7;
+			tile.style.order = 8;
+
+		}
+		if (tileids.contains("8")) {
+			console.log("in");
+			sib1 = document.getElementsByClassName("7")[0];
+			sib1.style.order = 7;
+			sib2 = document.getElementsByClassName("8")[0];
+			sib2.style.order = 8;
+			tile.style.order = 9;
+
+		}
+	}
+	setTimeout(() => {
+
+	tile.classList.add("menu-tile");
+	tile.classList.remove("expanded-menu-tile");
+		var c = tile.children;
+		console.log(c);
+
+		c[2].classList.add("hidden");
+
+		var cchil = c[1].children;
+
+		cchil[1].classList.add("hidden");
+		cchil[2].classList.add("hidden");
+		cchil[3].classList.add("hidden");
+
+		cchil[4].classList.remove("hidden");
+	}, 100);
+
+}
+
+function open(e) {
+	const tileids = e.target.parentNode.parentNode.classList;
+	const tile = e.target.parentNode.parentNode;
+	console.log(tile);
+	console.log(tileids);
+	var sib1;
+	var sib2;
+	var ex = document.querySelector(".expanded-menu-tile");
+	console.log(ex);
+	if (!ex) {
+		if (tileids.contains("1") || tileids.contains("2") || tileids.contains("3")) {
+			if (tileids.contains("1")) {
+				console.log("tr");
+			}
+			if (tileids.contains("2")) {
+				console.log("pad");
+				sib1 = document.getElementsByClassName("1")[0];
+				sib1.style.order = 2;
+			}
+			if (tileids.contains("3")) {
+				console.log("in");
+				sib1 = document.getElementsByClassName("1")[0];
+				sib1.style.order = 2;
+				sib2 = document.getElementsByClassName("2")[0];
+				sib2.style.order = 3;
+			}
+			tile.style.order = 1;
+		} else if (tileids.contains("4") || tileids.contains("5") || tileids.contains("6")) {
+			if (tileids.contains("4")) {
+				console.log("tr");
+			}
+			if (tileids.contains("5")) {
+				console.log("pad");
+				sib1 = document.getElementsByClassName("4")[0];
+				sib1.style.order = 5;
+			}
+			if (tileids.contains("6")) {
+				console.log("in");
+				sib1 = document.getElementsByClassName("4")[0];
+				sib1.style.order = 5;
+				sib2 = document.getElementsByClassName("5")[0];
+				sib2.style.order = 6;
+			}
+			tile.style.order = 4;
+		} else {
+			if (tileids.contains("7")) {
+				console.log("tr");
+			}
+			if (tileids.contains("8")) {
+				console.log("pad");
+				sib1 = document.getElementsByClassName("7")[0];
+				sib1.style.order = 8;
+			}
+			if (tileids.contains("9")) {
+				console.log("in");
+				sib1 = document.getElementsByClassName("7")[0];
+				sib1.style.order = 8;
+				sib2 = document.getElementsByClassName("8")[0];
+				sib2.style.order = 9;
+			}
+			tile.style.order = 7;
+		}
+		setTimeout(() => {
+			tile.classList.add("expanded-menu-tile");
+			tile.classList.remove("menu-tile");
+			var c = tile.children;
+			console.log(c);
+
+			c[2].classList.remove("hidden");
+
+			var cchil = c[1].children;
+
+			cchil[1].classList.remove("hidden");
+			cchil[2].classList.remove("hidden");
+			cchil[3].classList.remove("hidden");
+
+			cchil[4].classList.add("hidden");
+		}, 100);
+	}
+}
