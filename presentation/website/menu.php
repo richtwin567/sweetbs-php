@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/menu.css">
     <link rel='stylesheet' href="../styles/global.css">
+    <script src="../../aggregation/menu/menu.js"></script>
 </head>
 
 <body>
