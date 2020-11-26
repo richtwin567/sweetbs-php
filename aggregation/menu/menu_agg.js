@@ -13,7 +13,9 @@ class MenuItem {
 	exportToHtmlTile() {
 		var html = "";
 		html += `<div id="${this.id}" class="menu-tile">`;
-		html += `<img src="${this.picturelink}">`;
+		//html += `<img class="feature-img" src="${this.picturelink}">`;
+		html += `<img class="feature-img" src="../../presentation/global/images/mink-mingle-LGNxQzYmeUk-unsplash.jpg">`;
+
 		html += '<div class="menu-item-info">';
 		html += `<h3>${this.name}</h3>`;
 		html += `<p class="menu-item-desc hidden">${this.desc}</p>`;
@@ -33,7 +35,7 @@ class MenuItem {
 		html += "</div>";
 		html += '<div class="action-btns hidden">';
 		html +=
-			'<a href="#" class="btn btn-regular">ADD TO CART</a><a href="#" class="btn btn-critical">CANCEL</a>';
+			'<a href="#" class="btn btn-regular">ADD TO CART</a><a href="#" class="btn btn-critical cancel">CANCEL</a>';
 		html += "</div>";
 		html += `<span class="price-buy-btn">$${new Intl.NumberFormat("JMD", {
 			style: "currency",
