@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-@import "colours.css";
-@import "shoppinglist.css";
+@import "../../global/styles/global.css";
 
 body{
     font-size: 14px;
@@ -18,7 +17,7 @@ body{
     height:50px;
 }
 
-#horizontal{
+nav{
     display:flex;
     justify-content: space-around;
     align-items: center;
@@ -28,7 +27,7 @@ body{
 
 }
 
-#horizontal ul{
+nav ul{
     display:flex;
     justify-content: space-around;
     width:20%;
@@ -41,18 +40,18 @@ ul img{
     margin:0 10px;
 }
 /* Styling the Sidebar */
-.wrapper{
+.sidebar-wrapper{
     display:flex;
 }
 
-.wrapper .sidebar{
+.sidebar-wrapper .sidebar{
     position:fixed;
     width:200px;
     height:100%;
     background-color: var(--portal-side-navbar);
 }
 
-.wrapper a{
+.sidebar-wrapper a{
     display:flex;
     padding:15px 0;
     align-items: center;
@@ -60,8 +59,8 @@ ul img{
     font-weight:bold;
 }
 
-.wrapper a:hover,
-.wrapper svg:hover{
+.sidebar-wrapper a:hover,
+.sidebar-wrapper svg:hover{
     background-color: var(--bg-main);
     color: var(--body-text-on-light);
     fill:inherit;
