@@ -8,18 +8,23 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/menu.css">
-    <link rel='stylesheet' href="../styles/global.css">
-    <script src="../../aggregation/menu/menu.js"></script>
+    <link rel='stylesheet' href="../global/styles/global.css">
+    <script type="module" src="scripts/menu.js" defer></script>
 </head>
 
 <body>
-    <?php include("../templates/header.php")?>
-        <main>
-            <!-- Dynamic Content goes here-->
+    <?php include("../global/templates/header.php") ?>
+
+    <main>
+        <?php include("../global/scripts/spinner.php") ?>
+
+        <!-- Dynamic Content goes here-->
+        <div id="menu-content">
             <section id="filter"></section>
             <section id="menu"></section>
-        </main>
-       <?php include("../templates/footer.php") ?>
+        </div>
+    </main>
+    <?php include("../global/templates/footer.php") ?>
 </body>
 
 </html>

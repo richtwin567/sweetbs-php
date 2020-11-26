@@ -1,11 +1,6 @@
-.hidden{
-    opacity: 0;
-    display: none;
-}
-
 .menu-tile{
-    width: 20vw;
-    height: 40vh;
+    width: 30%;
+    min-height: 50vh;
     background-color: var(--panel-bg-main);
     border-radius: 0 0 20px 20px;
     display: grid;
@@ -28,9 +23,13 @@
 #menu{
     width: 100%;
     grid-area: menu;
-    display:grid;
+    display:flex;/* 
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 2em;
+    column-gap: 1em; */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
 }
 
 #filter{
@@ -41,6 +40,10 @@
 }
 
 main{
+    min-height: 100%;
+    position: relative;
+}
+#menu-content{
     display: grid;
     grid-template-columns: 2.5fr 10fr;
     grid-template-rows: 1fr;
@@ -50,8 +53,62 @@ main{
     padding: 2em;
 }
 
+img {
+    object-fit: cover;
+    height: 30vh;
+}
 
+.price-buy-btn{
+    background-color: var(--light);
+    padding: 0.5em;
+    border-radius: 2px;
+    cursor: pointer;
+}
 
+.price-buy-btn:hover{
+background-color: var(--sucess);
+color: var(--body-text-on-dark);
+font-weight: bold;
+}
 
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
+.expanded{
 
+}

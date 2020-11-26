@@ -1,104 +1,112 @@
 const http = require("http");
 const url = require("url");
+const ctrl = require("./controller.js");
+
 
 module.exports = http.createServer((req, res) => {
-	var ctrl = require("./controller.js");
 	const reqUrl = url.parse(req.url, true);
-	//console.log(reqUrl.pathname);
-	//console.log(req.method);
+	if(req.method=="OPTIONS"){
+		ctrl.fetchOptions(req,res);
+	}
 	switch (reqUrl.pathname) {
 		case "/users":
-			switch (req.method) {
-                case "OPTIONS":
-                    ctrl.fetchOptions();
-					break;
-				case "GET":
-					break;
-				case "POST":
-					break;
-				case "PATCH":
-					break;
-				case "DELETE":
-					break;
-				default:
-					break;
-			}
+			handleUsersRequest(req,res);
 			break;
 
 		case "/orders":
-			switch (req.method) {
-                case "OPTIONS":
-                    ctrl.fetchOptions();
-					break;
-				case "GET":
-					break;
-				case "POST":
-					break;
-				case "PATCH":
-					break;
-				case "DELETE":
-					break;
-				default:
-					break;
-			}
+			handleOrdersRequest(req,res);
 			break;
 
 		case "/orderitems":
-			switch (req.method) {
-                case "OPTIONS":
-                    ctrl.fetchOptions();
-					break;
-				case "GET":
-					break;
-				case "POST":
-					break;
-				case "PATCH":
-					break;
-				case "DELETE":
-					break;
-				default:
-					break;
-			}
+			handleOrderItemsRequest(req,res);
 			break;
 
 		case "/menuitems":
-			switch (req.method) {
-				case "OPTIONS":
-                    ctrl.fetchOptions(req, res);
-                    break;
-				case "GET":
-					ctrl.getMenuItems(req, res);
-					break;
-				case "POST":
-					break;
-				case "PATCH":
-					break;
-				case "DELETE":
-					break;
-				default:
-					break;
-			}
+			handleMenuItemsRequest(req,res);
 			break;
 
 		case "/ingredients":
-			switch (req.method) {
-                case "OPTIONS":
-                    ctrl.fetchOptions();
-					break;
-				case "GET":
-					break;
-				case "POST":
-					break;
-				case "PATCH":
-					break;
-				case "DELETE":
-					break;
-				default:
-					break;
-			}
+			handleIngredientsRequest(req);
 			break;
 
 		default:
 			break;
 	}
 });
+
+function handleIngredientsRequest(req) {
+	switch (req.method) {
+		case "GET":
+			break;
+		case "POST":
+			break;
+		case "PATCH":
+			break;
+		case "DELETE":
+			break;
+		default:
+			break;
+	}
+}
+
+function handleMenuItemsRequest(req, res) {
+	switch (req.method) {
+		case "GET":
+			ctrl.getMenuItems(req, res);
+			break;
+		case "POST":
+			break;
+		case "PATCH":
+			break;
+		case "DELETE":
+			break;
+		default:
+			break;
+	}
+}
+
+function handleOrderItemsRequest(req) {
+	switch (req.method) {
+		case "GET":
+			break;
+		case "POST":
+			break;
+		case "PATCH":
+			break;
+		case "DELETE":
+			break;
+		default:
+			break;
+	}
+}
+
+function handleOrdersRequest(req) {
+	switch (req.method) {
+		case "GET":
+			break;
+		case "POST":
+			break;
+		case "PATCH":
+			break;
+		case "DELETE":
+			break;
+		default:
+			break;
+	}
+}
+
+function handleUsersRequest(req) {
+	switch (req.method) {
+		case "GET":
+			break;
+		case "POST":
+			break;
+		case "PATCH":
+			break;
+		case "DELETE":
+			break;
+		default:
+			break;
+	}
+}
+

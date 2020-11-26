@@ -8,12 +8,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/auth.css">
-    <link rel='stylesheet' href="../styles/global.css">
+    <link rel='stylesheet' href="../global/styles/global.css">
     <script src="" defer></script>
 </head>
 
 <body>
-    <?php include("../templates/header.php"); ?>
+    <?php include("../global/templates/header.php"); ?>
     <main>
         <!-- Dynamic Content goes here-->
         <div id='login'>
@@ -37,7 +37,7 @@
         <div id="feature-img"></div>
 
     </main>
-<?php include("../templates/footer.php");?>
+<?php include("../global/templates/footer.php");?>
 </body>
 
 </html>

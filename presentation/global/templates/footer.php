@@ -9,7 +9,7 @@
         </div>
         <div id='social'>
             <h3>Social</h3>
-            <img src="../icons/instagram-white.svg">
+            <img src="../global/icons/instagram-white.svg">
         </div>
         <div id='acc-details'>
             <h3>My Account</h3>
