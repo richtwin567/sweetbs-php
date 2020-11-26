@@ -4,7 +4,7 @@
 */
 
 // Imports
-const hashing = new (require('../../persistence/security/hashing'));
+const hashing = new (require('../security/hashing'));
 
 class User{
     /**

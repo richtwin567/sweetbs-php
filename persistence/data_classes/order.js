@@ -62,6 +62,7 @@ class OrderItem{
      * @param {number} quantity The quantity of the item being ordered.
      */
     constructor(menuItem, quantity){
+        this.id = new ObjectID();
         this.menuItem = menuItem;
         this.quantity = quantity;
     }
