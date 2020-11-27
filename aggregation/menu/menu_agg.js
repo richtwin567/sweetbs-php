@@ -49,8 +49,8 @@ class MenuItem {
 
 const menulist = [];
 
-async function getAllMenuItems() {
-	return await fetch("http://127.0.0.1:3000/menuitems", {
+async function getMenuItems(queryString) {
+	return await fetch("http://127.0.0.1:3000/menuitems"+queryString, {
 		method: "GET",
 		headers: {
 			"Content-Type": "Application/json",
@@ -75,4 +75,4 @@ async function getAllMenuItems() {
 		.catch((err) => console.log(err));
 }
 
-export { MenuItem, getAllMenuItems };
+export { MenuItem, getMenuItems};

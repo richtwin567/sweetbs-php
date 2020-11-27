@@ -1,9 +1,9 @@
-import { getAllMenuItems } from "../../../aggregation/menu/menu_agg.js";
+import { getMenuItems } from "../../../aggregation/menu/menu_agg.js";
 import { showSpinner, hideSpinner } from "../../global/scripts/spinner.js";
 
 var menuitems;
 showSpinner();
-getAllMenuItems()
+getMenuItems("")
 	.then((menulist) => {
 		var menuarea = document.getElementById("menu");
 		for (var item of menulist) {
