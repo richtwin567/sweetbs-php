@@ -1,5 +1,5 @@
 <?php
-include("order_item_class.php");
+include("../data_classes/order_item.php");
 
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 header("Access-Control-Allow-Origin: *");
@@ -7,7 +7,7 @@ header("Access-Control-Allow-Origin: *");
 
 function toArray(OrderItem $oitem)
 {
-    return array("menuitemid"=>$oitem->getMenuItemID(), "qty"=>$oitem->getQty());
+    return array("menuitemid"=>$oitem->getMenuItem(), "qty"=>$oitem->getQty());
 }
 
 try {

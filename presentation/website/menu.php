@@ -1,6 +1,6 @@
 <?php
 
-include("../../aggregation/shopping_cart/order_item_class.php");
+include("../../aggregation/data_classes/order_item.php");
 //echo var_dump($_POST);
 try {
     $mid = filter_var($_POST["itemid"], FILTER_SANITIZE_STRING);
@@ -10,7 +10,7 @@ try {
         $orderlist = unserialize($_COOKIE["cart-order"]);
         //print_r ($orderlist);
         foreach ($orderlist as $oitem) {
-            if ($oitem->getMenuItemId() == $mid) {
+            if ($oitem->getMenuItem() == $mid) {
                 $oitem->setQty($oitem->getQty() + $qty);
                 $isNewItem = FALSE;
             }
@@ -32,7 +32,7 @@ try {
 } catch (\Throwable $th) {
     //throw $th;
     //echo var_dump($_COOKIE);
-    //echo var_dump($th);
+    //print_r($th);
 
 }
 ?>
