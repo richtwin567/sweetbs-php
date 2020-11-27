@@ -1,3 +1,50 @@
+<?php
+
+
+class OrderItem
+{
+    private string $menuitemid;
+    private int $qty;
+
+    public function __construct(string $id, int $qty = 1)
+    {
+        $this->qty = $qty;
+        $this->menuitemid = $id;
+    }
+
+    public function getQty()
+    {
+        return $this->qty;
+    }
+
+    public function getMenuItemId()
+    {
+        return $this->menuitemid;
+    }
+}
+//echo var_dump($_POST);
+try {
+    $mid = filter_var($_POST["itemid"], FILTER_SANITIZE_STRING);
+    $qty = filter_var($_POST["qty"], FILTER_SANITIZE_NUMBER_INT);
+    $newOrderItem = new OrderItem($mid, $qty);
+    if (isset($_COOKIE["cart-order"])) {
+        $orderlist = unserialize($_COOKIE["cart-order"]);
+        array_push($orderlist, $newOrderItem);
+        setcookie("cart-order", serialize($orderlist));
+    } else {
+        $orderlist = array();
+        array_push($orderlist, $newOrderItem);
+        setcookie("cart-order", serialize($orderlist));
+    }
+    header("Location: menu.php");
+    die();
+} catch (\Throwable $th) {
+    //throw $th;
+    //echo var_dump($_COOKIE);
+    //echo var_dump();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 

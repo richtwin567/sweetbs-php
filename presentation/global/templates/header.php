@@ -21,11 +21,14 @@
     </ul>
     <div id='nav-icons'>
         <!--Shopping Cart SVG-->
-        <a href="#">
-            <div id="shopping-cart-icon"></div>
+        <a id="shopping-cart-nav-link" href="cart.php">
+
+            <div id="shopping-cart-icon">
+                <span id="cart-counter"><?= is_array(unserialize($_COOKIE["cart-order"])) ? count(unserialize($_COOKIE["cart-order"])) : 0 ?></span>
+            </div>
         </a>
         <!--Profile SVG-->
-        <a href="#">
+        <a id="account-nav-link" href="#">
             <div id="account-icon"></div>
         </a>
     </div>

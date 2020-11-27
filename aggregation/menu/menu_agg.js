@@ -8,43 +8,41 @@ class MenuItem {
 		this.ingredient_ids = ingredient_ids;
 	}
 
-	get ingredients() {}
+	//get ingredients() {}
 
 	exportToHtmlTile() {
+		var priceformatted = `$${new Intl.NumberFormat("JMD", {
+			style: "currency",
+			currency: "JMD",
+		}).format(this.price)}`;
 		var html = "";
-		html += `<div id="${this.id}" class="menu-tile">`;
 		//html += `<img class="feature-img" src="${this.picturelink}">`;
-		html += `<img class="feature-img" src="../../presentation/global/images/mink-mingle-LGNxQzYmeUk-unsplash.jpg">`;
 
-		html += '<div class="menu-item-info">';
-		html += `<h3>${this.name}</h3>`;
-		html += `<p class="menu-item-desc hidden">${this.desc}</p>`;
-		html += '<div class="qty-price hidden">';
-		html += "<h4>Quantity</h4><h4>Price</h4>";
-		html += '<div class="qty-counter">';
-		html +=
-			'<img class="add" src="../../presentation/global/icons/add_circle-purple-48dp.svg">';
-		html += '<div class="qty">1</div>';
-		html +=
-			'<img class="subtract" src="../../presentation/global/icons/remove_circle-purple-48dp.svg">';
-		html += "</div>";
-		html += `<p class="price">$${new Intl.NumberFormat("JMD", {
-			style: "currency",
-			currency: "JMD",
-		}).format(this.price)}</p>`;
-		html += "</div>";
-		html += '<div class="action-btns hidden">';
-		html +=
-			'<a href="#" class="btn btn-regular">ADD TO CART</a><a href="#" class="btn btn-critical cancel">CANCEL</a>';
-		html += "</div>";
-		html += `<span class="price-buy-btn">$${new Intl.NumberFormat("JMD", {
-			style: "currency",
-			currency: "JMD",
-		}).format(this.price)}</span>`;
-		html += "</div>";
-		html +=
-			'<img class="close hidden" src="../../presentation/global/icons/clear-coral-48dp.svg">';
-		html += "</div>";
+		html += `<div id="${this.id}" class="menu-tile">
+					<img class="feature-img" src="../../presentation/global/images/cheesecake2.jpg">
+					<div class="menu-item-info">
+						<h3>${this.name}</h3>
+						<p class="menu-item-desc hidden">${this.desc}</p>
+						<form id="${this.id}-form" class="qty-price hidden" method="post" action="menu.php">
+							<input type="hidden" name="itemid" value="${this.id}">
+							<h4>Quantity</h4>
+							<h4>Price</h4>
+							<div class="qty-counter">
+								<img class="add" src="../../presentation/global/icons/add_circle-purple-48dp.svg">
+								<input name="qty" class="qty" value="1" type="number" min="1">
+								<img class="subtract" src="../../presentation/global/icons/remove_circle-purple-48dp.svg">
+							</div>
+							<input type="hidden" class="raw-price" name="raw-price" value="${this.price}">
+							<p class="price">${priceformatted}</p>
+						</form>
+						<div class="action-btns hidden">
+							<button type="submit" form="${this.id}-form" class="btn btn-regular">ADD TO CART</button>
+							<a href="#" class="btn btn-critical cancel">CANCEL</a>
+						</div>
+						<span class="price-buy-btn">${priceformatted}</span>
+					</div>
+					<img class="close hidden" src="../../presentation/global/icons/clear-coral-48dp.svg">
+				</div>`;
 		return html;
 	}
 }

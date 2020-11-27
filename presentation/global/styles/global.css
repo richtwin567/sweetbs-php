@@ -73,3 +73,20 @@ input, button{
     width: 100%;
     transition: all 1s ease;
 } */
+
+#shopping-cart-icon{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+#cart-counter{
+    background-color: var(--info);
+    border-radius: 50%;
+    font-size: 0.6em;
+    width: 1.3em;
+    height: 1.3em;
+    text-align: center;
+    font-weight: bold;
+}
