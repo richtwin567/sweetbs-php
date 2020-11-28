@@ -16,7 +16,22 @@ class Query{
 
 class CustomerQueries extends Query{
     // Search Queries
-
+    constructor(client){
+        this.client = client;
+    }
+    /**
+     * Inserts a document into the database
+     * @param {MongoClient} client The MongoClient used to connect to the database
+     * @param {Document} document The document being inserted into the database
+     * @param {string} collectionName The name of the collection the document is being inserted into
+     * @param {string} databaseName The name of the database being accessed
+     */
+    async insertDocument(document, collectionName, databaseName){
+        const database = this.client.db(databaseName);
+        const collection = database.collection(collectionName);
+        result = await collection.insertOne(document);
+    }
+    
     /**
      * 
      * @param {Customer} customerObj 
