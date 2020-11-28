@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/cart.css">
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel='stylesheet' href="../global/styles/global.css">
     <script type="module" src="scripts/cart.js" defer></script>
 </head>
