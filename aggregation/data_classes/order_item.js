@@ -20,9 +20,10 @@ class OrderItem {
 		return this.#item;
 	}
 
-	async exportToCartRow() {
-		return await getMenuItems("?_id=" + this.getMenuItem())
+	async exportToCartRow(clss) {
+		return getMenuItems("?_id=" + this.getMenuItem())
 			.then((item) => {
+                console.log(item);
                 item=item[0];
 				var unitpricef = `$${new Intl.NumberFormat("JMD", {
 					style: "currency",
@@ -35,22 +36,18 @@ class OrderItem {
 				}).format(item.getPrice() * this.getQty())}`;
 
 				return `
-            <tr>
-                <td><img src="../../presentation/global/images/cheesecake1.jpg" class="feature-img"></td>
-                <td>${item.getDescription()}</td>
-                <td>${unitpricef}</td>
-                <td>
-                    <div class="qty-counter">
+                <img src="../../presentation/global/images/cheesecake1.jpg" class="feature-img ${clss}">
+                <p class="${clss}">${item.getName()}</p>
+                <p class="${clss}">${unitpricef}</p>
+                    <div class="qty-counter ${clss}">
                         <img class="add" src="../../presentation/global/icons/add_circle-purple-48dp.svg">
                         <input name="qty" class="qty" value="${
 							this.getQty()
-						}" type="number" min="1">
+						}" type="number" min="1" readonly>
                         <img class="subtract" src="../../presentation/global/icons/remove_circle-purple-48dp.svg">
-                    </div>
-                </td>
-                <td class="total-price">${totalpricef}</td>
-                <td><img src="../../presentation/global/icons/cancel-coral-48dp.svg" class="remove"></td>
-            </tr>
+                </div>
+                <p class="total-pastry-price ${clss}">${totalpricef}</p>
+                <div class="${clss} remove-div"><img src="../../presentation/global/icons/cancel-coral-48dp.svg" class="remove"></div>
             `;
 			})
 			.catch((err) => console.log(err));

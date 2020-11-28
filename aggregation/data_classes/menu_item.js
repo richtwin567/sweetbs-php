@@ -64,31 +64,32 @@ class MenuItem {
 		var html = "";
 		//html += `<img class="feature-img" src="${this.picturelink}">`;
 
-		html += `<div id="${this.getId()}" class="menu-tile">
-					<img class="feature-img" src="../../presentation/global/images/cheesecake2.jpg">
-					<div class="menu-item-info">
-						<h3>${this.getName()}</h3>
-						<p class="menu-item-desc hidden">${this.getDescription()}</p>
-						<form id="${this.getId()}-form" class="qty-price hidden" method="post" action="menu.php">
-							<input type="hidden" name="itemid" value="${this.getId()}">
-							<h4>Quantity</h4>
-							<h4>Price</h4>
-							<div class="qty-counter">
-								<img class="add" src="../../presentation/global/icons/add_circle-purple-48dp.svg">
-								<input name="qty" class="qty" value="1" type="number" min="1">
-								<img class="subtract" src="../../presentation/global/icons/remove_circle-purple-48dp.svg">
-							</div>
-							<input type="hidden" class="raw-price" name="raw-price" value="${this.getPrice()}">
-							<p class="price">${priceformatted}</p>
-						</form>
-						<div class="action-btns hidden">
-							<button type="submit" form="${this.getId()}-form" class="btn btn-regular">ADD TO CART</button>
-							<a href="#" class="btn btn-critical cancel">CANCEL</a>
-						</div>
-						<span class="price-buy-btn">${priceformatted}</span>
+		html += 
+		`<div id="${this.getId()}" class="menu-tile">
+			<img class="feature-img" src="../../presentation/global/images/cheesecake2.jpg">
+			<div class="menu-item-info">
+				<h3>${this.getName()}</h3>
+				<p class="menu-item-desc hidden">${this.getDescription()}</p>
+				<form id="${this.getId()}-form" class="qty-price hidden" method="post" action="menu.php">
+					<input type="hidden" name="itemid" value="${this.getId()}">
+					<h4>Quantity</h4>
+					<h4>Price</h4>
+					<div class="qty-counter">
+						<img class="add" src="../../presentation/global/icons/add_circle-purple-48dp.svg">
+						<input name="qty" class="qty" value="1" type="number" min="1" readonly>
+						<img class="subtract" src="../../presentation/global/icons/remove_circle-purple-48dp.svg">
 					</div>
-					<img class="close hidden" src="../../presentation/global/icons/clear-coral-48dp.svg">
-				</div>`;
+					<input type="hidden" class="raw-price" name="raw-price" value="${this.getPrice()}">
+					<p class="price">${priceformatted}</p>
+				</form>
+				<div class="action-btns hidden">
+					<button type="submit" form="${this.getId()}-form" class="btn btn-regular">ADD TO CART</button>
+					<button class="btn btn-critical cancel">CANCEL</button>
+				</div>
+				<span class="price-buy-btn">${priceformatted}</span>
+			</div>
+			<img class="close hidden" src="../../presentation/global/icons/clear-coral-48dp.svg">
+		</div>`;
 		return html;
 	}
 }

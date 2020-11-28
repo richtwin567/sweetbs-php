@@ -1,7 +1,5 @@
 import {MenuItem} from "../data_classes/menu_item.js";
 
-const menulist = [];
-
 async function getMenuItems(queryString) {
 	return await fetch("http://127.0.0.1:3000/menuitems"+queryString, {
 		method: "GET",
@@ -11,6 +9,7 @@ async function getMenuItems(queryString) {
 	})
 		.then((res) => res.json())
 		.then((data) => {
+			var menulist=[];
 			for (var el of data) {
 				menulist.push(
 					new MenuItem(

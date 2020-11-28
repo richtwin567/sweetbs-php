@@ -55,11 +55,13 @@ try {
     <?php include("../global/templates/header.php") ?>
 
     <main>
-        <?php include("../global/scripts/spinner.php") ?>
 
         <!-- Dynamic Content goes here-->
         <div id="menu-content">
+            
             <section id="filter"></section>
+        <?php include("../global/scripts/spinner.php") ?>
+
             <section id="menu"></section>
         </div>
     </main>

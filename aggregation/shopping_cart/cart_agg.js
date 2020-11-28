@@ -6,6 +6,7 @@ async function getCartCookie() {
 		.then((data) => {
 			const list = [];
 			for (var item of data) {
+                console.log(item);
 				list.push(new OrderItem(item["menuitemid"], item["qty"]));
             }
             return list;
