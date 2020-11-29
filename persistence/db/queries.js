@@ -224,7 +224,7 @@ async function connect(orderQuery){
         console.log('Closed Connection');
     }
 }
-const orderQuery = new OrderQueries('W62aZqXfeH4RrYkd');
+const orderQuery = new OrderQueries('<dbpassword>');
 connect(orderQuery);
 */
 
