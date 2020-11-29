@@ -16,7 +16,6 @@ class Query{
 
 class CustomerQueries extends Query{
     // Search Queries
-    
     constructor(client){
         this.client = client;
     }
