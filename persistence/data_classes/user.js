@@ -104,4 +104,4 @@ class Admin extends User{
 // console.log(testUser.getPassword());
 
 // Exporting classes
-module.exports = { Customer, Admin } ;
+module.exports = { Customer, Admin};
