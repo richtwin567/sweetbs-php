@@ -66,6 +66,8 @@ class OrderDocuments extends Document{
     }
 }
 
+
+ 
 class MenuDocuments extends Document{
 
 }
@@ -83,3 +85,5 @@ class IngredientDocument extends Document{
         return ingredientDocument;
     }
 }
+
+module.exports = {UserDocuments, OrderDocuments, IngredientDocument};

@@ -5,11 +5,12 @@ class Order{
     /**
      * Initializes the attributes for the Order class
      * @param {Customer} customer The customer associated with the order.
+     * @param {ObjectID} id The ID of the order in Mongodb
      */
-    constructor(customer){
-        this.id = new ObjectID();
+    constructor(customer, id=null){
         this.customer = customer;
         this.orderItems = []; // Initializing as an empty array so more orders can be added.
+        this.id = id;
     }
 
     /**
@@ -52,6 +53,12 @@ class Order{
      */
     addOrderItem(orderItem){
         this.orderItems.push(orderItem);
+    }
+
+    setOrderId(){
+        if(this.id === null){
+            this.id = new ObjectID(); 
+        }
     }
 }
 
