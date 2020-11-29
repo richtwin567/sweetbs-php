@@ -1,28 +1,17 @@
-
-class OrderItem
-{
-    constructor(id, qty = 1)
-    {
-        this.qty = qty;
-        this.menuitemid = id;
-    }
-
-    get getQty()
-    {
-        return this.qty;
-    }
-
-    get getMenuItemId()
-    {
-        return this.menuitemid;
-    }
-}
+import { OrderItem } from "../data_classes/order_item.js";
 
 async function getCartCookie() {
 	return await fetch("../../aggregation/shopping_cart/cart_php_to_js.php")
 		.then((res) => res.json())
-		.then((data) => data)
+		.then((data) => {
+			const list = [];
+			for (var item of data) {
+                console.log(item);
+				list.push(new OrderItem(item["menuitemid"], item["qty"]));
+            }
+            return list;
+		})
 		.catch((err) => console.log(err));
 }
 
-export {getCartCookie,OrderItem};
+export { getCartCookie };
