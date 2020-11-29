@@ -26,5 +26,9 @@ class Session{
             session_destroy();
         }
     }
+
+    public function whoIsLoggedIn(){
+        return $this->isLoggedIn()? $_SESSION["user_id"] : null;
+    }
 }
 ?>

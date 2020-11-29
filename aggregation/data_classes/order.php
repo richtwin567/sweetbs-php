@@ -2,10 +2,10 @@
 
 class Order{
     private string $id;
-    private Customer $customer;
+    private ?Customer $customer;
     private array $items;
 
-    public function __construct(array $items, Customer $customer){
+    public function __construct(array $items, ?Customer $customer){
         $this->items[] = $items;
         $this->customer = $customer;
         $this->id = null;
