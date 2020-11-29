@@ -29,7 +29,6 @@ input, button{
     outline: none;
 }
 
-
 .spinner-div{
     position: relative;
     bottom: 0;
@@ -45,7 +44,6 @@ input, button{
     z-index: 10;
     animation: blink 1.5s ease-in-out infinite alternate;
     -webkit-animation: blink 1.5s ease-in-out infinite alternate;
-
 }
 
 .spinner{
@@ -64,7 +62,6 @@ input, button{
         transform: rotate(360deg);
     }
 }
-
 
 @keyframes blink{
     from{
@@ -116,21 +113,4 @@ input, button{
 
 input:invalid{
     border: var(--critical) 1px solid;
-}
-
-::-webkit-validation-bubble{
-    background-color: blue;
-}
-
-::-webkit-validation-bubble-text-block{
-    background-color: green;
-}
-
-::-webkit-validation-bubble-message{
-    color:yellow;
-}
-
-::-webkit-validation-bubble-heading{
-    color: brown;
-    background-color: aqua;
 }

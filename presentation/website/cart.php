@@ -18,14 +18,16 @@
     <main>
         <!-- Dynamic Content goes here-->
         <div id="shopping-cart-div">
-            <div id="page-title-div">
-                <h2 id="page-title">Your Cart</h2>
-            </div>
-            <?php include("../global/scripts/spinner.php"); ?>
+            <div id="title-cart-list-group">
+                <div id="page-title-div">
+                    <h2 id="page-title">Your Cart</h2>
+                </div>
+                <?php include("../global/scripts/spinner.php"); ?>
 
-            <div id="cart-list"></div>
+                <div id="cart-list"></div>
+            </div>
             <div id="card-and-checkout">
-                <div class="cpanel" id="card">
+                <!-- <div class="cpanel" id="card">
                     <h3 class="panel-title">Card Details</h3>
                     <form action="#">
                         <label for="name-on-card">Name on Card</label>
@@ -40,7 +42,7 @@
                         </div>
                     </form>
                     <div id="card-ok-div"><button id="card-ok" class="btn btn-regular">OK</button></div>
-                </div>
+                </div> -->
                 <div class="cpanel" id="checkout">
                     <h3 class="panel-title">Checkout</h3>
                     <div id="checkout-table">
@@ -50,22 +52,25 @@
                         </div>
                         <div>
                             <p>Shipping</p>
-                            <p id="shipping"></p>
+                            <p id="shipping">$0.00</p>
                         </div>
                         <hr>
                         <div id="total-row">
                             <p>Total</p>
-                            <p id="grand-total"></p>
+                            <p id="grand-total" class="subtotal"></p>
                         </div>
                     </div>
-                    <div id="checkout-btn-div">
-                        <input type="submit" value="CHECKOUT" id="checkout-btn" name="checkout-btn" class="btn btn-regular"></div>
+                    <form action="success.php" id="order-form" method="post">
+                        <div id="checkout-btn-div">
+                            <input type="submit" value="CHECKOUT" id="checkout-btn" name="checkout-btn" class="btn btn-regular"></div>
+                    </form>
                 </div>
             </div>
         </div>
 
     </main>
     <?php include("../global/templates/footer.php"); ?>
+
 </body>
 
 </html>

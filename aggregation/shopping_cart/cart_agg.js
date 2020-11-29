@@ -8,7 +8,8 @@ async function getCartCookie() {
 			for (var item of data) {
                 console.log(item);
 				list.push(new OrderItem(item["menuitemid"], item["qty"]));
-            }
+			}
+			console.log(list);
             return list;
 		})
 		.catch((err) => console.log(err));

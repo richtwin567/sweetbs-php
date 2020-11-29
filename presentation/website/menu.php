@@ -59,9 +59,9 @@ try {
 
         <!-- Dynamic Content goes here-->
         <div id="menu-content">
-            
+
             <section id="filter"></section>
-        <?php include("../global/scripts/spinner.php") ?>
+            <?php include("../global/scripts/spinner.php") ?>
 
             <section id="menu"></section>
         </div>
