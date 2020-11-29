@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/register.css">
     <link rel='stylesheet' href="../global/styles/global.css">
-    <script src="../../aggregation/accounts/login.js" defer></script>
+    <script src="../../aggregation/accounts/login.js"></script>
+    <script src="../../persistence/data_classes/user.js" type="module"></script>
 </head>
 
 <body>

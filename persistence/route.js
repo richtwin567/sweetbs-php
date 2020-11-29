@@ -2,6 +2,8 @@ const http = require("http");
 const url = require("url");
 const ctrl = require("./controller.js");
 
+
+
 module.exports = http.createServer((req, res) => {
 	const reqUrl = url.parse(req.url, true);
 	console.log(req.method);
