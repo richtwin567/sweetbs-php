@@ -1,7 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-@import "../../global/styles/global.css";
+@import "../../global/styles/colours.css";
+
+
+*{
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
 
 body{
+    margin:0;
     font-size: 14px;
 }
 /* TODO - Make the Nav and Sidebar responsive */
@@ -18,13 +29,13 @@ body{
 }
 
 nav{
+    color:var(--light);
     display:flex;
     justify-content: space-around;
     align-items: center;
     background-color: var(--portal-top-navbar);
     box-shadow: 0px 2px 10px var(--medium);
-    height:2vh;
-
+    height:10vh;
 }
 
 nav ul{
@@ -78,8 +89,20 @@ svg path {
 #portal-sections{
   width: 75%;
   min-width: 40%;
-  margin-left: clamp(5%, 15%,15%);
+  margin-left: clamp(19%, 20%,30%);
 }
-.hidden{
-    display:none;
+
+/*Sidebar images*/
+#dashboard-icon{
+    background-image: url('../../global/icons/dashboard-white-48dp.svg');
 }
+#shopping-list-icon{
+
+}
+#menu-manager-icon{
+
+}
+#orders-icon{
+
+}
+

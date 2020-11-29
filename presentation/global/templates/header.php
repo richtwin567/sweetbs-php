@@ -1,4 +1,4 @@
-<nav>
+<nav id='main'>
     <img id="logo" src='../global/client/sweet-b-long.png' alt='sweet-b-long'>
     <ul id="nav-links">
         <li><a href='index.php'>HOME</a></li>
