@@ -11,6 +11,7 @@ class Order{
         this.customer = customer;
         this.orderItems = []; // Initializing as an empty array so more orders can be added.
         this.id = id;
+        this.setOrderId(); // Sets id if none was passed in
     }
 
     /**
@@ -58,6 +59,8 @@ class Order{
     setOrderId(){
         if(this.id === null){
             this.id = new ObjectID(); 
+        }else if(typeof(this.id) !== ObjectID){
+            this.id = new ObjectID(this.id);
         }
     }
 }
