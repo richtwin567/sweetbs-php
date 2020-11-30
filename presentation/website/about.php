@@ -19,7 +19,7 @@ $session = new Session();
 
 <body>
     <?php include("../global/templates/header.php");?>
-    <main></main>
+    <main><div id="story-logo"><img src="../global/client/Logo no bg.png" alt="sweetb's logo"></div></main>
     <?php include("../global/templates/footer.php");?>
 </body>
 </html>
