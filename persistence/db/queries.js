@@ -12,19 +12,19 @@ const { OrderDocuments } = require('./documents');
 class Query{
     /**
      * 
-     * @param {object} mongoClient The database object
+     * @param {string} mongoClient The database object
      */
     constructor(dbPassword){
         // Initialize the client and database objects
         const uri = `mongodb+srv://admin_COMP2140:${dbPassword}@comp2140-project-2020-c.yvx5q.mongodb.net/sweebs?retryWrites=true&w=majority`;
-        this.client = new MongoClient(uri, { useNewUrlParser: true});
+        this.client = new MongoClient(uri, { useNewUrlParser: true , useUnifiedTopology: true});
     }
 }  
 
 class CustomerQueries extends Query{
     // Search Queries
-    constructor(mongoClient){
-        super(mongoClient);
+    constructor(dbPassword){
+        super(dbPassword);
     }
     
     /**
@@ -92,11 +92,28 @@ class CustomerQueries extends Query{
     }
 }
 
+class IngredientsQueries extends Query{
+    /**
+     * 
+     * @param {object} dbPassword 
+     */
+    constructor(dbPassword){
+        super(dbPassword);
+    }  
+
+    async retrieveAllIngredients(databaseObj){
+        const query = {}
+        const collection = databaseObj.collection('ingredients');
+        const cursor = await collection.find(query).toArray();
+        console.log(cursor);
+        return cursor;
+    }
+}
 
 class OrderQueries extends Query{
     /**
-     * 
-     * @param {object} mongoClient 
+     * Used for querying orders from the database
+     * @param {String} dbPassword The password of the database
      */
     constructor(dbPassword){
         super(dbPassword);
@@ -108,9 +125,8 @@ class OrderQueries extends Query{
      * Searches for an order based on the customer's username
      * @param {string} customerUsername 
      */
-    async retrieveOrderByUsername(customerUsername){
+    async retrieveOrderByUsername(customerUsername, databaseObj){
         const query = { customer: customerUsername };
-        const databaseObj = await this.client.db("sweetb");
         const collection = databaseObj.collection('orders');
         const orderData = await collection.findOne(query);
         return orderData;
@@ -179,7 +195,7 @@ class OrderQueries extends Query{
 }
 
 
-const customerDocument = {
+const testCustomerDocument = {
     username: 'BobAndersonLikesPotatoes',
     email: 'test@testuser.com',
     password: 'somerandomhash',
@@ -202,8 +218,8 @@ async function connect(orderQuery){
     const ObjectID = require('mongodb').ObjectID;
     const orderDocument = {
         _id: new ObjectID(),
-        customer: 'BobAndersonLikesPotatoes',
-        menuItemIds: ['5fbdda932d7e3cad244acbee']
+        customer: 'Loki',
+        menuItemIds: [ new ObjectID('5fbdda932d7e3cad244acbee')]
     }
     // Initialize URI and Mongo Client
     const client = orderQuery.client;
@@ -214,8 +230,9 @@ async function connect(orderQuery){
         console.log('Connected');
         dbo = await client.db('sweetb')
         console.log("Collections:");
-        const collection = await orderQuery.retrieveAllOrders(dbo);
-        // await orderQuery.insertOneOrder(orderDocument, dbo);
+        const collection = await orderQuery.retrieveAllIngredients(dbo);
+
+      //  await orderQuery.insertOneOrder(orderDocument, dbo);
         console.log(collection);
     }catch(err){
         console.error(err);
@@ -225,7 +242,9 @@ async function connect(orderQuery){
     }
 }
 const orderQuery = new OrderQueries('<dbpassword>');
-connect(orderQuery);
+const ingredientQuery = new IngredientsQueries('<dbpassword>');
+
+connect(ingredientQuery);
 */
 
-module.exports = {OrderQueries, CustomerQueries};
+module.exports = {OrderQueries, CustomerQueries, IngredientsQueries};
