@@ -1,0 +1,20 @@
+#story-logo {
+	display: flex;
+	border-radius: 50%;
+	height: 35vw;
+	width: 35vw;
+	background-color: var(--panel-bg-main);
+	justify-content: center;
+    align-items: center;
+    margin-right: 4em;
+}
+
+main {
+	display: flex;
+	padding: 3em 5em;
+}
+
+#story-details {
+	display: flex;
+	flex-direction: column;
+}

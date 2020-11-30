@@ -7,9 +7,6 @@ include("../../aggregation/data_classes/user.php");
 //echo var_dump($_POST);
 try {
     $session = new Session();
-    if ($session->isLoggedIn()) {
-        
-    
     $mid = filter_var($_POST["itemid"], FILTER_SANITIZE_STRING);
     $qty = filter_var($_POST["qty"], FILTER_SANITIZE_NUMBER_INT);
     $isNewItem = TRUE;
@@ -32,10 +29,8 @@ try {
         $orderlist = array();
         $newOrderItem = new OrderItem($mid, $qty);
         array_push($orderlist, $newOrderItem);
-    
-        $order = new Order($orderlist,$session->whoIsLoggedIn());
         setcookie("cart-order", serialize($orderlist), 0, "/");
-    }}
+    }
     header("Location: menu.php");
     die();
 } catch (\Throwable $th) {
