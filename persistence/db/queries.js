@@ -1,7 +1,6 @@
 // This module generates the objects required for making queries to the database
 
 const { ObjectId } = require("mongodb");
-const order = require("../data_classes/order");
 const MongoClient = require('mongodb').MongoClient;
 const { OrderDocuments } = require('./documents');
 
@@ -11,7 +10,7 @@ const { OrderDocuments } = require('./documents');
  */
 class Query{
     /**
-     * 
+     *
      * @param {string} mongoClient The database object
      */
     constructor(dbPassword){
@@ -19,17 +18,17 @@ class Query{
         const uri = `mongodb+srv://admin_COMP2140:${dbPassword}@comp2140-project-2020-c.yvx5q.mongodb.net/sweebs?retryWrites=true&w=majority`;
         this.client = new MongoClient(uri, { useNewUrlParser: true});
     }
-}  
+}
 
 class CustomerQueries extends Query{
     // Search Queries
     constructor(dbPassword){
         super(dbPassword);
     }
-    
+
     /**
-     * 
-     * @param {Customer} customerObj 
+     *
+     * @param {Customer} customerObj
      * @returns {object}
      */
     retrieveCustomerData(customerUsername){
@@ -38,8 +37,8 @@ class CustomerQueries extends Query{
     }
 
     /**
-     * 
-     * @param {string} customerObj 
+     *
+     * @param {string} customerObj
      * @returns {object}
      */
     retrieveCustomerPassword(customerUsername){
@@ -50,8 +49,8 @@ class CustomerQueries extends Query{
     // Update Queries
 
     /**
-     * 
-     * @param {Customer} customerObj 
+     *
+     * @param {Customer} customerObj
      * @param {string} newPassword The plaintext password as a string
      */
     updatePassword(customerObj, newPassword){
@@ -72,9 +71,9 @@ class CustomerQueries extends Query{
     }
 
     /**
-     * 
-     * @param {*} customerObj 
-     * @param {RealName} newName 
+     *
+     * @param {*} customerObj
+     * @param {RealName} newName
      */
     updateCustomerName(customerObj, newName){
         customerObj.setRealName(newName);
@@ -94,18 +93,17 @@ class CustomerQueries extends Query{
 
 class IngredientsQueries extends Query{
     /**
-     * 
-     * @param {object} dbPassword 
+     *
+     * @param {object} dbPassword
      */
     constructor(dbPassword){
         super(dbPassword);
-    }  
+    }
 
     async retrieveAllIngredients(databaseObj){
         const query = {}
         const collection = databaseObj.collection('ingredients');
         const cursor = await collection.find(query).toArray();
-        console.log(cursor);
         return cursor;
     }
 }
@@ -117,13 +115,13 @@ class OrderQueries extends Query{
      */
     constructor(dbPassword){
         super(dbPassword);
-    }   
+    }
 
     // --------------------  Search Queries  ------------------------------ //
 
     /**
      * Searches for an order based on the customer's username
-     * @param {string} customerUsername 
+     * @param {string} customerUsername
      */
     async retrieveOrderByUsername(customerUsername){
         const query = { customer: customerUsername };
@@ -134,8 +132,8 @@ class OrderQueries extends Query{
     }
 
     /**
-     * 
-     * @param {ObjectId} orderId 
+     *
+     * @param {ObjectId} orderId
      */
     async retrieveOrderById(orderId, databaseObj){
         const query = {_id: orderId};
@@ -185,7 +183,7 @@ class OrderQueries extends Query{
     deleteOrder(orderId){
 
     }
-    
+
     removeFromOrder(menuItemId){
 
     }
@@ -242,8 +240,8 @@ async function connect(orderQuery){
         console.log('Closed Connection');
     }
 }
-const orderQuery = new OrderQueries('<dbpassword>');
-const ingredientQuery = new IngredientsQueries('<dbpassword>');
+const orderQuery = new OrderQueries('W62aZqXfeH4RrYkd');
+const ingredientQuery = new IngredientsQueries('W62aZqXfeH4RrYkd');
 
 connect(ingredientQuery);
 

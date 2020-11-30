@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./styles/portal.css">
     <link rel="stylesheet" href="./styles/shopping_list.css">
+    <script src="../../business_logic/shopping_list/shopping_list.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -23,7 +24,6 @@
                     <div id="header">
                         <h2>Item</h2>
                         <h2>Description</h2>
-                        <h2>Quantity</h2>
                     </div>
                 </div>
                 <button id="genbtn">Generate List</button>
