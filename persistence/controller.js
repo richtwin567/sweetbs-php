@@ -7,6 +7,13 @@ const IngredientsQueries = require("./db/queries").IngredientsQueries;
 
 const dburi = `mongodb+srv://admin_COMP2140:${process.env.PASSWORD}@${process.env.CLUSTERURL}/?authMechanism=${process.env.AUTHMETH}`;
 
+function setResponseHeaders(response){
+	response.setHeader("Content-Type", "Application/json");
+	response.setHeader("Access-Control-Allow-Origin", "*");
+	response.setHeader("Access-Control-Allow-Headers", "X-Requested-With");
+	response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+}
+
 module.exports = {
 	fetchOptions: async (req, res) => {
 		res.statusCode = 200;
@@ -49,61 +56,89 @@ module.exports = {
         // Initializing the request URL and the request URL query
         const requestUrl = url.parse(request.url, true);
         const query = requestUrl.query;
-        const orderQueryObj = new OrderQueries(process.env.PASSWORD);
-
-        // Query for all of the orders
-        await orderQueryObj.client.connect();
-        console.log("Connected, getting all orders");
-
+		const client = new MongoClient(dburi, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		});
+		await client.connect();
+		console.log("Connected, getting all orders");
         // Retrieve data from MongoDb
-        let databaseObj = orderQueryObj.client.db('sweetb');
-        let data = '';
+        let ordersCollection = client.db('sweetb').collection("orders");
         if ("_id" in query) {
-            query["_id"] = new ObjectId(query["_id"]);
-            data = orderQueryObj.retrieveOrderById(query["_id"], databaseObj);
-        }else{
-            data = orderQueryObj.retrieveAllOrders(databaseObj);
-        }
+			query["_id"] = new ObjectId(query["_id"]);
+		}
+		
+		// Perform Orders Query
+		let data = await ordersCollection.find(query).toArray();
 		console.log(data);
         response.statusCode = 200;
         setResponseHeaders(response);
         response.write(JSON.stringify(data));
 
         // Closing the connection and ending the response.
-        await orderQueryObj.client.close();
+        await client.close();
         await response.end();
-
 	},
 
 	getIngredients: async(request, response) => {
-		// Initializing the request URL and the request URL query
-		const requestUrl = url.parse(request.url, true);
+		// Initialize key variables
+        const requestUrl = url.parse(request.url, true);
         const query = requestUrl.query;
-		const ingredientsQueryObj = new IngredientsQueries(process.env.PASSWORD);
-		
-		// Query for all of the ingredients
-        await ingredientsQueryObj.client.connect();
-        console.log("Connected, getting all ingredients");
+		const client = new MongoClient(dburi, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		});
+
+		// Attempt to connect to MongoDb
+		await client.connect();
+		console.log("Connected, getting all ingredients");
 
         // Retrieve data from MongoDb
-        let databaseObj = ingredientsQueryObj.client.db('sweetb');
-		let data = '';
-		
-		
+        let ingredientsCollection = client.db('sweetb').collection("ingredients");
         if ("_id" in query) {
 			query["_id"] = new ObjectId(query["_id"]);
-			// NB - The Method for querying an ingredient by its Id isn't implemented.
-            // data = ingredientsQueryObj.retrieveIngredientById(query["_id"], databaseObj);
-        }else{
-            data = ingredientsQueryObj.retrieveAllIngredients(databaseObj);
-        }
+		}
+		
+		// Perform ingredients Query
+		let data = await ingredientsCollection.find(query).toArray();
 		console.log(data);
         response.statusCode = 200;
         setResponseHeaders(response);
         response.write(JSON.stringify(data));
 
         // Closing the connection and ending the response.
-        await ingredientsQueryObj.client.close();
+        await client.close();
         await response.end();
+	},
+
+	getUser: async(request, response) => {
+		// Initialize key variables
+		const requestUrl = url.parse(request.url, true);
+		const query = requestUrl.query;
+		const client = new MongoClient(dburi, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		});
+
+		// Attempt to connect to MongoDb
+		await client.connect();
+		console.log("Connected, getting all users");
+
+		// Retrieve data from MongoDb
+		let usersCollection = client.db('sweetb').collection("users");
+		if ("_id" in query) {
+			query["_id"] = new ObjectId(query["_id"]);
+		}
+		
+		// Perform user Query
+		let data = await usersCollection.find(query).toArray();
+		console.log(data);
+		response.statusCode = 200;
+		setResponseHeaders(response);
+		response.write(JSON.stringify(data));
+
+		// Closing the connection and ending the response.
+		await client.close();
+		await response.end();
 	}
 };

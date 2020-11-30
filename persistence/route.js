@@ -15,7 +15,6 @@ module.exports = http.createServer((req, res) => {
 			break;
 
 		case "/orders":
-			console.log('I\'m here');
 			handleOrdersRequest(req, res);
 			break;
 
@@ -28,7 +27,7 @@ module.exports = http.createServer((req, res) => {
 			break;
 
 		case "/ingredients":
-			handleIngredientsRequest(req);
+			handleIngredientsRequest(req, res);
 			break;
 
 		default:
