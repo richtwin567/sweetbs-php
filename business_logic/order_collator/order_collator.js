@@ -1,9 +1,10 @@
 // Imports
-const { Order } = require('../../persistence/data_classes/order');
-const { OrderItem } = require('../../persistence/data_classes/order');
-const { OrderDocuments } = require('../../persistence/db/documents');
-const { OrderQueries } = require('../../persistence/db/queries');
+import { Order } from '../../persistence/data_classes/order';
+import { OrderItem } from '../../persistence/data_classes/order';
+import { OrderDocuments } from '../../persistence/db/documents';
+import { OrderQueries } from '../../persistence/db/queries';
 
 
-class OrderCollator{
+function fetchOrders(){
+    
 }

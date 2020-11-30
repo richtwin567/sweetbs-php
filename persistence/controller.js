@@ -42,4 +42,21 @@ module.exports = {
 		await client.close();
 		await res.end();
 	},
+
+	getOrderItems: async (req, res) =>{
+		// Initializing the request URL and the request URL query
+		const reqUrl = url.parse(req.url, true);
+		const query = reqUrl.query;
+		if ("_id" in query) {
+			query["_id"] = new ObjectId(query["_id"]);
+		}
+		console.log(query);
+		const client = new MongoClient(dburi, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		});
+		await client.connect();
+		console.log("Connected, getting all order items");
+		let dbo = client.db('sweetb');
+	}
 };

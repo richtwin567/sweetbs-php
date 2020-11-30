@@ -179,7 +179,7 @@ class OrderQueries extends Query{
 }
 
 
-const customerDocument = {
+const testCustomerDocument = {
     username: 'BobAndersonLikesPotatoes',
     email: 'test@testuser.com',
     password: 'somerandomhash',
@@ -197,13 +197,13 @@ const customerDocument = {
 
 
 // Test Code for inserting and retrieving orders into/from the database
-/*
+
 async function connect(orderQuery){
     const ObjectID = require('mongodb').ObjectID;
     const orderDocument = {
         _id: new ObjectID(),
         customer: 'BobAndersonLikesPotatoes',
-        menuItemIds: ['5fbdda932d7e3cad244acbee']
+        menuItemIds: [ new ObjectID('5fbdda932d7e3cad244acbee')]
     }
     // Initialize URI and Mongo Client
     const client = orderQuery.client;
@@ -215,7 +215,7 @@ async function connect(orderQuery){
         dbo = await client.db('sweetb')
         console.log("Collections:");
         const collection = await orderQuery.retrieveAllOrders(dbo);
-        // await orderQuery.insertOneOrder(orderDocument, dbo);
+        await orderQuery.insertOneOrder(orderDocument, dbo);
         console.log(collection);
     }catch(err){
         console.error(err);
@@ -224,8 +224,8 @@ async function connect(orderQuery){
         console.log('Closed Connection');
     }
 }
-const orderQuery = new OrderQueries('<dbpassword>');
+const orderQuery = new OrderQueries('W62aZqXfeH4RrYkd');
 connect(orderQuery);
-*/
+
 
 module.exports = {OrderQueries, CustomerQueries};
