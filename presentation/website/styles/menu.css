@@ -46,7 +46,6 @@
 
 main {
 	min-height: 100%;
-	position: relative;
 }
 
 #menu-content {
@@ -54,7 +53,8 @@ main {
 	grid-template-columns: 2.5fr 10fr;
 	grid-template-rows: 1fr;
 	grid-template-areas: "filter menu";
-	width: 100vw;
+	width: 100%;
+	min-height: 50vh;
 	gap: 2em;
 	padding: 2em;
 }
@@ -158,4 +158,8 @@ main {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+}
+
+.spinner-div{
+	grid-area: menu;
 }

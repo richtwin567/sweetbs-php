@@ -2,13 +2,13 @@
 
 class OrderItem
 {
-    private string $menuitemid;
+    private string $item;
     private int $qty;
 
     public function __construct(string $id, int $qty = 1)
     {
         $this->qty = $qty;
-        $this->menuitemid = $id;
+        $this->item = $id;
     }
 
     public function getQty()
@@ -21,9 +21,9 @@ class OrderItem
         $this->qty = $qty;
     }
 
-    public function getMenuItemId()
+    public function getMenuItem()
     {
-        return $this->menuitemid;
+        return $this->item;
     }
 
 }

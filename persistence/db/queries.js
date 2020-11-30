@@ -1,35 +1,30 @@
 // This module generates the objects required for making queries to the database
 
 const { ObjectId } = require("mongodb");
+const order = require("../data_classes/order");
+const MongoClient = require('mongodb').MongoClient;
+const { OrderDocuments } = require('./documents');
 
 
 /**
  * Abstract class to define a MongoDb document
  */
 class Query{
-    constructor(){
-        if(this.constructor == Query){
-            throw new Error("Abstract classes cannot be instantiated");
-        }
+    /**
+     * 
+     * @param {object} mongoClient The database object
+     */
+    constructor(dbPassword){
+        // Initialize the client and database objects
+        const uri = `mongodb+srv://admin_COMP2140:${dbPassword}@comp2140-project-2020-c.yvx5q.mongodb.net/sweebs?retryWrites=true&w=majority`;
+        this.client = new MongoClient(uri, { useNewUrlParser: true});
     }
-}
+}  
 
 class CustomerQueries extends Query{
     // Search Queries
-    constructor(client){
-        this.client = client;
-    }
-    /**
-     * Inserts a document into the database
-     * @param {MongoClient} client The MongoClient used to connect to the database
-     * @param {Document} document The document being inserted into the database
-     * @param {string} collectionName The name of the collection the document is being inserted into
-     * @param {string} databaseName The name of the database being accessed
-     */
-    async insertDocument(document, collectionName, databaseName){
-        const database = this.client.db(databaseName);
-        const collection = database.collection(collectionName);
-        result = await collection.insertOne(document);
+    constructor(mongoClient){
+        super(mongoClient);
     }
     
     /**
@@ -49,8 +44,6 @@ class CustomerQueries extends Query{
      */
     retrieveCustomerPassword(customerUsername){
         const query = {username: customerUsername};
-
-        const options
         return query;
     }
 
@@ -101,31 +94,77 @@ class CustomerQueries extends Query{
 
 
 class OrderQueries extends Query{
-    // Search Queries  
+    /**
+     * 
+     * @param {object} mongoClient 
+     */
+    constructor(dbPassword){
+        super(dbPassword);
+    }   
+
+    // --------------------  Search Queries  ------------------------------ //
+
     /**
      * Searches for an order based on the customer's username
      * @param {string} customerUsername 
      */
-    retrieveOrderByUsername(customerUsername){
+    async retrieveOrderByUsername(customerUsername){
         const query = { customer: customerUsername };
-        return query;
+        const databaseObj = await this.client.db("sweetb");
+        const collection = databaseObj.collection('orders');
+        const orderData = await collection.findOne(query);
+        return orderData;
     }
 
     /**
      * 
      * @param {ObjectId} orderId 
      */
-    retrieveOrderById(orderId){
+    async retrieveOrderById(orderId, databaseObj){
         const query = {_id: orderId};
-        return query;
+        const collection = databaseObj.collection('orders');
+        const orderData = await collection.findOne(query);
+        return orderData;
     }
 
-    // Update Queries
+    async retrieveAllOrders(databaseObj){
+        const query = {}
+        const collection = databaseObj.collection('orders');
+        const cursor = await collection.find(query).toArray();
+        console.log(cursor);
+        return cursor;
+    }
+
+    // -------------------- Insert Queries -------------------------------- //
+
+    /**
+     * Inserts one order into the database
+     * @param {object} document The JSON object of an order
+     */
+    async insertOneOrder(document, databaseObj){
+        const collection = databaseObj.collection('orders');
+        let result = await collection.insertOne(document);
+        console.log(`${result.insertedCount} documents were inserted with the _id: ${result.insertedId}`)
+    }
+
+    /**
+     * Inserts multiple orders into the database
+     * @param {Array} documentsArr An array containing JSON objects representing an order
+     */
+    async insertOrders(documentsArr, databaseObj){
+        const options = { ordered: true };
+        const collection = databaseObj.collection('orders');
+        const result = await collection.insertMany(documentsArr, options);
+        console.log(`${result.insertedCount} documents were inserted`);
+    }
+
+    // --------------------  Update Queries  ------------------------------ //
+
     addItemToOrder(menuItemId){
 
     }
 
-    // Delete Queries
+    // --------------------  Delete Queries ------------------------------ //
     deleteOrder(orderId){
 
     }
@@ -133,4 +172,60 @@ class OrderQueries extends Query{
     removeFromOrder(menuItemId){
 
     }
+
+    purgeOrders(){
+
+    }
 }
+
+
+const customerDocument = {
+    username: 'BobAndersonLikesPotatoes',
+    email: 'test@testuser.com',
+    password: 'somerandomhash',
+    name: {
+        firstName: 'Bob',
+        lastName: 'Anderson'
+    },
+    address:{
+        deliveryAddress: ['Somewhere','Over','The','Rainbow']
+    }
+};
+
+
+
+
+
+// Test Code for inserting and retrieving orders into/from the database
+/*
+async function connect(orderQuery){
+    const ObjectID = require('mongodb').ObjectID;
+    const orderDocument = {
+        _id: new ObjectID(),
+        customer: 'BobAndersonLikesPotatoes',
+        menuItemIds: ['5fbdda932d7e3cad244acbee']
+    }
+    // Initialize URI and Mongo Client
+    const client = orderQuery.client;
+    // Try-catch block to handle connecting to the database
+    try{
+        console.log('Connecting');
+        await client.connect();
+        console.log('Connected');
+        dbo = await client.db('sweetb')
+        console.log("Collections:");
+        const collection = await orderQuery.retrieveAllOrders(dbo);
+        // await orderQuery.insertOneOrder(orderDocument, dbo);
+        console.log(collection);
+    }catch(err){
+        console.error(err);
+    }finally{
+        await client.close();
+        console.log('Closed Connection');
+    }
+}
+const orderQuery = new OrderQueries('<dbpassword>');
+connect(orderQuery);
+*/
+
+module.exports = {OrderQueries, CustomerQueries};

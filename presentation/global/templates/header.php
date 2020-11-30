@@ -1,5 +1,5 @@
 <nav>
-    <img id="logo" src='../global/client/sweet-b-long.png' alt='sweet-b-long'>
+    <a href="index.php"><img id="logo" src='../global/client/sweet-b-long.png' alt='sweet-b-long'></a>
     <ul id="nav-links">
         <li><a href='index.php'>HOME</a></li>
         <li>

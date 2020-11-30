@@ -1,6 +1,5 @@
-//import { Costumer } from '../../../UWI-COMP2140-Project/persistence/data_classes/user';
+/*import { Costumer } from '../data_classes/user.js';
 
-const Customer = new require("../../persistence/data_classes/user")
 var username = document.getElementById("username")
 var email = document.getElementById("email")
 var password = document.getElementById("password")
@@ -10,4 +9,4 @@ var address = document.getElementById("address")
 var ResgisteredCostumer = new Costumer(username, email, password, name, address)
 
 
-// console.log(ResgisteredCostumer.getRealName())
+// console.log(ResgisteredCostumer.getRealName())*/
