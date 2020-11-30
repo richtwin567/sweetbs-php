@@ -3,7 +3,7 @@
         <div id='newsletter'>
             <h2> NEWSLETTER </h2>
             <form>
-                <input type="email" id='email' name="email">
+                <input type="email" id='news-email' name="news-email">
                 <input type='submit' class='btn btn-regular' value='subscribe'>
             </form>
         </div>

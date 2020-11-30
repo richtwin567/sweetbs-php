@@ -8,10 +8,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/register.css">
-    <link rel="stylesheet" href="">
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel='stylesheet' href="../global/styles/global.css">
-    <script src="../../aggregation/accounts/login.js"></script>
+    <script src="../../aggregation/accounts/login.js" type="module"></script>
     <script src="../../aggregation/data_classes/user.js" type="module"></script>
 </head>
 
