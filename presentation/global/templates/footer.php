@@ -1,7 +1,7 @@
 <footer>
     <section id="footer-links">
         <div id='newsletter'>
-            <h2> NEWSLETTER </h2>
+            <h2>NEWSLETTER</h2>
             <form>
                 <input type="email" id='news-email' name="news-email">
                 <input type='submit' class='btn btn-regular' value='subscribe'>
