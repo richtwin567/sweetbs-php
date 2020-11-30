@@ -35,16 +35,6 @@
                 <input type="submit" id="submit" value="sumbit">
             </div>
             </form>
-            <script>
-                var username = document.getElementById("username")
-                var email = document.getElementById("email")
-                var password = document.getElementById("password")
-                var name = document.getElementById("name")
-                var address = document.getElementById("address")
-
-                var ResgisteredCostumer = new Customer(username, email, password, name, address)
-                console.log(ResgisteredCostumer.getRealName())
-            </script>
         </main>
     <?php include("../global/templates/footer.php");?>
 </body>

@@ -1,4 +1,4 @@
-/*import { Costumer } from '../data_classes/user.js';
+import { Costumer } from '../data_classes/user.js';
 
 var username = document.getElementById("username")
 var email = document.getElementById("email")
@@ -9,4 +9,4 @@ var address = document.getElementById("address")
 var ResgisteredCostumer = new Costumer(username, email, password, name, address)
 
 
-// console.log(ResgisteredCostumer.getRealName())*/
+// console.log(ResgisteredCostumer.getRealName())
