@@ -9,7 +9,7 @@
         </div>
         <div id='social'>
             <h3>Social</h3>
-            <img src="../global/icons/instagram-white.svg">
+            <a href="https://www.instagram.com/sweetbsja/" target="_blank"><img src="../global/icons/instagram-white.svg"></a>
         </div>
         <div id='acc-details'>
             <h3>My Account</h3>

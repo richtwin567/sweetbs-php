@@ -102,8 +102,9 @@ async function updatePrice(qty, e) {
 	fetch("scripts/cart_updater.php", {
 		method: "POST",
 		body: JSON.stringify(data),
-	});
-	await getCartCookie().then((res) => updateTotal(res));
+	}).then(_=>{
+		console.log(_);
+	getCartCookie().then((res) => updateTotal(res))});
 }
 
 async function removeCartItem(e) {
@@ -130,8 +131,8 @@ async function removeCartItem(e) {
 	fetch("scripts/cart_updater.php", {
 		method: "POST",
 		body: JSON.stringify(data),
-	});
-	await getCartCookie().then((res) => updateTotal(res));
+	}).then(_=>
+	getCartCookie().then((res) => updateTotal(res)));
 }
 
 async function updateTotal(res) {

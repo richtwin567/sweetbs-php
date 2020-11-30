@@ -1,6 +1,6 @@
 /* Global Styling for the nav */
 
-nav#main{
+nav{
     display:flex;
     justify-content: space-between;
     align-items:center;
