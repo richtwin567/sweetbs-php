@@ -23,7 +23,7 @@ class Hashing{
         hash.update(userPassword);
         let hashedValue = hash.digest('hex');
 
-        let hashObj = { salt:salt, hash:hashedValue }
+        let hashObj = { salt:salt, hashed_password:hashedValue }
         return hashObj;
     }
 
@@ -41,11 +41,5 @@ class Hashing{
 
     }
 }
-
-// const hashing = new Hashing();
-// let salt = hashing.generateSalt(20);
-// let userHash = (hashing.hashPassword('hi',salt));
-
-// console.log(hashing.verifyHash(userHash.hash, 'hi',userHash.salt));
 
 module.exports = Hashing;
