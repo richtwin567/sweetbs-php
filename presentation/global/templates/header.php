@@ -19,7 +19,7 @@
         </li>
         <li><a href='about.php'>ABOUT</a></li>
         <?php
-        include("../data_classes/session.php");
+        include_once("../global/data_classes/session.php");
         $session = new Session();
         $user = $session->whoIsLoggedIn();
         if ($user != null && $user->getType() == "Admin") :

@@ -1,5 +1,5 @@
 <?php 
-include("../../../aggregation/data_classes/user.php");
+include_once("../../aggregation/data_classes/user.php");
 class Session{
 
     public function __constructor()
