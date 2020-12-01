@@ -158,7 +158,7 @@ class Card{
 
 }
 
-export class Customer extends User{
+class Customer extends User{
 
     #card;
     #name;
@@ -169,7 +169,7 @@ export class Customer extends User{
         this.#card=card;
         this.#deliveryAddress = address;
         this.#name = realname;
-        this.#type = "Customer";
+        //this.#type = "Customer";
     }
 
     getCard(){
