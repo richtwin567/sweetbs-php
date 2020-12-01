@@ -1,9 +1,9 @@
 <?php
 
-include("../../aggregation/data_classes/order_item.php");
-include("../../aggregation/data_classes/order.php");
-include("../global/data_classes/session.php");
-include("../../aggregation/data_classes/user.php");
+include_once("../../aggregation/data_classes/order_item.php");
+include_once("../../aggregation/data_classes/order.php");
+include_once("../global/data_classes/session.php");
+include_once("../../aggregation/data_classes/user.php");
 //echo var_dump($_POST);
 try {
     $session = new Session();
