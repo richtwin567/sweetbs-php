@@ -8,6 +8,7 @@
     "test": "tests"
   },
   "scripts": {
+    "start": "node ./persistence/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon -r dotenv/config ./persistence/server.js"
   },
