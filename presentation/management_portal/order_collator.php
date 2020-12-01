@@ -1,3 +1,9 @@
+<?php
+include("../global/data_classes/session.php");
+$session = new Session();
+$user = $session->whoIsLoggedIn();
+?>
+<?php if($user!=null && $user->getType()=="Admin"):?>
 <!DOCTYPE html>
 <html>
 
@@ -101,3 +107,14 @@
 </body>
 
 </html>
+
+
+<?php endif;?>
+
+<?php 
+
+if($user==null || $user->getType()=="Customer"){
+    include("../global/templates/access_denied.php");
+}
+
+?>
