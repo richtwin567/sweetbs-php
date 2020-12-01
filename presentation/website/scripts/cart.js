@@ -10,30 +10,50 @@ var subtotal1 = 0;
 getCartCookie()
 	.then((res) => {
 		console.log(res);
-		if (res.length > 0) {
-			buildTable(res)
-				.then((_) => {
-					var checkoutbtn = document.getElementById("checkout-btn");
-					checkoutbtn.addEventListener("click", checkoutOrder);
-					var incbtns = document.getElementsByClassName("add");
-					for (var ibtn of incbtns) {
-						ibtn.addEventListener("click", (e) => incrementQty(e));
-					}
-
-					var subbtns = document.getElementsByClassName("subtract");
-					for (var sbtn of subbtns) {
-						sbtn.addEventListener("click", (e) => decrementQty(e));
-					}
-
-					var removebtns = document.getElementsByClassName("remove");
-					for (var rbtn of removebtns) {
-						rbtn.addEventListener("click", (e) =>
-							removeCartItem(e)
+		if (res != null) {
+			if (res.length > 0) {
+				buildTable(res)
+					.then((_) => {
+						var checkoutbtn = document.getElementById(
+							"checkout-btn"
 						);
-					}
-				})
-				.then((_) => hideSpinner())
-				.catch((err) => console.log(err));
+						checkoutbtn.addEventListener("click", checkoutOrder);
+						var incbtns = document.getElementsByClassName("add");
+						for (var ibtn of incbtns) {
+							ibtn.addEventListener("click", (e) =>
+								incrementQty(e)
+							);
+						}
+
+						var subbtns = document.getElementsByClassName(
+							"subtract"
+						);
+						for (var sbtn of subbtns) {
+							sbtn.addEventListener("click", (e) =>
+								decrementQty(e)
+							);
+						}
+
+						var removebtns = document.getElementsByClassName(
+							"remove"
+						);
+						for (var rbtn of removebtns) {
+							rbtn.addEventListener("click", (e) =>
+								removeCartItem(e)
+							);
+						}
+					})
+					.then((_) => hideSpinner())
+					.catch((err) => console.log(err));
+			} else {
+				var empty_cart = document.getElementsByClassName(
+					"empty-cart"
+				)[0];
+				empty_cart.classList.remove("hidden");
+				var cart = document.getElementsByClassName("cart-list")[0];
+				cart.classList.add("hidden");
+				hideSpinner();
+			}
 		} else {
 			var empty_cart = document.getElementsByClassName("empty-cart")[0];
 			empty_cart.classList.remove("hidden");
