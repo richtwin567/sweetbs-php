@@ -1,15 +1,15 @@
 <footer>
     <section id="footer-links">
         <div id='newsletter'>
-            <h2> NEWSLETTER </h2>
+            <h2>NEWSLETTER</h2>
             <form>
-                <input type="email" id='email' name="email">
+                <input type="email" id='news-email' name="news-email">
                 <input type='submit' class='btn btn-regular' value='subscribe'>
             </form>
         </div>
         <div id='social'>
             <h3>Social</h3>
-            <img src="../global/icons/instagram-white.svg">
+            <a href="https://www.instagram.com/sweetbsja/" target="_blank"><img src="../global/icons/instagram-white.svg"></a>
         </div>
         <div id='acc-details'>
             <h3>My Account</h3>

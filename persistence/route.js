@@ -29,7 +29,7 @@ module.exports = http.createServer((req, res) => {
 			break;
 
 		case "/ingredients":
-			handleIngredientsRequest(req);
+			handleIngredientsRequest(req, res);
 			break;
 
 		default:
@@ -37,9 +37,10 @@ module.exports = http.createServer((req, res) => {
 	}
 });
 
-function handleIngredientsRequest(req) {
+function handleIngredientsRequest(req, res) {
 	switch (req.method) {
 		case "GET":
+			ctrl.getIngredients(req, res).catch((err) => console.log(err));
 			break;
 		case "POST":
 			break;
@@ -68,9 +69,10 @@ function handleMenuItemsRequest(req, res) {
 	}
 }
 
-function handleOrderItemsRequest(req) {
+function handleOrderItemsRequest(req, res) {
 	switch (req.method) {
 		case "GET":
+			ctrl.getOrderItems(req, res).catch((err) => console.log(err));
 			break;
 		case "POST":
 			break;
@@ -83,9 +85,10 @@ function handleOrderItemsRequest(req) {
 	}
 }
 
-function handleOrdersRequest(req) {
+function handleOrdersRequest(req, res) {
 	switch (req.method) {
 		case "GET":
+			ctrl.getOrders(req,res).catch((err) => console.log(err));;
 			break;
 		case "POST":
 			break;

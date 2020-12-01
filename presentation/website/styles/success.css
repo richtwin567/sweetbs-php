@@ -1,0 +1,21 @@
+#success-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5em;
+}
+
+
+#success-div img {
+    height: 60%;
+    width: 60%;
+}
+
+
+#next-actions{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 30%;
+}

@@ -1,3 +1,8 @@
+<?php
+include("../global/data_classes/session.php");
+$session = new Session();
+?>
+
 <!DOCTYPE html>
 <html>
 
