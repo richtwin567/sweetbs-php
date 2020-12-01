@@ -1,5 +1,5 @@
 const http = require('http');
-const hostname = 'sweetbs.herokuapp.com';
+const hostname = 'localhost';
 const port = 3000;
 const server = require('./route.js'); // imports the routing file
 server.listen(port, hostname, () => {
