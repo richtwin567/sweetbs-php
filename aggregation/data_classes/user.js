@@ -3,7 +3,7 @@ class User {
 	#username = "";
 	#email = "";
 	#password = "";
-	#type ="";
+	type ="";
 
 	constructor(username, email, password) {
 		this.#username = username;
@@ -13,7 +13,7 @@ class User {
     }
     
     getType(){
-        return this.#type;
+        return this.type;
     }
 
     getId(){
@@ -48,13 +48,13 @@ class User {
 class Admin extends User {
 	constructor(username, email, password) {
 		super(username, email, password);
-		this.#type = "Admin";
+		this.type = "Admin";
 	}
 }
 
 class RealName {
-	#firstname;
-	#lastname;
+	#firstName;
+	#lastName;
 
 	/**
 	 * Instantiates the RealName class with a User's first name and last name.
@@ -75,15 +75,15 @@ class RealName {
 	}
 
 	getFullName() {
-		return this.#firstname + " " + this.#lastname;
+		return this.#firstName + " " + this.#lastName;
 	}
 
 	setFirstName(newFname) {
-		this.#firstname = newFname;
+		this.#firstName = newFname;
 	}
 
 	setLastName(newLname) {
-		this.#lastname = newLname;
+		this.#lastName = newLname;
 	}
 }
 
@@ -185,3 +185,5 @@ class Customer extends User{
     }
     
 }
+
+export {Customer,User,Address,Admin,Card,RealName};

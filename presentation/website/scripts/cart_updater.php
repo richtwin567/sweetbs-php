@@ -13,17 +13,16 @@ if (isset($_COOKIE["cart-order"])) {
             }
         }
         setcookie("cart-order", serialize($orderlist), 0, "/");
-
-    } 
+    }
     if (isset($data["remove"])) {
-        
+
         foreach ($orderlist as $oitem) {
             if ($oitem->getMenuItem() == $data["id"]) {
-                $index = array_search($oitem,$orderlist);
+                $index = array_search($oitem, $orderlist);
                 unset($orderlist[$index]);
             }
         }
         setcookie("cart-order", serialize($orderlist), 0, "/");
-
     }
+
 }

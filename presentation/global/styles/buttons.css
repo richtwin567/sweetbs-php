@@ -27,6 +27,7 @@
 }
 
 .btn-outline{
-    color: var(--primary-main);
+    border: var(--btn-alt) 3px solid;
     color: var(--btn-alt);
+    background-color: var(--bg-main);
 }
