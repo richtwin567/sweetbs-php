@@ -1,27 +1,37 @@
-class Order{
-    #id;
-    #customer;
-    #items=[];
+class Order {
+	#id;
+	#customer;
+	#items = [];
 
-    constructor(items, customer){
-        this.#items = items;
-        this.#customer = customer;
-        this.#id = null;
-    }
+	constructor(items, customer, id = null) {
+		this.#items = items;
+		this.#customer = customer;
+		this.#id = id;
+	}
 
-    getOrderItems(){
-        return this.#items;
-    }
+	getOrderItems() {
+		return this.#items;
+	}
 
-    getCustomer(){
-        return this.#customer;
-    }
+	getCustomer() {
+		return this.#customer;
+	}
 
-    getOrderId(){
-        return this.#id;
-    }
+	getOrderId() {
+		return this.#id;
+	}
 
-    addOrderItem(orderitem){
-        this.#items.push(orderitem);
+	addOrderItem(orderitem) {
+		this.#items.push(orderitem);
+	}
+
+    toMongoJSON(){
+        var jsonarray = [];
+        for (var oitem of this.getOrderItems()) {
+            jsonarray.push(oitem.toObject());
+        }
+        return JSON.stringify({customer:this.getCustomer(),items:jsonarray});
     }
 }
+
+export { Order };

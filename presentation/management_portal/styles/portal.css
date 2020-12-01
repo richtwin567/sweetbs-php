@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @import "../../global/styles/colours.css";
+@import "../../global/styles/buttons.css";
 
 
 *{
@@ -35,7 +36,7 @@ nav{
     align-items: center;
     background-color: var(--portal-top-navbar);
     box-shadow: 0px 2px 10px var(--medium);
-    height:10vh;
+    height:11vh;
 }
 
 nav ul{
@@ -89,13 +90,15 @@ svg path {
 #portal-sections{
   width: 75%;
   min-width: 40%;
-  margin-left: clamp(19%, 20%,30%);
+  margin-left: clamp(15%, 16%,25%);
 }
 
 /*Sidebar images*/
 #dashboard-icon{
     background-image: url('../../global/icons/dashboard-white-48dp.svg');
 }
+
+/* 
 #shopping-list-icon{
 
 }
@@ -105,4 +108,28 @@ svg path {
 #orders-icon{
 
 }
+*/
 
+#access-denied-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4em;
+}
+
+#access-denied-page img{
+    width: 70%;
+    height: 70%;
+}
+
+#access-denied-page a{
+    margin: 1.5em;
+}
+
+
+#page-title{
+    color: var(--title-text-on-light);
+    font-weight: bold;
+    font-size: 40px;
+}

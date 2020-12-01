@@ -18,6 +18,17 @@
             <div class="nav-separator"></div>
         </li>
         <li><a href='about.php'>ABOUT</a></li>
+        <?php
+        include_once("../global/data_classes/session.php");
+        $session = new Session();
+        $user = $session->whoIsLoggedIn();
+        if ($user != null && $user->getType() == "Admin") :
+        ?>
+            <li>
+                <div class="nav-separator"></div>
+            </li>
+            <li><a href='../management_portal/dashboard.php'>MANAGEMENT PORTAL</a></li>
+        <?php endif; ?>
     </ul>
     <div id='nav-icons'>
         <!--Shopping Cart SVG-->

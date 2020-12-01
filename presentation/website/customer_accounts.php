@@ -23,30 +23,21 @@ $session = new Session();
 <body>
     <?php include("../global/templates/header.php"); ?>
     <main>
-        <img id="feature-img" src="../global/images/signup2.jpg" alt="sign up">
         <div id="sign-up-div">
-            <h1 id="page-title">Sign Up</h1>
             <!-- Dynamic Content goes here-->
-            <form id="Registerform" action="" method="post">
-                <div id="realname">
-                    <div>
-                        <label for="fname">First name</label>
-                        <input type="text" name="fname" id="fname">
+            <form id="Updateform" action="" method="post">
+                <section>
+                    <div id="realname">
+                        <div>
+                            <label for="fname">First name</label>
+                            <input type="text" name="fname" id="fname">
+                        </div>
+                        <div>
+                            <label for="lname">Last name</label>
+                            <input type="text" name="lname" id="lname">
+                        </div>
                     </div>
-                    <div>
-                        <label for="lname">Last name</label>
-                        <input type="text" name="lname" id="lname">
-                    </div>
-                </div>
-                <label>UserName</label>
-                <input type="text" id="username" name="username" required aria-required="true" pattern="[A-Za-z0-9]+">
-                <label>Email</label>
-                <input type="email" id="email" name="email" required aria-required="true">
-                <label>Password</label>
-                <input type="password" id="password" name="password" required aria-required="true">
-
-                <label>Default Delivery Address</label>
-                <textarea name="address" id="address" cols="30" rows="10"></textarea>
+                        
 
                 <h4>Card Details</h4>
                 <div id="card-num-cvv-group">
