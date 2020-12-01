@@ -66,7 +66,7 @@ function displayOrder(ordersDiv, orderIndex, customerUsername){
             <li>${customerUsername}</li>
         </ul>
         <ul class='visible-order'>
-            <li><img src='../global/icons/grayed_checkmark.png'></li>
+            <li><img src='../global/icons/done_all-grey-48dp.svg'></li>
             <li class='show-hide'><img src='../global/icons/expand_more-black-48dp.svg'></li>
         </ul>
     </div>
@@ -74,4 +74,4 @@ function displayOrder(ordersDiv, orderIndex, customerUsername){
     ordersDiv.innerHTML += orderHTML;
 }
 
-function displayOrderDetail
+//function displayOrderDetail

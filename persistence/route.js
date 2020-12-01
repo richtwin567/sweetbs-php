@@ -89,9 +89,11 @@ function handleOrderItemsRequest(req, res) {
 function handleOrdersRequest(req, res) {
 	switch (req.method) {
 		case "GET":
-			ctrl.getOrders(req,res).catch((err) => console.log(err));;
+			ctrl.getOrders(req,res).catch((err) => console.log(err));
 			break;
 		case "POST":
+			let orderq = new OrderInsertQuery();
+			orderq.insertOneOrder(req).catch(err=>console.log(err));
 			break;
 		case "PATCH":
 			break;
@@ -102,15 +104,16 @@ function handleOrdersRequest(req, res) {
 	}
 }
 
-function handleUsersRequest(req) {
+function handleUsersRequest(req,res) {
 	switch (req.method) {
 		case "GET":
+			ctrl.getUser(req,res).catch(err=>console.log(err));
 			break;
 		case "POST":
 			let insertQueryObj = new CustomerInsertQuery();
 			// Assuming that the request contains the document to be inserted
 			// This may not be the most secure solution
-			insertQueryObj.insertOneCustomer(req)
+			insertQueryObj.insertOneCustomer(req).catch(err=>console.log(err));
 			break;
 		case "PATCH":
 			break;

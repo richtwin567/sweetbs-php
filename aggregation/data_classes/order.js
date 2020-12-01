@@ -1,39 +1,37 @@
-import mongodb from "mongodb";
-const ObjectID = mongodb.ObjectID;
+class Order {
+	#id;
+	#customer;
+	#items = [];
 
-class Order{
-    #id;
-    #customer;
-    #items=[];
+	constructor(items, customer, id = null) {
+		this.#items = items;
+		this.#customer = customer;
+		this.#id = id;
+	}
 
-    constructor(items, customer, id=null){
-        this.#items = items;
-        this.#customer = customer;
-        this.#id = id;
-        this.setOrderId();
-    }
+	getOrderItems() {
+		return this.#items;
+	}
 
-    getOrderItems(){
-        return this.#items;
-    }
+	getCustomer() {
+		return this.#customer;
+	}
 
-    getCustomer(){
-        return this.#customer;
-    }
+	getOrderId() {
+		return this.#id;
+	}
 
-    getOrderId(){
-        return this.#id;
-    }
+	addOrderItem(orderitem) {
+		this.#items.push(orderitem);
+	}
 
-    addOrderItem(orderitem){
-        this.#items.push(orderitem);
-    }
-
-    setOrderId(){
-        if(this.#id === null){
-            this.#id = new ObjectID(); 
-        }else if(typeof(this.id) !== ObjectID){
-            this.#id = new ObjectID(this.id);
+    toMongoJSON(){
+        var jsonarray = [];
+        for (var oitem of this.getOrderItems()) {
+            jsonarray.push(oitem.toObject());
         }
+        return JSON.stringify({customer:this.getCustomer(),items:jsonarray});
     }
 }
+
+export { Order };
