@@ -1,1 +1,1 @@
-web: node ./persistence/server.js
+web: node persistence/server.js
