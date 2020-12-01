@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @import "../../global/styles/colours.css";
+@import "../../global/styles/buttons.css";
 
 
 *{
@@ -96,6 +97,8 @@ svg path {
 #dashboard-icon{
     background-image: url('../../global/icons/dashboard-white-48dp.svg');
 }
+
+/* 
 #shopping-list-icon{
 
 }
@@ -105,4 +108,28 @@ svg path {
 #orders-icon{
 
 }
+*/
 
+#access-denied-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4em;
+}
+
+#access-denied-page img{
+    width: 70%;
+    height: 70%;
+}
+
+#access-denied-page a{
+    margin: 1.5em;
+}
+
+
+#page-title{
+    color: var(--title-text-on-light);
+    font-weight: bold;
+    font-size: 40px;
+}
