@@ -12,11 +12,15 @@ $session = new Session();
     <title>Register</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
     <!-- <link rel="stylesheet" href="styles/register.css"> -->
     <link rel="stylesheet" href="">
+=======
+    <link rel="stylesheet" href="styles/register.css">
+>>>>>>> c6e8e8cb41de29e2fa8dfe95d58743f150623c4d
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel='stylesheet' href="../global/styles/global.css">
-    <script src="../../aggregation/accounts/login.js"></script>
+    <script src="../../aggregation/accounts/login.js" type="module"></script>
     <script src="../../aggregation/data_classes/user.js" type="module"></script>
 </head>
 

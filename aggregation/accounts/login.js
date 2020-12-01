@@ -13,8 +13,9 @@ var password = document.getElementById("password")
 var name = document.getElementById("name")
 var address = document.getElementById("address")
 
-
 var ResgisteredCostumer = new Customer(username, email, password, name, address)
+
+
 
 
 console.log(ResgisteredCostumer.getRealName());
