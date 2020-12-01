@@ -1,6 +1,7 @@
 const http = require("http");
 const url = require("url");
 const ctrl = require("./controller.js");
+const { CustomerInsertQuery, OrderInsertQuery } = require('./db/insert_queries');
 
 
 
@@ -106,6 +107,10 @@ function handleUsersRequest(req) {
 		case "GET":
 			break;
 		case "POST":
+			let insertQueryObj = new CustomerInsertQuery();
+			// Assuming that the request contains the document to be inserted
+			// This may not be the most secure solution
+			insertQueryObj.insertOneCustomer(req)
 			break;
 		case "PATCH":
 			break;

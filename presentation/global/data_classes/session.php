@@ -1,4 +1,5 @@
 <?php 
+include("../../../aggregation/data_classes/user.php");
 class Session{
 
     public function __constructor()
@@ -8,27 +9,27 @@ class Session{
 
     public function isLoggedIn()
     {
-        return isset($_SESSION["user_id"]);
+        return isset($_SESSION["user"]);
     }
 
-    public function login(string $uname)
+    public function login(User $user)
     {
         if (!$this->isLoggedIn()){
-            $_SESSION["user_id"] = $uname;
+            $_SESSION["user"] = serialize($user);
         }
-
     }
 
     public function logout()
     {
         if ($this->isLoggedIn()) {
-            unset($_SESSION["user_id"]);
+            unset($_SESSION["user"]);
             session_destroy();
         }
     }
 
     public function whoIsLoggedIn(){
-        return $this->isLoggedIn()? $_SESSION["user_id"] : null;
+        return $this->isLoggedIn()? unserialize($_SESSION["user"]) : null;
     }
+
 }
 ?>
