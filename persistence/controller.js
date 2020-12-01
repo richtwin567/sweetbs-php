@@ -129,9 +129,10 @@ module.exports = {
 		if ("_id" in query) {
 			query["_id"] = new ObjectId(query["_id"]);
 		}
+		var username_query = {"username": query["username"]};
 
 		// Perform user Query
-		let data = await usersCollection.find(query).toArray();
+		let data = await usersCollection.find(username_query).toArray();
 		console.log(data);
 		if ("password" in query) {
 			var hash = new Hashing();

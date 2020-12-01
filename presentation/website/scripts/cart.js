@@ -1,14 +1,16 @@
 import { getCartCookie } from "../../../aggregation/shopping_cart/cart_agg.js";
 import { hideSpinner, showSpinner } from "../../global/scripts/spinner.js";
 
+var subtotal1 = 0;
+
 getCartCookie()
 	.then((res) => {
-		var subtotal = 0;
 
 		console.log(res);
 		if (res.length > 0) {
 			buildTable(res)
 				.then((_) => {
+
 					var incbtns = document.getElementsByClassName("add");
 					for (var ibtn of incbtns) {
 						ibtn.addEventListener("click", (e) => incrementQty(e));
@@ -25,7 +27,6 @@ getCartCookie()
 							removeCartItem(e)
 						);
 					}
-					updateTotal(res).catch((err) => console.log(err));
 				})
 				.then((_) => hideSpinner())
 				.catch((err) => console.log(err));
@@ -57,6 +58,7 @@ async function buildTable(olist) {
 			await oitem.exportToCartRow("row-odd").then((row) => (body += row));
 		}
 		count++;
+		subtotal1+=await oitem.getTotal();
 	}
 
 	var footer = `
@@ -71,19 +73,31 @@ async function buildTable(olist) {
 
 	var complete = header + body + footer;
 	t.innerHTML += complete;
+
+	var printtotal = document.getElementsByClassName("subtotal");
+	for (var totalarea of printtotal) {
+		totalarea.innerHTML =
+			"$" +
+			new Intl.NumberFormat("JMD", {
+				style: "currency",
+				currency: "JMD",
+			}).format(subtotal1);
+	}
 }
 
 async function incrementQty(e) {
 	var qty = e.target.parentNode.children[1];
 	qty.value = parseInt(qty.value) + 1;
-	await updatePrice(qty.value, e);
+	setTimeout(_=>
+updatePrice(qty.value, e),500);
 }
 
 async function decrementQty(e) {
 	var qty = e.target.parentNode.children[1];
 	if (!(parseInt(qty.value) <= 1)) {
 		qty.value = parseInt(qty.value) - 1;
-		await updatePrice(qty.value, e);
+		setTimeout(_=>
+		 updatePrice(qty.value, e),500);
 	}
 }
 
@@ -137,12 +151,12 @@ async function removeCartItem(e) {
 
 async function updateTotal(res) {
 	console.log(res);
-	var printtotal = document.getElementsByClassName("subtotal");
 	var subtotal = 0;
 	for (var oitem of res) {
 		subtotal += await oitem.getTotal();
 	}
 	console.log(subtotal);
+	var printtotal = document.getElementsByClassName("subtotal");
 	for (var totalarea of printtotal) {
 		totalarea.innerHTML =
 			"$" +

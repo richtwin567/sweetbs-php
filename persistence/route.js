@@ -86,7 +86,7 @@ function handleOrderItemsRequest(req, res) {
 function handleOrdersRequest(req, res) {
 	switch (req.method) {
 		case "GET":
-			ctrl.getOrders(req,res).catch((err) => console.log(err));;
+			ctrl.getOrders(req,res).catch((err) => console.log(err));
 			break;
 		case "POST":
 			break;
@@ -99,9 +99,10 @@ function handleOrdersRequest(req, res) {
 	}
 }
 
-function handleUsersRequest(req) {
+function handleUsersRequest(req,res) {
 	switch (req.method) {
 		case "GET":
+			ctrl.getUser(req,res).catch(err=>console.log(err));
 			break;
 		case "POST":
 			break;
