@@ -89,7 +89,7 @@ svg path {
 #portal-sections{
   width: 75%;
   min-width: 40%;
-  margin-left: clamp(19%, 20%,30%);
+  margin-left: clamp(15%, 16%,25%);
 }
 
 /*Sidebar images*/

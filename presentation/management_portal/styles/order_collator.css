@@ -2,7 +2,6 @@
 @import "../../global/styles/buttons.css";
 
 
-
 #collator-grid{
     display:grid;
     margin-top: 10px;
@@ -93,4 +92,8 @@ hr{
 
 .order:nth-child(even){
     background-color: var(--accent-pink-light);
+}
+
+.show-hide:hover{
+    cursor: pointer;
 }

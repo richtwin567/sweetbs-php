@@ -1,7 +1,4 @@
 // Imports
-
-import { OrderDocuments } from '../../persistence/db/documents.js';
-
 window.addEventListener('load', function(){
     console.log('I work');
     updateCollator();
@@ -61,18 +58,20 @@ async function fetchOrders(){
 
 function displayOrder(ordersDiv, orderIndex, customerUsername){
     let orderHTML = `
-    <div class='order'>
+    <div class='order' id='order-no-${orderIndex}'>
     <div class='order-grid-wrap'>
         <ul class='visible-order'>
-            <li><input type='checkbox' id='check-off'></li>
+            <li><input type='checkbox' class='check-off'></li>
             <li>${orderIndex}</li>
             <li>${customerUsername}</li>
         </ul>
         <ul class='visible-order'>
-            <li><img src='../global/icons/done_all-black-48dp.svg'></li>
+            <li><img src='../global/icons/grayed_checkmark.png'></li>
             <li class='show-hide'><img src='../global/icons/expand_more-black-48dp.svg'></li>
         </ul>
     </div>
 </div>`;
     ordersDiv.innerHTML += orderHTML;
 }
+
+function displayOrderDetail

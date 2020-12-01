@@ -2,9 +2,6 @@ const url = require("url");
 //const users = require("./userData.js");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectId;
-const OrderQueries = require("./db/queries").OrderQueries;
-const IngredientsQueries = require("./db/queries").IngredientsQueries;
-
 const dburi = `mongodb+srv://admin_COMP2140:${process.env.PASSWORD}@${process.env.CLUSTERURL}/?authMechanism=${process.env.AUTHMETH}`;
 
 function setResponseHeaders(response){
