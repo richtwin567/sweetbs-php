@@ -30,7 +30,7 @@ class Order {
         for (var oitem of this.getOrderItems()) {
             jsonarray.push(oitem.toObject());
         }
-        return JSON.stringify(jsonarray);
+        return JSON.stringify({customer:this.getCustomer(),items:jsonarray});
     }
 }
 

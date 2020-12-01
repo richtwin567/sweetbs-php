@@ -90,7 +90,8 @@ function handleOrdersRequest(req, res) {
 			ctrl.getOrders(req,res).catch((err) => console.log(err));
 			break;
 		case "POST":
-			
+			let orderq = new OrderInsertQuery();
+			orderq.insertOneOrder(req).catch(err=>console.log(err));
 			break;
 		case "PATCH":
 			break;
@@ -110,7 +111,7 @@ function handleUsersRequest(req,res) {
 			let insertQueryObj = new CustomerInsertQuery();
 			// Assuming that the request contains the document to be inserted
 			// This may not be the most secure solution
-			insertQueryObj.insertOneCustomer(req)
+			insertQueryObj.insertOneCustomer(req).catch(err=>console.log(err));
 			break;
 		case "PATCH":
 			break;
