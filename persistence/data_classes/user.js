@@ -6,7 +6,7 @@ import { ObjectID } from 'mongodb';
 */
 
 // Imports
-const hashing = new (require('../security/hashing'));
+//const hashing = new (require('../security/hashing'));
 
 class User{
     /**

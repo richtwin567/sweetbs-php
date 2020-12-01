@@ -3,6 +3,8 @@ const url = require("url");
 const ctrl = require("./controller.js");
 const { CustomerInsertQuery, OrderInsertQuery } = require('./db/insert_queries');
 
+
+
 module.exports = http.createServer((req, res) => {
 	const reqUrl = url.parse(req.url, true);
 	console.log(req.method);
