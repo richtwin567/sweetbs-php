@@ -37,22 +37,7 @@ $session = new Session();
                             <input type="text" name="lname" id="lname">
                         </div>
                     </div>
-                        <div id="realname1">
-                            <div>
-                            <label>UserName</label>
-                            <input type="text" id="username" name="username" required aria-required="true" pattern="[A-Za-z0-9]+">
-                            </div>
-                            <label>Email</label>
-                            <input type="email" id="email" name="email" required aria-required="true">
-                            <div>
-                            <label>Default Delivery Address</label>
-                            <textarea name="address" id="address" cols="30" rows="10"></textarea>
-                            </div>
-                            <label>Password</label>
-                            <input type="password" id="password" name="password" required aria-required="true">
-                        </div>
-                </section>
-
+                        
 
                 <h4>Card Details</h4>
                 <div id="card-num-cvv-group">

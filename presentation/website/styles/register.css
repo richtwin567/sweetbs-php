@@ -24,7 +24,6 @@ main {
 }
 
 #realname,
-#realname1,
 #card-num-cvv-group,
 #name-expiry-date-group {
 	display: flex;
