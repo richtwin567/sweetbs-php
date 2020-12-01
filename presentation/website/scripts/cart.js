@@ -14,9 +14,7 @@ getCartCookie()
 			buildTable(res)
 				.then((_) => {
 					var checkoutbtn = document.getElementById("checkout-btn");
-					checkoutbtn.addEventListener("click", (e) =>
-						checkoutOrder()
-					);
+					checkoutbtn.addEventListener("click", checkoutOrder);
 					var incbtns = document.getElementsByClassName("add");
 					for (var ibtn of incbtns) {
 						ibtn.addEventListener("click", (e) => incrementQty(e));
@@ -36,12 +34,18 @@ getCartCookie()
 				})
 				.then((_) => hideSpinner())
 				.catch((err) => console.log(err));
+		} else {
+			var empty_cart = document.getElementsByClassName("empty-cart")[0];
+			empty_cart.classList.remove("hidden");
+			var cart = document.getElementsByClassName("cart-list")[0];
+			cart.classList.add("hidden");
+			hideSpinner();
 		}
 	})
 	.catch((err) => console.log(err));
 
 async function buildTable(olist) {
-	const t = document.getElementById("cart-list");
+	const t = document.getElementsByClassName("cart-list")[0];
 
 	var header = `
     <h4 class="header">Pastry</h4>
@@ -150,7 +154,24 @@ async function removeCartItem(e) {
 	fetch("scripts/cart_updater.php", {
 		method: "POST",
 		body: JSON.stringify(data),
-	}).then((_) => getCartCookie().then((res) => updateTotal(res)));
+	}).then((_) =>
+		getCartCookie().then((res) => {
+			setTimeout((_) => updateTotal(res), 500);
+			var counter = document.getElementById("cart-counter");
+			counter.innerHTML = parseInt(counter.innerHTML) - res.length;
+			if (res.length == 0) {
+				counter.innerHTML = res.length;
+				var checkoutbtn = document.getElementById("checkout-btn");
+				checkoutbtn.removeEventListener("click", checkoutOrder);
+				var empty_cart = document.getElementsByClassName(
+					"empty-cart"
+				)[0];
+				empty_cart.classList.remove("hidden");
+				var cart = document.getElementsByClassName("cart-list")[0];
+				cart.classList.add("hidden");
+			}
+		})
+	);
 }
 
 async function updateTotal(res) {
