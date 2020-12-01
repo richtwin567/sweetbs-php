@@ -38,7 +38,7 @@ $session = new Session();
                 <input type='submit' id='submit' class='btn btn-regular' value='sign-in'>
                 <hr>
                 <p>Don't have an account? <a href='register.php'>Sign Up</a></p>
-                <p><a href='#'>Forgot password?</a></p>
+                <p><a href='forgot_password.php'>Forgot password?</a></p>
             </form>
 
         </div>
