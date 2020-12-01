@@ -32,7 +32,7 @@ async function updateCollator(){
 }
 
 async function fetchMenuItem(itemID){
-    let response = await fetch(`http://127.0.0.1:3000/?_id=${itemID}`);
+    let response = await fetch(`https://sweetbs-backend.herokuapp.com/orders?_id=${itemID}`);
     if (response.ok){
         return response.json();
     }else{
@@ -46,7 +46,7 @@ function parseMenuItemData(menuItem){
 }
 
 async function fetchOrders(){
-    let response = await fetch('http://127.0.0.1:3000/orders');
+    let response = await fetch('https://sweetbs-backend.herokuapp.com/orders');
     if (response.ok){
         return response.json();
     // If any unexpected errors happen while fetching, an error is thrown
