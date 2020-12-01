@@ -179,18 +179,18 @@ async function checkoutOrder() {
 				window.location.replace("./not_logged_in.php");
 			} else {
 				username = uname;
+				getCartCookie()
+					.then((res) => {
+						var order = new Order(res, username);
+						var cart = new ShoppingCart(order);
+						cart.checkout().then((isSuccessful) =>
+							isSuccessful
+								? window.location.href("./success.php")
+								: window.location.href("./failed.php")
+						);
+					})
+					.catch((err) => console.log(err));
 			}
 		})
-		.then((_) =>
-			getCartCookie()
-				.then((res) => {
-					var order = new Order(res, username);
-					fetch("http://127.0.0.1:3000/orders", {
-						method: "POST",
-						body: order.toMongoJSON(),
-					}).catch((err) => console.log(err));
-				})
-				.catch((err) => console.log(err))
-		)
 		.catch((err) => console.log(err));
 }

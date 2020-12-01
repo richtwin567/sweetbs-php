@@ -53,8 +53,8 @@ class OrderInsertQuery extends InsertQuery{
      * Inserts one order into the database
      * @param {object} document The JSON object of an order
      */
-    async insertOneOrder(document, databaseObj){
-        const collection = databaseObj.collection('orders');
+    async insertOneOrder(document){
+        const collection = this.client.db("sweetb").collection('orders');
         let result = await collection.insertOne(document);
         console.log(`${result.insertedCount} documents were inserted with the _id: ${result.insertedId}`)
     }
@@ -63,9 +63,9 @@ class OrderInsertQuery extends InsertQuery{
      * Inserts multiple orders into the database
      * @param {Array} documentsArr An array containing JSON objects representing an order
      */
-    async insertOrders(documentsArr, databaseObj){
+    async insertOrders(documentsArr){
         const options = { ordered: true };
-        const collection = databaseObj.collection('orders');
+        const collection = this.client.db("sweetb").collection('orders');
         const result = await collection.insertMany(documentsArr, options);
         console.log(`${result.insertedCount} documents were inserted`);
     }
