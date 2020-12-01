@@ -46,46 +46,8 @@
                     <p>Completed</p>
                     </div>
                     <hr>
-                    <div class='order'>
-                        <div class='order-grid-wrap'>
-                            <ul class='visible-order'>
-                                <li><input type='checkbox' id='check-off'></li>
-                                <li>0</li>
-                                <li>Customer 1</li>
-                            </ul>
-                            <ul class='visible-order'>
-                                <li><img src='../global/icons/done_all-black-48dp.svg'></li>
-                                <li class='show-hide'><img src='../global/icons/expand_more-black-48dp.svg'></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class='order'>
-                        <div class='order-grid-wrap'>
-                            <ul class='visible-order'>
-                                <li><input type='checkbox' id='check-off'></li>
-                                <li>0</li>
-                                <li>Customer 1</li>
-                            </ul>
-                            <ul class='visible-order'>
-                                <li><img src='../global/icons/done_all-black-48dp.svg'></li>
-                                <li class='show-hide'><img src='../global/icons/expand_more-black-48dp.svg'></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class='order'>
-                        <div class='order-grid-wrap'>
-                            <ul class='visible-order'>
-                                <li><input type='checkbox' id='check-off'></li>
-                                <li>0</li>
-                                <li>Customer 1</li>
-                            </ul>
-                            <ul class='visible-order'>
-                                <li><img src='../global/icons/done_all-black-48dp.svg'></li>
-                                <li class='show-hide'><img src='../global/icons/expand_more-black-48dp.svg'></li>
-                            </ul>
-                        </div>
-                    </div>
-                        
+                    <div id='new-orders'>
+                    </div>  
                         <!--
                         <ul id='collapsible-header' class='hidden'>
                             <li>Pastry</li>
