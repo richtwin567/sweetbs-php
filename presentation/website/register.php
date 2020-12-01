@@ -12,12 +12,7 @@ $session = new Session();
     <title>Register</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<<<<<<< HEAD
-    <!-- <link rel="stylesheet" href="styles/register.css"> -->
-    <link rel="stylesheet" href="">
-=======
     <link rel="stylesheet" href="styles/register.css">
->>>>>>> c6e8e8cb41de29e2fa8dfe95d58743f150623c4d
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel='stylesheet' href="../global/styles/global.css">
     <script src="../../aggregation/accounts/login.js" type="module"></script>
@@ -28,7 +23,7 @@ $session = new Session();
     <?php include("../global/templates/header.php");?>
         <main>
             <!-- Dynamic Content goes here-->
-            <form>
+            <form id="form" action="" method="post">
 
             <div id="register">
                 <label>UserName</label><br />
@@ -41,8 +36,9 @@ $session = new Session();
                 <input type="text" id="name" name="name" required aria-required="true"></br />
                 <label>Default Delivery Address</label><br />
                 <input type="text" id="address" name="address" required aria-required="true"></br />
-                <input type="submit" id="submit" value="sumbit">
+                <input type="submit" id="submit" value="submit">
             </div>
+
             </form>
         </main>
     <?php include("../global/templates/footer.php");?>
