@@ -34,13 +34,13 @@ $session = new Session();
                 <input type="checkbox" id="remember" value="true">
                 <input type='submit' class='btn btn-regular' value='sign-in'>
                 <hr>
-                <p>Don't have an account? <a href='register.html'>Sign Up</a></p>
+                <p>Don't have an account? <a href='register.php'>Sign Up</a></p>
                 <p><a href='#'>Forgot password?</a></p>
             </form>
 
         </div>
 
-        <div id="feature-img"></div>
+        <img src="../global/images/login.jpg" id="feature-img">
 
     </main>
 <?php include("../global/templates/footer.php");?>

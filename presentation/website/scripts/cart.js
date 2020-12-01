@@ -1,16 +1,22 @@
 import { getCartCookie } from "../../../aggregation/shopping_cart/cart_agg.js";
 import { hideSpinner, showSpinner } from "../../global/scripts/spinner.js";
+import { ShoppingCart } from "../../global/data_classes/shopping_cart.js";
+import { Order } from "../../../aggregation/data_classes/order.js";
+import { OrderItem } from "../../../aggregation/data_classes/order_item.js";
+import { getUsername } from "../../../aggregation/accounts/user_agg.js";
 
 var subtotal1 = 0;
 
 getCartCookie()
 	.then((res) => {
-
 		console.log(res);
 		if (res.length > 0) {
 			buildTable(res)
 				.then((_) => {
-
+					var checkoutbtn = document.getElementById("checkout-btn");
+					checkoutbtn.addEventListener("click", (e) =>
+						checkoutOrder()
+					);
 					var incbtns = document.getElementsByClassName("add");
 					for (var ibtn of incbtns) {
 						ibtn.addEventListener("click", (e) => incrementQty(e));
@@ -58,7 +64,7 @@ async function buildTable(olist) {
 			await oitem.exportToCartRow("row-odd").then((row) => (body += row));
 		}
 		count++;
-		subtotal1+=await oitem.getTotal();
+		subtotal1 += await oitem.getTotal();
 	}
 
 	var footer = `
@@ -88,16 +94,14 @@ async function buildTable(olist) {
 async function incrementQty(e) {
 	var qty = e.target.parentNode.children[1];
 	qty.value = parseInt(qty.value) + 1;
-	setTimeout(_=>
-updatePrice(qty.value, e),500);
+	setTimeout((_) => updatePrice(qty.value, e), 500);
 }
 
 async function decrementQty(e) {
 	var qty = e.target.parentNode.children[1];
 	if (!(parseInt(qty.value) <= 1)) {
 		qty.value = parseInt(qty.value) - 1;
-		setTimeout(_=>
-		 updatePrice(qty.value, e),500);
+		setTimeout((_) => updatePrice(qty.value, e), 500);
 	}
 }
 
@@ -116,9 +120,10 @@ async function updatePrice(qty, e) {
 	fetch("scripts/cart_updater.php", {
 		method: "POST",
 		body: JSON.stringify(data),
-	}).then(_=>{
+	}).then((_) => {
 		console.log(_);
-	getCartCookie().then((res) => updateTotal(res))});
+		getCartCookie().then((res) => updateTotal(res));
+	});
 }
 
 async function removeCartItem(e) {
@@ -145,8 +150,7 @@ async function removeCartItem(e) {
 	fetch("scripts/cart_updater.php", {
 		method: "POST",
 		body: JSON.stringify(data),
-	}).then(_=>
-	getCartCookie().then((res) => updateTotal(res)));
+	}).then((_) => getCartCookie().then((res) => updateTotal(res)));
 }
 
 async function updateTotal(res) {
@@ -165,4 +169,28 @@ async function updateTotal(res) {
 				currency: "JMD",
 			}).format(subtotal);
 	}
+}
+
+async function checkoutOrder() {
+	var username;
+	getUsername()
+		.then((uname) => {
+			if (uname == "") {
+				window.location.replace("./not_logged_in.php");
+			} else {
+				username = uname;
+			}
+		})
+		.then((_) =>
+			getCartCookie()
+				.then((res) => {
+					var order = new Order(res, username);
+					fetch("http://127.0.0.1:3000/orders", {
+						method: "POST",
+						body: order.toMongoJSON(),
+					}).catch((err) => console.log(err));
+				})
+				.catch((err) => console.log(err))
+		)
+		.catch((err) => console.log(err));
 }

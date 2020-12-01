@@ -65,10 +65,9 @@ $session = new Session();
                             <p id="grand-total" class="subtotal"></p>
                         </div>
                     </div>
-                    <form action="success.php" id="order-form" method="post">
                         <div id="checkout-btn-div">
-                            <input type="submit" value="CHECKOUT" id="checkout-btn" name="checkout-btn" class="btn btn-regular"></div>
-                    </form>
+                            <button id="checkout-btn" class="btn btn-regular">CHECKOUT</button></div>
+                  
                 </div>
             </div>
         </div>
