@@ -2,6 +2,7 @@
 @import "../../global/styles/buttons.css";
 
 
+
 #collator-grid{
     display:grid;
     margin-top: 10px;
@@ -39,8 +40,57 @@
     width:50%;
     height:25%;
 }
+#breakdown-header{
+    display:flex;
+    justify-content: space-around;
+}
+
+#breakdown-list{
+    display:flex;
+    width:50%;
+    margin-right:20vw;
+    justify-content: space-around;
+}
+
+#breakdown-header p{
+    margin-right: 8vw;;
+}
+#order-breakdown{
+    margin:20px 30px;
+}
+hr{
+    border-top:2px solid var(--dark);
+}
+
 .btn{
     font-size: 12px;
     padding:9px 15px;
     background-color: var(--btn-main);
+}
+
+.order-grid-wrap{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.visible-order:nth-child(1){
+    font-size: 20px;
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 0.2fr)) 0.5fr; 
+}
+
+.visible-order:nth-child(2){
+    display:flex;
+    justify-content: space-around;
+    width:45%;
+    margin-left:12vw;
+}
+
+.visible-order:nth-child(2) img{
+    height:30px;
+}
+
+.order:nth-child(even){
+    background-color: var(--accent-pink-light);
 }
