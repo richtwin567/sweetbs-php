@@ -24,7 +24,7 @@ $session = new Session();
     <?php include("../global/templates/header.php");?>
         <main>
             <!-- Dynamic Content goes here-->
-            <form id="form" action="" method="post">
+            <form id="Registerform" action="" method="post">
 
             <div id="register">
                 <label>UserName</label><br />
