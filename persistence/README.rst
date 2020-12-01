@@ -55,8 +55,8 @@ Each query essentially follows the structure below:
     .. code-block:: javascript
         
         async function getCollection(request, response, collectionName){
-              const requestUrl = url.parse(request.url, true);
-              const query = requestUrl.query;
+                const requestUrl = url.parse(request.url, true);
+                const query = requestUrl.query;
     
 2. We then create the mongo client to query the database for the desired data
 
@@ -66,7 +66,7 @@ Each query essentially follows the structure below:
         // Retrieve data from MongoDb
         let collection = client.db('<databasename>').collection(collectionName);
         if ("_id" in query) {
-		query["_id"] = new ObjectId(query["_id"]);
+        query["_id"] = new ObjectId(query["_id"]);
 	}
 		
 	// Perform query

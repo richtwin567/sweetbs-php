@@ -86,4 +86,4 @@ class IngredientDocument extends Document{
     }
 }
 
-module.exports = {UserDocuments, OrderDocuments, IngredientDocument};
+export {UserDocuments, OrderDocuments, IngredientDocument};

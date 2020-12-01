@@ -2,7 +2,7 @@
 
 abstract class User
 {
-    private ?string $id;
+    private string $id;
     private string $username;
     private string $email;
     private string $password;
