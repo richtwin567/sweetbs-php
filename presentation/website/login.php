@@ -15,6 +15,9 @@ $session = new Session();
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/auth.css">
     <link rel='stylesheet' href="../global/styles/global.css">
+    <script src="../../aggregation/accounts/login.js" type="module"></script>
+    <script src="../../aggregation/data_classes/user.js" type="module"></script>
+    <script src="../../persistence/db/documents.js" type="module"></script>
     <script src="" defer></script>
 </head>
 
@@ -25,14 +28,14 @@ $session = new Session();
         <div id='login'>
             <h1>Hey! Welcome back!</h1>
 
-            <form>
+            <form id="Loginform" action="" method="post">
                 <label for='username'>Username</label><br>
-                <input type='text' id='username' name="username"><br>
+                <input type='text' id='logusername' name="username"><br>
                 <label for='password'>Password</label><br>
-                <input type='password' id='password' name="password"><br>
+                <input type='password' id='logpassword' name="password"><br>
                 <label for='remember'>Remember Me</label>
                 <input type="checkbox" id="remember" value="true">
-                <input type='submit' class='btn btn-regular' value='sign-in'>
+                <input type='submit' id='submit' class='btn btn-regular' value='sign-in'>
                 <hr>
                 <p>Don't have an account? <a href='register.php'>Sign Up</a></p>
                 <p><a href='#'>Forgot password?</a></p>
