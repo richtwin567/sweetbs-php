@@ -21,32 +21,65 @@ $session = new Session();
 </head>
 
 <body>
-    <?php include("../global/templates/header.php");?>
-        <main>
+    <?php include("../global/templates/header.php"); ?>
+    <main>
+        <img id="feature-img" src="../global/images/signup2.jpg" alt="sign up">
+        <div id="sign-up-div">
+            <h1 id="page-title">Sign Up</h1>
             <!-- Dynamic Content goes here-->
             <form id="Registerform" action="" method="post">
+                <div id="realname">
+                    <div>
+                        <label for="fname">First name</label>
+                        <input type="text" name="fname" id="fname">
+                    </div>
+                    <div>
+                        <label for="lname">Last name</label>
+                        <input type="text" name="lname" id="lname">
+                    </div>
+                </div>
+                <label>UserName</label>
+                <input type="text" id="username" name="username" required aria-required="true" pattern="[A-Za-z0-9]+">
+                <label>Email</label>
+                <input type="email" id="email" name="email" required aria-required="true">
+                <label>Password</label>
+                <input type="password" id="password" name="password" required aria-required="true">
 
-            <div id="register">
-                <label>UserName</label><br />
-                <input type="text" id="username" name="username" required aria-required="true" pattern="[A-Za-z0-9]+"><br />
-                <label>Email</label><br />
-                <input type="email" id="email" name="email" required aria-required="true"><br />
-                <label>Password</label><br />
-                <input type="password" id="password" name="password" required aria-required="true"></br />
-                <label>First Name</label><br />
-                <input type="text" id="fname" name="fname" required aria-required="true"></br />
-                <label>Last Name</label><br />
-                <input type="text" id="lname" name="lname" required aria-required="true"></br />
-                <label>Card Details</label><br />
-                <input type="text" id="card" name="card" required aria-required="true"></br />
-                <label>Default Delivery Address</label><br />
-                <input type="text" id="address" name="address" required aria-required="true"></br />
-                <input type="submit" id="submit" value="submit">
-            </div>
+                <label>Default Delivery Address</label>
+                <textarea name="address" id="address" cols="30" rows="10"></textarea>
 
+                <h4>Card Details</h4>
+                <div id="card-num-cvv-group">
+                    <div>
+                        <label for="card-num">Card number</label>
+                        <input type="number" name="card-num" id="card-num">
+                    </div>
+                    <div>
+                        <label for="cvv">CVV</label>
+                        <input type="number" name="cvv" id="cvv">
+                    </div>
+                </div>
+                <div id="name-expiry-date-group">
+                    <div>
+                        <label for="name-on-card">Name on Card</label>
+                        <input type="text" name="name-on-card" id="name-on-card">
+                    </div>
+                    <div>
+                        <label for="expiry-date">Expiry Date</label>
+                        <input type="date" me="expiry-date" id="expiry-date">
+                    </div>
+                </div>
+                <input type="submit" id="submit" value="Sign up" class="btn btn-regular">
+                <hr>
+                <div id="has-account">
+                    <p>Already have an account? </p>
+                    <a id="to-login-link" href="login.php">Login</a>
+                </div>
             </form>
-        </main>
-    <?php include("../global/templates/footer.php");?>
+        </div>
+
+    </main>
+    <?php include("../global/templates/footer.php"); ?>
 </body>
 
 </html>
