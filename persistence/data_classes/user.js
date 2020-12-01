@@ -1,5 +1,5 @@
 // Imports
-const ObjectID = require('mongodb').ObjectID;
+import { ObjectID } from 'mongodb';
 /** 
  *  This module defines the classes relating to the User class
  * @module user 
@@ -106,4 +106,4 @@ class Admin extends User{
 // console.log(testUser.getPassword());
 
 // Exporting classes
-module.exports = {Customer, Admin};
+export {Customer, Admin};

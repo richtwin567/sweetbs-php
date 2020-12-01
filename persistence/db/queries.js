@@ -3,7 +3,6 @@
 const { ObjectId } = require("mongodb");
 const order = require("../data_classes/order");
 const MongoClient = require('mongodb').MongoClient;
-const { OrderDocuments } = require('./documents');
 
 
 /**
