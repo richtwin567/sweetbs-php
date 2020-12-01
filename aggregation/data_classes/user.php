@@ -8,12 +8,12 @@ abstract class User
     private string $password;
     private string $type;
 
-    public function __construct(string $username, string $email, string $password)
+    public function __construct(string $username, string $email, string $password, $id=null)
     {
         $this->username = $username;
         $this->email = $email;
         $this->password = $password;
-        $this->id = null;
+        $this->id = $id;
     }
 
     public function getType()

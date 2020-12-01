@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @import "../../global/styles/colours.css";
+@import "../../global/styles/buttons.css";
 
 
 *{
@@ -106,3 +107,15 @@ svg path {
 
 }
 
+#access-denied-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4em;
+}
+
+#access-denied-page img{
+    width: 90%;
+    height: 90%;
+}
