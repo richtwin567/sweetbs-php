@@ -131,6 +131,7 @@ function handleUsersRequest(req, res) {
 					.insertOneCustomer(JSON.parse(body))
 					.catch((err) => console.log(err));
 				setResponseHeaders(res);
+				res.write("ok");
 				res.end();
 			});
 			break;

@@ -75,7 +75,7 @@ function createRegisteredCustomer(e) {
 		.then((res) => {
 			console.log(res);
 			if (res.ok) {
-				fetch("../aggregation/accounts/session_handler.php", {
+				fetch("../../aggregation/accounts/session_handler.php", {
 					method: "POST",
 					body: RegisteredCustomer.toMongoJSON(),
 				});
@@ -83,7 +83,7 @@ function createRegisteredCustomer(e) {
 				console.log(res);
 			}
 		})
-		.then((_) => window.location.href="index.php")
+		//.then((_) => window.location.href="index.php")
 		.catch((err) => console.log(err));
 }
 /* 
