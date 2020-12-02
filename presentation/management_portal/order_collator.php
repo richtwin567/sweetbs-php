@@ -4,10 +4,10 @@ session_start();
 include_once("../../aggregation/data_classes/user.php");
 $user = unserialize($_SESSION["user"]);
 ?>
+
 <?php if($user!=null && $user->getType()=="Admin"):?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,7 +62,6 @@ $user = unserialize($_SESSION["user"]);
 </body>
 
 </html>
-
 
 <?php endif;?>
 
