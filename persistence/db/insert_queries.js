@@ -41,7 +41,8 @@ class CustomerInsertQuery extends InsertQuery {
 			new Address(customerDocument["delivery_address"])
 		);
 		let ud = new UserDocuments();
-		let cd = ud.createCustomerDocument(c);
+        let cd = ud.createCustomerDocument(c);
+        console.log(cd);
 		let result = await userCollection.insertOne(cd);
 		console.log(
 			`${result.insertedCount} documents were inserted with the _id: ${result.insertedId}`
