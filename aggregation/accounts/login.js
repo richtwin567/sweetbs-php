@@ -112,14 +112,14 @@ if (getURL() == registerpagepath) {
     signup_form.addEventListener("onsubmit", createRegisteredCustomer);
 }
 	
-if (getURL() == loginpagepath) {
+/*if (getURL() == loginpagepath) {
 	console.log("deh yah2");
 	loginform.addEventListener("submit", (event) => {
 		console.log("here2");
 		signinRegisteredCustomer(logusername.value, logpassword.value);
 		event.preventDefault();
 	});
-}
+}*/
 
 if (getURL() == forgot_pwpagepath) {
 	console.log("deh yah3");
