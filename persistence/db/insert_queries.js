@@ -78,6 +78,11 @@ class OrderInsertQuery extends InsertQuery {
 	 */
 	async insertOneOrder(document) {
         console.log(document);
+        for (var oitem of document) {
+            oitem["menuitem"]=new ObjectID(oitem["menuitem"]);
+            
+        }
+        console.log(document);
 		await this.client.connect();
 		const collection = this.client.db("sweetb").collection("orders");
 		let result = await collection.insertOne(document);
