@@ -38,7 +38,7 @@ class CustomerInsertQuery extends InsertQuery {
 				customerDocument["realname"]["firstname"],
 				customerDocument["realname"]["lastname"]
 			),
-			new Address(customer["delivery_address"])
+			new Address(customerDocument["delivery_address"])
 		);
 		let ud = new UserDocuments();
 		let cd = ud.createCustomerDocument(c);
