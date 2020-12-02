@@ -94,6 +94,8 @@ function handleOrdersRequest(req, res) {
 		case "POST":
 			let orderq = new OrderInsertQuery();
 			orderq.insertOneOrder(req).catch(err=>console.log(err));
+			setResponseHeaders(res);
+			res.end();
 			break;
 		case "PATCH":
 			break;
@@ -113,7 +115,11 @@ function handleUsersRequest(req,res) {
 			let insertQueryObj = new CustomerInsertQuery();
 			// Assuming that the request contains the document to be inserted
 			// This may not be the most secure solution
-			insertQueryObj.insertOneCustomer(req).catch(err=>console.log(err));
+			console.log(req);
+			const reqUrl = url.parse(req.url, true);
+			insertQueryObj.insertOneCustomer(reqUrl.query).catch(err=>console.log(err));
+			setResponseHeaders(res);
+			res.end();
 			break;
 		case "PATCH":
 			break;
@@ -122,4 +128,12 @@ function handleUsersRequest(req,res) {
 		default:
 			break;
 	}
+}
+
+
+function setResponseHeaders(response) {
+	response.setHeader("Content-Type", "Application/json");
+	response.setHeader("Access-Control-Allow-Origin", "*");
+	response.setHeader("Access-Control-Allow-Headers", "X-Requested-With");
+	response.setHeader("Access-Control-Allow-Headers", "Content-Type");
 }
