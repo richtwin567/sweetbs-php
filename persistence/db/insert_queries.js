@@ -78,7 +78,7 @@ class OrderInsertQuery extends InsertQuery {
 	 */
 	async insertOneOrder(document) {
         console.log(document);
-        for (var oitem of document) {
+        for (var oitem of document["items"]) {
             oitem["menuitem"]=new ObjectID(oitem["menuitem"]);
             
         }
