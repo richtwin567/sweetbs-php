@@ -14,8 +14,9 @@
         <div id='acc-details'>
             <h3>My Account</h3>
             <ul>
-                <li><a href='my_account.php'>Personal</a></li><!-- 
-                <li><a href=''>My Favorite Carts</a></li> -->
+                <li><a href='my_account.php'>Personal</a></li> 
+                <li><a href='login.php'>Login</a></li>
+                <li><a href='register.php'>Sign up</a></li>
             </ul>
         </div>
         <div id='shop'>

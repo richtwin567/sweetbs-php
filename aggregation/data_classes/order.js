@@ -30,7 +30,8 @@ class Order {
         for (var oitem of this.getOrderItems()) {
             jsonarray.push(oitem.toObject());
         }
-        return JSON.stringify({customer:this.getCustomer(),items:jsonarray});
+        console.log(this.getCustomer());
+        return JSON.stringify({customer:this.getCustomer()["username"],items:jsonarray});
     }
 }
 
