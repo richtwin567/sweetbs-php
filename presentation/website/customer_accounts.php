@@ -1,6 +1,15 @@
 <?php
 include("../global/data_classes/session.php");
-$session = new Session();
+session_start();
+/*if(session.isLoggedin()){
+    $user = $_SESSION["user"];
+    $fname = $user.getRealname().getFirstName();
+    $lname = $user.getRealname().getLastName();
+    $email = $user.getEmail();
+    $address = $user.getDeliveryAddress().getAddress();
+    $cardname = $user.getCard().getNameOnCard();
+    $cardnum = substr($user.getCard().getCardNumber(), -4); //Returns the last four digits of the card number
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -36,20 +45,20 @@ $session = new Session();
                         <div id="realname">
                             <div>
                                 <label for="fname">First name</label>
-                                <input type="text" name="fname" id="fname">
+                                <input type="text" name="fname" id="fname" value= "<?php //echo $fname; ?>">
                             </div>
                             <div>
                                 <label for="lname">Last name</label>
-                                <input type="text" name="lname" id="lname">
+                                <input type="text" name="lname" id="lname" <?php //echo $lname; ?>>
                             </div>
                         </div> 
                         <div id="email-pass-addr-group">
                             <label>Email</label>
-                            <input type="email" id="email" name="email" required aria-required="true">
+                            <input type="email" id="email" name="email" required aria-required="true" value= "<?php //echo $email; ?>">
                             <label>Default Delivery Address</label>
-                            <textarea name="address" id="address" cols="30" rows="10"></textarea>
+                            <textarea name="address" id="address" cols="30" rows="10" value="<?php //echo $address; ?>"></textarea>
                             <label>Password</label>
-                            <input type="password" id="password" name="password" required aria-required="true">
+                            <input type="password" id="password" name="password" required aria-required="true" value="**********">
                         </div>   
                     </section>
                     <section id="section2">
@@ -57,9 +66,9 @@ $session = new Session();
                         <div id="card-num-name-group">
                             <div>
                                 <label for="name-on-card">Name on Card</label>
-                                <input type="text" name="name-on-card" id="name-on-card">
+                                <input type="text" name="name-on-card" id="name-on-card" value="<?php //echo $cardname; ?>">
                                 <label for="card-num">Card number</label>
-                                <input type="number" name="card-num" id="card-num">
+                                <input type="number" name="card-num" id="card-num" value="<?php //echo "(Last four digits)" . $cardnum; ?>">
                             </div>
                             <div>
                         
