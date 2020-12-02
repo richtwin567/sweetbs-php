@@ -22,7 +22,10 @@ class UserDocuments extends Document {
 		const customerDocument = {
 			username: customerObj.getUsername(),
 			email: customerObj.getEmail(),
-            password: customerObj.getPassword(),
+            password: {
+                hashed_password:customerObj.getPassword(),
+                salt:customerObj.getSalt()
+            },
             type: "Customer",
 			realname: {
 				firstName: customerName.getFirstName(),
