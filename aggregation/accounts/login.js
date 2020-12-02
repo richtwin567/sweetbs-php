@@ -1,5 +1,5 @@
 import { Customer, RealName, Card, Address  } from '../data_classes/user.js';
-//import { authUsers } from './auth.js';
+import { authUsers } from './auth.js';
 
 //Variables from the register form
 
@@ -83,17 +83,6 @@ function createRegisteredCustomer(e) {
 		})
 		.then((_) => window.location.href="index.php")
 		.catch((err) => console.log(err));
-}
-
-async function authUsers(queryString) {
-	console.log("ddd");
-	let response = await fetch("https://sweetbs-backend.herokuapp.com/users"+queryString);
-	if (response.ok){
-        return response.json();
-    }else{
-        const message = `An error has occured: ${response.status}`;
-        throw new Error(message);
-    } 
 }
 
 /**
