@@ -1,5 +1,5 @@
 <?php
-include("../global/data_classes/session.php");
+//include("../global/data_classes/session.php");
 //$session = new Session();
 //$user = $session->whoIsLoggedIn();
 ?>

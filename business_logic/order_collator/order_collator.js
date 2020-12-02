@@ -2,10 +2,15 @@
 import { MenuItem } from '../../aggregation/data_classes/menu_item.js';
 import { OrderItem } from '../../aggregation/data_classes/order_item.js';
 
+// Declaring global variables
+var completedCount = 0;
+var pendingCount = 0;
+var completed = document.getElementById('completed-orders');
+var pending = document.getElementById('pending-orders');
+
 window.addEventListener('load', function () {
-    console.log('I work');
     // Refresh the data for the collator every minute
-    setInterval(updateCollator(), 60000);
+    setInterval(updateCollator(), 30000);
 });
 
 /**
@@ -13,15 +18,20 @@ window.addEventListener('load', function () {
  * This function is run every minute to refresh the order collator with new orders
  */
 async function updateCollator() {
-    processCollapsibleOrders();
-
     // Initializing key variables
     let orderCount = document.getElementById('order-count');
     let ordersArr = await fetchOrders();
     let menuItems = await fetchMenuItems();
+    let totalOrders = ordersArr.length;
+    pendingCount = totalOrders;
 
     // Update the number of orders
-    orderCount.innerHTML = ordersArr.length;
+    orderCount.innerHTML = totalOrders;
+    completed.innerHTML = completedCount;
+    pending.innerHTML = pendingCount;
+
+    // Handle the collapsible orders
+    processCollapsibleOrders();
 
     // Display basic order
     let orders = document.getElementById('new-orders');
@@ -29,7 +39,6 @@ async function updateCollator() {
     for (let index = 0; index < ordersArr.length; index++) {
         // Create the array of order items to be displayed
         let orderItems = createOrderItemArray(ordersArr[index].items, menuItems);
-
         // Display the orders
         displayOrder(orders, index, ordersArr[index].customer, orderItems);
     }
@@ -44,6 +53,7 @@ function createOrderItemArray(orderItems, menuItems) {
             orderItemArr.push(orderItem);
         }
     }
+    return orderItemArr;
 }
 
 function menuItemIdSearch(menuItems, desiredId) {
@@ -82,9 +92,9 @@ async function fetchMenuItems() {
         .catch((err) => console.log(err));
 }
 
-async function fetchOrders(){
+async function fetchOrders() {
     let response = await fetch('https://sweetbs-backend.herokuapp.com/orders');
-    if (response.ok){
+    if (response.ok) {
         return response.json();
         // If any unexpected errors happen while fetching, an error is thrown
     } else {
@@ -104,6 +114,8 @@ function processCollapsibleOrders() {
         let element = event.target;
         // Traverse up the parent nodes
         let orderOverview = element.parentNode.parentNode.parentNode.nextElementSibling;
+
+        // Select
         if (element && element.classList.contains('show-hide')) {
             animateCollapsibleArrow(element);
             displayCollapsibleOrder(orderOverview);
@@ -112,11 +124,13 @@ function processCollapsibleOrders() {
             // Selecting the ul for the collapsible details
             let collapsibleDetails = element.parentNode.parentNode;
             let checkTick = collapsibleDetails.children[4].children[0];
+            // console.log(collapsibleDetails.parentNode);
             checkOffItem(element, checkTick);
 
-        }else if (element.type == 'checkbox' && element.classList.contains('check-off')){
-            let checkOffTick = element.parentNode.parentNode.nextElementSibling.children[0].children[0];
-            checkOffOrder(element, checkOffTick);
+        } else if (element.type == 'checkbox' && element.classList.contains('check-off')) {
+            let tickParent = element.parentNode.parentNode;
+            let checkOffTick = tickParent.nextElementSibling.children[0].children[0];
+            checkOffOrder(tickParent, element, checkOffTick, completedCount, pendingCount);
         }
 
     });
@@ -148,7 +162,6 @@ function displayCollapsibleOrder(element) {
  * @returns {Boolean} True if the item has been checked, and false if not
  */
 function checkOffItem(checkbox, tick) {
-    console.log('Im here');
     if (checkbox.checked) {
         tick.src = '../global/icons/done-24px.svg';
         return true;
@@ -158,12 +171,23 @@ function checkOffItem(checkbox, tick) {
     }
 }
 
-function checkOffOrder(checkbox, tick){
-    if(checkbox.checked){
-        tick.src = '../global/icons/done_all-black-48dp.svg'
-    }else{
-        tick.src = '../global/icons/grayed_checkmark.png'
+function checkOffOrder(tickParent, checkbox, tick) {
+    if (checkbox.checked) {
+        completedCount +=1;
+        console.log(completedCount);
+        pendingCount -= 1;
+        tickParent.classList.add('checked-off');
+        tick.src = '../global/icons/done_all-blue-48dp.svg'
+    } else {
+        completedCount -=1;
+        pendingCount += 1;
+        tick.src = '../global/icons/done_all-grey-48dp.svg'
+        tickParent.classList.remove('checked-off');
     }
+    
+    // Update the values in the overview section
+    completed.innerHTML = completedCount;
+    pending.innerHTML = pendingCount;
 }
 
 
@@ -195,7 +219,7 @@ function displayOrder(ordersDiv, orderIndex, customerUsername, orderItems) {
                 <li>${customerUsername}</li>
             </ul>
             <ul class='visible-order'>
-                <li><img src='../global/icons/grayed_checkmark.png'></li>
+                <li><img src="../global/icons/done_all-grey-48dp.svg" alt='done all'></li>
                 <li class='show-hide'><img src='../global/icons/expand_more-black-48dp.svg' class='show-hide'></li>
             </ul>
         </div>
