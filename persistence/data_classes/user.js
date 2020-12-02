@@ -1,5 +1,5 @@
 // Imports
-import { ObjectID } from 'mongodb';
+const ObjectID = require("mongodb").ObjectID;
 /** 
  *  This module defines the classes relating to the User class
  * @module user 
