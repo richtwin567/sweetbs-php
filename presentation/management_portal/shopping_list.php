@@ -3,7 +3,7 @@ session_start();
 include_once("../../aggregation/data_classes/user.php");
 $user = unserialize($_SESSION["user"]);
 ?>
-<?php //if($user!=null && $user->getType()=="Admin"):?>
+<?php if($user!=null && $user->getType()=="Admin"):?>
 <!DOCTYPE html>
 <html>
 
@@ -48,8 +48,8 @@ $user = unserialize($_SESSION["user"]);
 
 <?php
 
-//if($user==null || $user->getType()=="Customer"){
-    //include("../global/templates/access_denied.php");
-//}
+if($user==null || $user->getType()=="Customer"){
+    include("../global/templates/access_denied.php");
+}
 
 ?>
