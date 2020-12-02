@@ -20,6 +20,10 @@ class OrderItem {
 		return this.#item;
 	}
 
+	toObject() {
+		return { menuitem: this.getMenuItem(), qty: this.getQty() };
+	}
+
 	async getTotal() {
 		return getMenuItems("?_id=" + this.getMenuItem())
 			.then((i) => {

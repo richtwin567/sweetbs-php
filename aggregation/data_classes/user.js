@@ -169,7 +169,7 @@ class Customer extends User{
         this.#card=card;
         this.#deliveryAddress = address;
         this.#name = realname;
-        this.#type = "Customer";
+        this.type = "Customer";
     }
 
     getCard(){
@@ -186,4 +186,4 @@ class Customer extends User{
     
 }
 
-export {Customer,User,Address,Admin,Card,RealName};
+export{Customer, User, Admin, RealName, Card, Address};

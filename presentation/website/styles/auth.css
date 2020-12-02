@@ -2,7 +2,7 @@
 
 main{
     height: 85vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
@@ -52,8 +52,7 @@ hr{
 }
 
 main #feature-img{
-    background-image: url("../../static/assets/images/login-img.jpg");
     float:right;
-    width: 50vw;
-    background-size: cover;
+    width: 60vw;
+    object-fit: cover;
 }

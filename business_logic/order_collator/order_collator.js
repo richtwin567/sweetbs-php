@@ -43,9 +43,6 @@ function createOrderItemArray(orderItems, menuItems) {
             let orderItem = new OrderItem(menuItem, orderItems[i].qty);
             orderItemArr.push(orderItem);
         }
-    }
-    return orderItemArr;
-}
 
 function menuItemIdSearch(menuItems, desiredId) {
     for (const menuItem of menuItems) {
@@ -57,7 +54,7 @@ function menuItemIdSearch(menuItems, desiredId) {
 }
 
 async function fetchMenuItems() {
-    return await fetch("http://127.0.0.1:3000/menuitems", {
+    return await fetch("https://sweetbs-backend.herokuapp.com/menuitems", {
         method: "GET",
         headers: {
             "Content-Type": "Application/json",
@@ -83,9 +80,9 @@ async function fetchMenuItems() {
         .catch((err) => console.log(err));
 }
 
-async function fetchOrders() {
-    let response = await fetch('http://127.0.0.1:3000/orders');
-    if (response.ok) {
+async function fetchOrders(){
+    let response = await fetch('https://sweetbs-backend.herokuapp.com/orders');
+    if (response.ok){
         return response.json();
         // If any unexpected errors happen while fetching, an error is thrown
     } else {

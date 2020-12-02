@@ -28,8 +28,13 @@ $session = new Session();
                     <h2 id="page-title">Your Cart</h2>
                 </div>
                 <?php include("../global/scripts/spinner.php"); ?>
-
-                <div id="cart-list"></div>
+                <div class="hidden empty-cart">
+                    <img src="../global/images/empty2.svg" alt="empty cart">
+                    <h2>Hmm...your cart is empty</h2>
+                    <p>Why not check out our menu?</p>
+                    <a href="menu.php" class="btn btn-call-to-action">SHOP</a>
+                </div>
+                <div class="cart-list"></div>
             </div>
             <div id="card-and-checkout">
                 <!-- <div class="cpanel" id="card">
@@ -65,10 +70,9 @@ $session = new Session();
                             <p id="grand-total" class="subtotal"></p>
                         </div>
                     </div>
-                    <form action="success.php" id="order-form" method="post">
-                        <div id="checkout-btn-div">
-                            <input type="submit" value="CHECKOUT" id="checkout-btn" name="checkout-btn" class="btn btn-regular"></div>
-                    </form>
+                    <div id="checkout-btn-div">
+                        <button id="checkout-btn" class="btn btn-regular">CHECKOUT</button>
+                    </div>
                 </div>
             </div>
         </div>

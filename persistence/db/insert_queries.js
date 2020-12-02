@@ -53,11 +53,17 @@ class OrderInsertQuery extends InsertQuery {
      * Inserts one order into the database
      * @param {object} document The JSON object of an order
      */
+<<<<<<< HEAD
     async insertOneOrder(orderDocument) {
         await this.client.connect();
         let orderCollection = this.client.db('sweetb').collection('orders');
         let result = await orderCollection
         .insertOne(orderDocument);
+=======
+    async insertOneOrder(document){
+        const collection = this.client.db("sweetb").collection('orders');
+        let result = await collection.insertOne(document);
+>>>>>>> 2069467065b9a3d9439d329b8543dd4eabecf2fb
         console.log(`${result.insertedCount} documents were inserted with the _id: ${result.insertedId}`)
         this.client.close();
     }
@@ -66,11 +72,18 @@ class OrderInsertQuery extends InsertQuery {
      * Inserts multiple orders into the database
      * @param {Array} documentsArr An array containing JSON objects representing an order
      */
+<<<<<<< HEAD
     async insertManyOrders(orderDocumentArr) {
         const options = { ordered: true };
         await this.client.connect();
         let orderCollection = this.client.db('sweetb').collection('orders');
         const result = await orderCollection.insertMany(orderDocumentArr, options);
+=======
+    async insertOrders(documentsArr){
+        const options = { ordered: true };
+        const collection = this.client.db("sweetb").collection('orders');
+        const result = await collection.insertMany(documentsArr, options);
+>>>>>>> 2069467065b9a3d9439d329b8543dd4eabecf2fb
         console.log(`${result.insertedCount} documents were inserted`);
         this.client.close();
     }

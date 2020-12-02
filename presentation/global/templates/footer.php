@@ -14,15 +14,15 @@
         <div id='acc-details'>
             <h3>My Account</h3>
             <ul>
-                <li><a href=''>Personal</a></li>
-                <li><a href=''>My Favorite Carts</a></li>
+                <li><a href='my_account.php'>Personal</a></li><!-- 
+                <li><a href=''>My Favorite Carts</a></li> -->
             </ul>
         </div>
         <div id='shop'>
             <h3>Shop</h3>
             <ul>
                 <li><a href='menu.php'>Menu</a></li>
-                <li><a href=''>Order</a></li>
+                <li><a href='menu.php'>Order</a></li>
                 <li><a href='cart.php'>My Cart</a></li>
             </ul>
         </div>
