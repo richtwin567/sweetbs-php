@@ -120,6 +120,7 @@ function handleUsersRequest(req, res) {
 			var body = "";
 			req.on("readable", () => body + req.read());
 			req.on("end", () => {
+				console.log(body);
 				insertQueryObj
 					.insertOneCustomer(JSON.parse(body))
 					.catch((err) => console.log(err));
