@@ -93,7 +93,7 @@ class Address {
 	#addressLines;
 
 	constructor(addressLines) {
-		this.#addressLines = this.#parseAddressLines(addressLines);
+		this.#addressLines = this.parseAddressLines(addressLines);
 	}
 
 	/**
@@ -104,10 +104,10 @@ class Address {
 	}
 
 	setAddress(newAddress) {
-		this.#addressLines = this.#parseAddressLines(newAddress);
+		this.#addressLines = this.parseAddressLines(newAddress);
 	}
 
-	#parseAddressLines(lines) {
+	parseAddressLines(lines) {
 		return lines.split("\n").forEach((line) => line.trim());
 	}
 }
@@ -187,7 +187,7 @@ class Customer extends User{
 	}
 	
 	toMongoJSON(){
-		jsonobj = {
+		var jsonobj = {
 			username:this.getUsername(),
 			email:this.getEmail(),
 			password:this.getPassword(),

@@ -26,7 +26,8 @@ class CustomerInsertQuery extends InsertQuery {
 	}
 
 	async insertOneCustomer(customerDocument) {
-		// Allow the client to connect before making query
+        // Allow the client to connect before making query
+        console.log(customerDocument);
 		await this.client.connect();
 		let userCollection = this.client.db("sweetb").collection("users");
 		let c = new Customer(
@@ -93,20 +94,5 @@ class OrderInsertQuery extends InsertQuery {
 		console.log(`${result.insertedCount} documents were inserted`);
 	}
 }
-
-/*
-const testCustomerObj = new Customer('BobAnderson420', 'test@bob.com', 'supersecretpass', null, null);
-console.log(testCustomerObj.getPassword());
-const testCustomerDocument = {
-    _id: new ObjectID(),
-    username: testCustomerObj.getUsername(),
-    email: testCustomerObj.getEmail(),
-    password: testCustomerObj.getPassword(),
-    type: 'Customer'
-}
-
-let custQuery = new CustomerInsertQuery();
-custQuery.insertOneCustomer(testCustomerDocument);
- */
 
 module.exports = { OrderInsertQuery, CustomerInsertQuery };
