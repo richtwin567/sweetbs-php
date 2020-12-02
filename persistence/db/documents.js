@@ -25,8 +25,8 @@ class UserDocuments extends Document {
             password: customerObj.getPassword(),
             type: "Customer",
 			realname: {
-				firstName: customerName.getFirstName(),
-				lastName: customerName.getLastName(),
+				firstname: customerName.getFirstName(),
+				lastname: customerName.getLastName(),
 			},
             //delivery_address: deliveryAddress.getAddress(),
             
