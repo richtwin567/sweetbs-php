@@ -2,11 +2,11 @@
 
 abstract class User
 {
-    private ?string $id;
-    private string $username;
-    private string $email;
-    private string $password;
-    private string $type;
+    private $id;
+    private $username;
+    private $email;
+    private $password;
+    private $type;
 
     public function __construct(string $username, string $email, string $password, $id=null)
     {
@@ -68,8 +68,8 @@ class Admin extends User
 
 class RealName
 {
-    private string $firstname;
-    private string $lastname;
+    private $firstname;
+    private $lastname;
 
     /**
      * Instantiates the RealName class with a User's first name and last name.
@@ -111,7 +111,7 @@ class RealName
 class Address
 {
 
-    private array $addressLines;
+    private $addressLines;
 
     public function __construct(string $addressLines)
     {
@@ -144,10 +144,10 @@ class Address
 class Card
 {
 
-    private string $nameOnCard;
-    private int $cardNumber;
-    private int $cvv;
-    private string $expiryDate;
+    private $nameOnCard;
+    private $cardNumber;
+    private $cvv;
+    private $expiryDate;
 
     public function __construct($name, $cardnum, $cvv, $expirydate)
     {
@@ -201,9 +201,9 @@ class Card
 class Customer extends User
 {
 
-    private Card $card;
-    private RealName $name;
-    private Address $deliveryAddress;
+    private $card;
+    private $name;
+    private $deliveryAddress;
 
     public function __construct($username, $email, $password, $card, $realname, $address)
     {
