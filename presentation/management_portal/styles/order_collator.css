@@ -133,6 +133,9 @@ hr{
     align-items: center;
 }
 
+.show-hide img{
+    width:100%;
+}
 #pastry img{
     height:50px;
 }
