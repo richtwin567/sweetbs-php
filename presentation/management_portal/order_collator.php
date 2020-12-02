@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include_once("../../aggregation/data_classes/user.php");
 $user = unserialize($_SESSION["user"]);
@@ -63,12 +64,11 @@ $user = unserialize($_SESSION["user"]);
 </html>
 
 
-<?php //endif;?>
+<?php endif;?>
 
 <?php 
 
 if($user==null || $user->getType()=="Customer"){
     include("../global/templates/access_denied.php");
 }
-endif;
 ?>
