@@ -1,0 +1,4 @@
+USERNAME = "admin_COMP2140"
+PASSWORD = "W62aZqXfeH4RrYkd"
+CLUSTERURL = "comp2140-project-2020-c.yvx5q.mongodb.net"
+AUTHMETH = "DEFAULT"
