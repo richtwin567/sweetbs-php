@@ -1,17 +1,14 @@
 //This doesnt nothing yet
-/*async function authUsers(queryString) {
-	return await fetch("http://127.0.0.1:3000/users"+queryString, {
-		method: "GET"
-	})
-	.then((res) => (res.status == 200 ? true : false))
-	.then(res => console.log(res.status))
-	.catch((err) => {
-		console.log(err);;
-		return;
-	});
-}*/
-
-async function authUsers(queryString){
+async function authUsers(queryString) {
+	let response = await fetch("https://sweetbs-backend.herokuapp.com/users"+queryString);
+	if (response.ok){
+        return response.json();
+    }else{
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+    } 
+}
+/*async function authUsers(queryString){
 	console.log("hhh");
    	let response = fetch("http://127.0.0.1:3000/users"+queryString);
     if (response.ok){
@@ -21,10 +18,10 @@ async function authUsers(queryString){
         throw new Error(message);
     } 
 }
-
+*/
 /*insertString = "username="+someusername+"&email="+someemail+"&password="+somepas+"&type="+sometype
 async function insertUserintoDB(insertString) {
-	return await fetch("http://127.0.0.1:3000/users"+insertString.json(), {
+	return await fetch("https://sweetbs-backend.herokuapp.com/users"+insertString.json(), {
 		method: "POST"
 	})
 }*/

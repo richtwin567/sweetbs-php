@@ -51,6 +51,9 @@ class User{
         this.email = newEmail;
     }
 
+    getSalt(){
+        return this.salt;
+    }
     /**
      * Sets the new password hash for the user's password and generates a new salt.
      * @param {string} newPassword 

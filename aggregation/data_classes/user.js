@@ -43,6 +43,8 @@ class User {
 	setPassword(newPassword) {
 		this.#password = newPassword;
 	}
+
+
 }
 
 class Admin extends User {
@@ -182,7 +184,28 @@ class Customer extends User{
 
     getRealName(){
         return this.#name;
-    }
+	}
+	
+	toMongoJSON(){
+		jsonobj = {
+			username:this.getUsername(),
+			email:this.getEmail(),
+			password:this.getPassword(),
+			type:this.getType(),
+			realname:{
+				firstname: this.getRealName().getFirstName(),
+				lastname: this.getRealName().getLastName(),
+			},
+			delivery_address: this.getDeliveryAddress().getAddress(),
+			card: {
+				cvv: this.getCard().getCVV(),
+				expiry_date: this.getCard().getExpiryDate(),
+				name_on_card: this.getCard().getNameOnCard(),
+				card_number: this.getCard().getCardNumber()
+			}
+		}
+		return JSON.stringify(jsonobj);
+	}
     
 }
 
