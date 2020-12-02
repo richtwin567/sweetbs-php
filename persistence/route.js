@@ -123,7 +123,7 @@ function handleUsersRequest(req, res) {
 			req.on("end", () => {
 				console.log(body);
 				if (body.endsWith("null")){
-					body = body.slice(0,body.length-5);
+					body = body.slice(0,body.length-4);
 				}
 				console.log(body);
 
