@@ -29,38 +29,42 @@
 }
 
 #innercont #header h2:last-child{
-  padding-left: 7%;
+  padding-left: 13%;
 }
 
 #innercont .shoplist-row{
+  width: 100%;
   max-height: 200px;
   padding-top: 10px;
   padding-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: row;
+  gap: 25%;
   transition: 0.3s;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
 }
 
 #innercont .shoplist-row:hover{
   cursor: pointer;
+  width: 90%;
 }
 
 #innercont .shoplist-row p{
+  float: left;
+  width:  100px;
+  height: 100px;
+  object-fit: cover;
   font-size: 1.7em;
-}
-#innercont .shoplist-row p:first-of-type{
-  margin-left: 16%;
-  padding-top: 40px;
-}
-#innercont .shoplist-row p:last-of-type{
-  margin-left: 20%;
-  padding-top: 80px;
+  padding-top: 60px;
 }
 
-
-#innercont .shoplist-row img{
-  width: 12%;
+#innercont .shoplist-row .item-img{
+  float: left;
+  width:  13%;
   height: 160px;
+  object-fit: cover;
   padding-left: 10px;
 }
 
@@ -88,4 +92,41 @@
   cursor: pointer;
   height: 60px;
   width: 11%;
+}
+
+#checked{
+  padding-top: 60px;
+  width: 80%;
+  height: auto;
+}
+
+
+.hidden{
+  display: none;
+}
+
+.removed-item {
+    animation: removed-item-animation .7s cubic-bezier(.65,-0.02,.72,.29);
+}
+
+@keyframes removed-item-animation {
+   0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateX(50px);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateX(-800px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-800px);
+    }
 }

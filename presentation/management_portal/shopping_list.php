@@ -1,9 +1,9 @@
 <?php
-include("../global/data_classes/session.php");
-$session = new Session();
-$user = $session->whoIsLoggedIn();
+// include("../global/data_classes/session.php");
+// $session = new Session();
+// $user = $session->whoIsLoggedIn();
 ?>
-<?php if($user!=null && $user->getType()=="Admin"):?>
+<?php //if($user!=null && $user->getType()=="Admin"):?>
 <!DOCTYPE html>
 <html>
 
@@ -32,7 +32,7 @@ $user = $session->whoIsLoggedIn();
                         <h2>Description</h2>
                     </div>
                 </div>
-                <button id="genbtn">Generate List</button>
+                <!-- <button id="genbtn">Generate List</button> -->
             </div>
         </section>
         <section id='menu-manager'>
@@ -44,12 +44,12 @@ $user = $session->whoIsLoggedIn();
 </html>
 
 
-<?php endif;?>
+<?php //endif;?>
 
 <?php
 
-if($user==null || $user->getType()=="Customer"){
-    include("../global/templates/access_denied.php");
-}
+//if($user==null || $user->getType()=="Customer"){
+    //include("../global/templates/access_denied.php");
+//}
 
 ?>
