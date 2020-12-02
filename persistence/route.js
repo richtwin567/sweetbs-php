@@ -1,9 +1,10 @@
 const http = require("http");
 const url = require("url");
 const ctrl = require("./controller.js");
-const { CustomerInsertQuery, OrderInsertQuery } = require('./db/insert_queries');
-
-
+const {
+	CustomerInsertQuery,
+	OrderInsertQuery,
+} = require("./db/insert_queries");
 
 module.exports = http.createServer((req, res) => {
 	const reqUrl = url.parse(req.url, true);
@@ -89,11 +90,11 @@ function handleOrderItemsRequest(req, res) {
 function handleOrdersRequest(req, res) {
 	switch (req.method) {
 		case "GET":
-			ctrl.getOrders(req,res).catch((err) => console.log(err));
+			ctrl.getOrders(req, res).catch((err) => console.log(err));
 			break;
 		case "POST":
 			let orderq = new OrderInsertQuery();
-			orderq.insertOneOrder(req).catch(err=>console.log(err));
+			orderq.insertOneOrder(req).catch((err) => console.log(err));
 			setResponseHeaders(res);
 			res.end();
 			break;
@@ -106,20 +107,25 @@ function handleOrdersRequest(req, res) {
 	}
 }
 
-function handleUsersRequest(req,res) {
+function handleUsersRequest(req, res) {
 	switch (req.method) {
 		case "GET":
-			ctrl.getUser(req,res).catch(err=>console.log(err));
+			ctrl.getUser(req, res).catch((err) => console.log(err));
 			break;
 		case "POST":
 			let insertQueryObj = new CustomerInsertQuery();
 			// Assuming that the request contains the document to be inserted
 			// This may not be the most secure solution
-			console.log(req);
 			const reqUrl = url.parse(req.url, true);
-			insertQueryObj.insertOneCustomer(reqUrl.query).catch(err=>console.log(err));
-			setResponseHeaders(res);
-			res.end();
+			var body = "";
+			req.on("readable", () => body + req.read());
+			req.on("end", () => {
+				insertQueryObj
+					.insertOneCustomer(JSON.parse(body))
+					.catch((err) => console.log(err));
+				setResponseHeaders(res);
+				res.end();
+			});
 			break;
 		case "PATCH":
 			break;
@@ -129,7 +135,6 @@ function handleUsersRequest(req,res) {
 			break;
 	}
 }
-
 
 function setResponseHeaders(response) {
 	response.setHeader("Content-Type", "Application/json");
