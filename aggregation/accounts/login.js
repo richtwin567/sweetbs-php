@@ -70,18 +70,12 @@ function createRegisteredCustomer(e) {
 	fetch("https://sweetbs-backend.herokuapp.com/users", {
 		method: "POST",
 		body: RegisteredCustomer.toMongoJSON(),
-		headers: {
-			"Content-Type": "Application/json",
-			"Access-Control-Allow-Origin": "*",
-			"Access-Control-Allow-Headers": "X-Requested-With",
-			"Access-Control-Allow-Headers": "Content-Type",
-		},
 	})
 		.catch((err) => console.log(err))
 		.then((res) => {
 			console.log(res);
 			if (res.ok) {
-				fetch("./session_handler.php", {
+				fetch("../aggregation/accounts/session_handler.php", {
 					method: "POST",
 					body: RegisteredCustomer.toMongoJSON(),
 				});
@@ -89,7 +83,7 @@ function createRegisteredCustomer(e) {
 				console.log(res);
 			}
 		})
-		.then((_) => window.location.href("index.php"))
+		.then((_) => window.location.href="index.php")
 		.catch((err) => console.log(err));
 }
 /* 

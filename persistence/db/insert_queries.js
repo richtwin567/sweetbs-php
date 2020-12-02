@@ -26,7 +26,8 @@ class CustomerInsertQuery extends InsertQuery {
 	}
 
 	async insertOneCustomer(customerDocument) {
-		// Allow the client to connect before making query
+        // Allow the client to connect before making query
+        console.log(customerDocument);
 		await this.client.connect();
 		let userCollection = this.client.db("sweetb").collection("users");
 		let c = new Customer(
