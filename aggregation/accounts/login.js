@@ -1,5 +1,5 @@
 import { Customer, RealName } from '../data_classes/user.js';
-import { authUsers, insertUserintoDB } from './auth.js';
+import { authUsers } from './auth.js';
 
 //Variables from the register form
 var username = document.getElementById("username")
