@@ -1,5 +1,4 @@
 <?php
-include("../global/data_classes/session.php");
 session_start();
 ?>
 

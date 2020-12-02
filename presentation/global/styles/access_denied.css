@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import "colours.css";
+@import "buttons.css";
+
+* {
+    list-style-type: none;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+#access-denied-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 4em;
+}
+
+#access-denied-page img {
+	width: 70%;
+	height: 70%;
+}
+
+#access-denied-page a {
+	margin: 1.5em;
+}
+
+#page-title {
+	color: var(--title-text-on-light);
+	font-weight: bold;
+	font-size: 40px;
+}

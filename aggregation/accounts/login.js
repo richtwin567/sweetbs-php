@@ -1,7 +1,7 @@
-import { Customer, RealName, Card, Address  } from '../data_classes/user.js';
-import { authUsers } from './auth.js';
+import { Customer, RealName, Card, Address } from "../data_classes/user.js";
+//import { authUsers, insertUserintoDB } from "./auth.js";
 
-//Variables from the register form
+/* //Variables from the register form
 
 //Variables from the log-in form
 var logusername = document.getElementById("logusername");
@@ -27,8 +27,10 @@ function getURL() {
 		"" +
 		window.location.pathname;
 	return myURL;
-}
+} */
 
+var signup_form = document.getElementById("Registerform");
+signup_form.addEventListener("submit", (e) => createRegisteredCustomer(e));
 
 /**
  *
@@ -86,41 +88,51 @@ function createRegisteredCustomer(e) {
 		})
 		.catch((err) => console.log(err));
 }
-
+/* 
 /**
  *
  * @param
- */
+ 
 function signinRegisteredCustomer(logusername, logpassword) {
 	//Uses username and password to search through the database, authenticate (compare password and username)
 	//then starts a user session
 	let queryString = "?username=" + logusername + "&password=" + logpassword;
 	console.log(queryString);
-    let user = authUsers(queryString);
-    console.log(user);
-	if(authUsers(queryString)){ //this should return boolean
+	authUsers(queryString);
+	/*if(authUsers(queryString)){ //this should return boolean
         //Redirect user to 
     }else{
         window.alert("No sure user exists. Please Sign Up or try again");
     }  
 	//console.log("true");
 }
-
+console.log(getURL());
+console.log(registerpagepath);
 if (getURL() == registerpagepath) {
 	console.log("deh yah");
-	var signup_form = document.getElementById("Registerform");
-    signup_form.addEventListener("onsubmit", createRegisteredCustomer);
+	registerform.addEventListener("submit", (event) => {
+		console.log("here");
+		createRegisteredCustomer(
+			username,
+			email,
+			password,
+			card,
+			fname,
+			lname,
+			address
+		);
+		window.location.replace(loginpagepath);
+		event.preventDefault();
+	});
 }
-	
-/*if (getURL() == loginpagepath) {
+if (getURL() == loginpagepath) {
 	console.log("deh yah2");
 	loginform.addEventListener("submit", (event) => {
 		console.log("here2");
 		signinRegisteredCustomer(logusername.value, logpassword.value);
 		event.preventDefault();
 	});
-}*/
-
+}
 if (getURL() == forgot_pwpagepath) {
 	console.log("deh yah3");
 	newpasswordform.addEventListener("submit", (event) => {
@@ -133,7 +145,7 @@ if (getURL() == forgot_pwpagepath) {
 		}
 		//Function in auth that updates the database with new password
 	});
-}
+} */
 //Function runs when submit button for the register-form is clicked
 
 //Function runs when submit button for the login-form is clicked

@@ -44,7 +44,7 @@ $user = unserialize($_SESSION["user"]);
 </html>
 
 
-<?php //endif;?>
+<?php endif;?>
 
 <?php
 

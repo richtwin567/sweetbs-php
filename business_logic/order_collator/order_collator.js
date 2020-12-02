@@ -8,8 +8,9 @@ var pendingCount = 0;
 var completed = document.getElementById('completed-orders');
 var pending = document.getElementById('pending-orders');
 
-window.addEventListener('load', function () {
+window.addEventListener('load', function() {
     // Refresh the data for the collator every minute
+    console.log('I still work');
     setInterval(updateCollator(), 30000);
 });
 
@@ -67,11 +68,11 @@ function menuItemIdSearch(menuItems, desiredId) {
 
 async function fetchMenuItems() {
     return await fetch("https://sweetbs-backend.herokuapp.com/menuitems", {
-        method: "GET",
-        headers: {
-            "Content-Type": "Application/json",
-        },
-    })
+            method: "GET",
+            headers: {
+                "Content-Type": "Application/json",
+            },
+        })
         .then((res) => res.json())
         .then((data) => {
             var menulist = [];
@@ -110,7 +111,7 @@ async function fetchOrders() {
  */
 function processCollapsibleOrders() {
     let newOrdersDiv = document.getElementById('new-orders');
-    newOrdersDiv.addEventListener('click', function (event) {
+    newOrdersDiv.addEventListener('click', function(event) {
         let element = event.target;
         // Traverse up the parent nodes
         let orderOverview = element.parentNode.parentNode.parentNode.nextElementSibling;
@@ -130,7 +131,7 @@ function processCollapsibleOrders() {
         } else if (element.type == 'checkbox' && element.classList.contains('check-off')) {
             let tickParent = element.parentNode.parentNode;
             let checkOffTick = tickParent.nextElementSibling.children[0].children[0];
-            checkOffOrder(tickParent, element, checkOffTick, completedCount, pendingCount);
+            checkOffOrder(tickParent, element, checkOffTick);
         }
 
     });
@@ -173,18 +174,18 @@ function checkOffItem(checkbox, tick) {
 
 function checkOffOrder(tickParent, checkbox, tick) {
     if (checkbox.checked) {
-        completedCount +=1;
+        completedCount += 1;
         console.log(completedCount);
         pendingCount -= 1;
         tickParent.classList.add('checked-off');
         tick.src = '../global/icons/done_all-blue-48dp.svg'
     } else {
-        completedCount -=1;
+        completedCount -= 1;
         pendingCount += 1;
         tick.src = '../global/icons/done_all-grey-48dp.svg'
         tickParent.classList.remove('checked-off');
     }
-    
+
     // Update the values in the overview section
     completed.innerHTML = completedCount;
     pending.innerHTML = pendingCount;
