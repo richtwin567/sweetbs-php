@@ -1,7 +1,7 @@
 import {MenuItem} from "../data_classes/menu_item.js";
 
 async function getMenuItems(queryString) {
-	return await fetch("http://127.0.0.1:3000/menuitems"+queryString, {
+	return await fetch("https://sweetbs-backend.herokuapp.com/menuitems"+queryString, {
 		method: "GET",
 		headers: {
 			"Content-Type": "Application/json",
