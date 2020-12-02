@@ -41,7 +41,8 @@ nav {
 	align-items: center;
 	background-color: var(--portal-top-navbar);
 	box-shadow: 0px 2px 10px var(--medium);
-	height: 11vh;
+    height: 11vh;
+    grid-area: top-nav;
 }
 
 nav ul {
