@@ -118,7 +118,8 @@ function handleUsersRequest(req, res) {
 			// This may not be the most secure solution
 			const reqUrl = url.parse(req.url, true);
 			var body = "";
-			req.on("readable", () => body + req.read());
+			//console.log(req);
+			req.on("readable", () => body += req.read());
 			req.on("end", () => {
 				console.log(body);
 				insertQueryObj
