@@ -108,7 +108,8 @@ svg path {
 	height: 2em;
 	background-position: center;
 	background-size: contain;
-	width: 2em;
+    width: 2em;
+    margin: 0 0.5em;
 }
 
 /*Sidebar images*/
