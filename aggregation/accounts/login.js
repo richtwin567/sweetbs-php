@@ -1,5 +1,5 @@
 import { Customer, RealName, Card, Address  } from '../data_classes/user.js';
-import { authUsers } from './auth.js';
+//import { authUsers } from './auth.js';
 
 //Variables from the register form
 
@@ -80,6 +80,17 @@ function createRegisteredCustomer(e) {
 		.then((_) => window.location.href("index.php"));
 }
 
+async function authUsers(queryString) {
+	console.log("ddd");
+	let response = await fetch("https://sweetbs-backend.herokuapp.com/users"+queryString);
+	if (response.ok){
+        return response.json();
+    }else{
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+    } 
+}
+
 /**
  *
  * @param
@@ -89,14 +100,16 @@ function signinRegisteredCustomer(logusername, logpassword) {
 	//then starts a user session
 	let queryString = "?username=" + logusername + "&password=" + logpassword;
 	console.log(queryString);
-	authUsers(queryString);
-	/*if(authUsers(queryString)){ //this should return boolean
+    let user = authUsers(queryString);
+    console.log(user);
+	if(authUsers(queryString)){ //this should return boolean
         //Redirect user to 
     }else{
         window.alert("No sure user exists. Please Sign Up or try again");
     }  
 	//console.log("true");
-}*/
+}
+
 if (getURL() == registerpagepath) {
 	console.log("deh yah");
 	var signup_form = document.getElementById("Registerform");
@@ -111,6 +124,7 @@ if (getURL() == loginpagepath) {
 		event.preventDefault();
 	});
 }
+
 if (getURL() == forgot_pwpagepath) {
 	console.log("deh yah3");
 	newpasswordform.addEventListener("submit", (event) => {
@@ -128,4 +142,3 @@ if (getURL() == forgot_pwpagepath) {
 
 //Function runs when submit button for the login-form is clicked
 //var ResgisteredCostumer = new Customer(username.value, email.value, password.value, name.value, address.value)
-}
