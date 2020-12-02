@@ -1,9 +1,9 @@
 <?php
 include("../global/data_classes/session.php");
-$session = new Session();
-$user = $session->whoIsLoggedIn();
+//$session = new Session();
+//$user = $session->whoIsLoggedIn();
 ?>
-<?php if($user!=null && $user->getType()=="Admin"):?>
+<?php //if($user!=null && $user->getType()=="Admin"):?>
 <!DOCTYPE html>
 <html>
 
@@ -54,14 +54,6 @@ $user = $session->whoIsLoggedIn();
                     <hr>
                     <div id='new-orders'>
                     </div>  
-                        <!--
-                        <ul id='collapsible-header' class='hidden'>
-                            <li>Pastry</li>
-                            <li>Description</li>
-                            <li>Quantity</li>
-                        </ul>
-                    <hr>
-                    -->
                 </div>
             </div>
         </div>
@@ -71,12 +63,12 @@ $user = $session->whoIsLoggedIn();
 </html>
 
 
-<?php endif;?>
+<?php //endif;?>
 
 <?php 
-
+/*
 if($user==null || $user->getType()=="Customer"){
     include("../global/templates/access_denied.php");
-}
+}*/
 
 ?>

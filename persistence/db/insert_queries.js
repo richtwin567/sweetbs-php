@@ -95,19 +95,4 @@ class OrderInsertQuery extends InsertQuery {
 	}
 }
 
-/*
-const testCustomerObj = new Customer('BobAnderson420', 'test@bob.com', 'supersecretpass', null, null);
-console.log(testCustomerObj.getPassword());
-const testCustomerDocument = {
-    _id: new ObjectID(),
-    username: testCustomerObj.getUsername(),
-    email: testCustomerObj.getEmail(),
-    password: testCustomerObj.getPassword(),
-    type: 'Customer'
-}
-
-let custQuery = new CustomerInsertQuery();
-custQuery.insertOneCustomer(testCustomerDocument);
- */
-
 module.exports = { OrderInsertQuery, CustomerInsertQuery };

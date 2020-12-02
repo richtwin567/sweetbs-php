@@ -61,6 +61,8 @@ ul img{
     width:200px;
     height:100%;
     background-color: var(--portal-side-navbar);
+    bottom:0;
+    top:63px;
 }
 
 .sidebar-wrapper a{
@@ -90,7 +92,7 @@ svg path {
 #portal-sections{
   width: 75%;
   min-width: 40%;
-  margin-left: clamp(15%, 16%,25%);
+  margin-left: clamp(15%, 17%,25%);
 }
 
 /*Sidebar images*/
