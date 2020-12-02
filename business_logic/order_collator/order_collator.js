@@ -43,6 +43,8 @@ function createOrderItemArray(orderItems, menuItems) {
             let orderItem = new OrderItem(menuItem, orderItems[i].qty);
             orderItemArr.push(orderItem);
         }
+    }
+}
 
 function menuItemIdSearch(menuItems, desiredId) {
     for (const menuItem of menuItems) {
