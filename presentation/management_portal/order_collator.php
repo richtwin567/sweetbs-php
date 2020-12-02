@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include_once("../../aggregation/data_classes/user.php");
 $user = unserialize($_SESSION["user"]);
