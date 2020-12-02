@@ -1,5 +1,7 @@
 // Imports
 const ObjectID = require("mongodb").ObjectID;
+const Hashing = require("../security/hashing").Hashing;
+const hashing = new Hashing();
 /**
  *  This module defines the classes relating to the User class
  * @module user
