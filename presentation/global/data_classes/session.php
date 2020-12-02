@@ -14,22 +14,17 @@ class Session{
 
     public function login(User $user)
     {
-        if (!$this->isLoggedIn()){
             $_SESSION["user"] = serialize($user);
-        }
     }
 
     public function logout()
     {
-        if ($this->isLoggedIn()) {
             unset($_SESSION["user"]);
             session_destroy();
-        }
     }
 
     public function whoIsLoggedIn(){
-        return $this->isLoggedIn()? unserialize($_SESSION["user"]) : null;
+        return unserialize($_SESSION["user"]);
     }
 
 }
-?>

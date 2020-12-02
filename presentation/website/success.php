@@ -1,8 +1,6 @@
 <?php
-include("../global/data_classes/session.php");
-$session = new Session();
-
-
+session_start();
+setcookie("cart-order",null, -1,"/");
 ?>
 
 <!DOCTYPE html>

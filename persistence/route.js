@@ -1,9 +1,10 @@
 const http = require("http");
 const url = require("url");
 const ctrl = require("./controller.js");
-const { CustomerInsertQuery, OrderInsertQuery } = require('./db/insert_queries');
-
-
+const {
+	CustomerInsertQuery,
+	OrderInsertQuery,
+} = require("./db/insert_queries");
 
 module.exports = http.createServer((req, res) => {
 	const reqUrl = url.parse(req.url, true);
@@ -89,11 +90,29 @@ function handleOrderItemsRequest(req, res) {
 function handleOrdersRequest(req, res) {
 	switch (req.method) {
 		case "GET":
-			ctrl.getOrders(req,res).catch((err) => console.log(err));
+			ctrl.getOrders(req, res).catch((err) => console.log(err));
 			break;
 		case "POST":
 			let orderq = new OrderInsertQuery();
-			orderq.insertOneOrder(req).catch(err=>console.log(err));
+			var body = "";
+			//console.log(req);
+			req.on("readable", () => (body += req.read()));
+			req.on("end", () => {
+				console.log(body);
+				if (body.endsWith("null")) {
+					body = body.slice(0, body.length - 4);
+				}
+				console.log(body);
+
+				orderq
+					.insertOneOrder(JSON.parse(body))
+					.catch((err) => console.log(err));
+
+				setResponseHeaders(res);
+				res.write("ok");
+				res.end();
+			});
+
 			break;
 		case "PATCH":
 			break;
@@ -104,16 +123,33 @@ function handleOrdersRequest(req, res) {
 	}
 }
 
-function handleUsersRequest(req,res) {
+function handleUsersRequest(req, res) {
 	switch (req.method) {
 		case "GET":
-			ctrl.getUser(req,res).catch(err=>console.log(err));
+			ctrl.getUser(req, res).catch((err) => console.log(err));
 			break;
 		case "POST":
 			let insertQueryObj = new CustomerInsertQuery();
 			// Assuming that the request contains the document to be inserted
 			// This may not be the most secure solution
-			insertQueryObj.insertOneCustomer(req).catch(err=>console.log(err));
+			const reqUrl = url.parse(req.url, true);
+			var body = "";
+			//console.log(req);
+			req.on("readable", () => (body += req.read()));
+			req.on("end", () => {
+				console.log(body);
+				if (body.endsWith("null")) {
+					body = body.slice(0, body.length - 4);
+				}
+				console.log(body);
+
+				insertQueryObj
+					.insertOneCustomer(JSON.parse(body))
+					.catch((err) => console.log(err));
+				setResponseHeaders(res);
+				res.write("ok");
+				res.end();
+			});
 			break;
 		case "PATCH":
 			break;
@@ -122,4 +158,11 @@ function handleUsersRequest(req,res) {
 		default:
 			break;
 	}
+}
+
+function setResponseHeaders(response) {
+	response.setHeader("Content-Type", "Application/json");
+	response.setHeader("Access-Control-Allow-Origin", "*");
+	response.setHeader("Access-Control-Allow-Headers", "X-Requested-With");
+	response.setHeader("Access-Control-Allow-Headers", "Content-Type");
 }

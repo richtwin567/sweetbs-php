@@ -8,7 +8,8 @@ class ShoppingCart {
 	}
 
 	async checkout() {
-		var jsonorder = this.#order.toMongoJSON();
+        var jsonorder = this.#order.toMongoJSON();
+        console.log(jsonorder);
 		return fetch("https://sweetbs-backend.herokuapp.com/orders", {
 			method: "POST",
 			body: jsonorder,

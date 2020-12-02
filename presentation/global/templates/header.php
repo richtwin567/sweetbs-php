@@ -1,3 +1,10 @@
+<?php
+session_start();
+include_once("../../aggregation/data_classes/user.php");
+$user = unserialize($_SESSION["user"]);
+//echo print_r($user);
+?>
+
 <nav>
     <a href="index.php"><img id="logo" src='../global/client/sweet-b-long.png' alt='sweet-b-long'></a>
     <ul id="nav-links">
@@ -18,10 +25,8 @@
             <div class="nav-separator"></div>
         </li>
         <li><a href='about.php'>ABOUT</a></li>
+
         <?php
-        include_once("../global/data_classes/session.php");
-        $session = new Session();
-        $user = $session->whoIsLoggedIn();
         if ($user != null && $user->getType() == "Admin") :
         ?>
             <li>

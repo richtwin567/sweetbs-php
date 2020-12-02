@@ -5,14 +5,12 @@ abstract class User
     private $id;
     private $username;
     private $email;
-    private $password;
     private $type;
 
-    public function __construct(string $username, string $email, string $password, $id=null)
+    public function __construct(string $username, string $email, $id=null)
     {
         $this->username = $username;
         $this->email = $email;
-        $this->password = $password;
         $this->id = $id;
     }
 
@@ -36,10 +34,6 @@ abstract class User
         return $this->email;
     }
 
-    public function getPassword()
-    {
-        return $this->password;
-    }
 
     public function setUsername(string $newUsername)
     {
@@ -51,17 +45,13 @@ abstract class User
         $this->email = $newEmail;
     }
 
-    public function setPassword(string $newPassword)
-    {
-        $this->password = $newPassword;
-    }
 }
 
 class Admin extends User
 {
-    public function __construct(string $username, string $email, string $password)
+    public function __construct(string $username, string $email)
     {
-        parent::__construct($username, $email, $password);
+        parent::__construct($username, $email);
         $this->type = "Admin";
     }
 }
@@ -205,9 +195,9 @@ class Customer extends User
     private $name;
     private $deliveryAddress;
 
-    public function __construct($username, $email, $password, $card, $realname, $address)
+    public function __construct($username, $email, $card, $realname, $address)
     {
-        parent::__construct($username, $email, $password);
+        parent::__construct($username, $email);
         $this->card = $card;
         $this->deliveryAddress = $address;
         $this->name = $realname;

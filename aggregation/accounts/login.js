@@ -30,14 +30,14 @@ function getURL() {
 } */
 
 var signup_form = document.getElementById("Registerform");
-signup_form.addEventListener("onsubmit", createRegisteredCustomer);
+signup_form.addEventListener("submit", (e) => createRegisteredCustomer(e));
 
 /**
  *
  * @param
  */
 function createRegisteredCustomer(e) {
-    e.preventDefault();
+	e.preventDefault();
 	var username = document.getElementById("username");
 	var email = document.getElementById("email");
 	var password = document.getElementById("password");
@@ -71,15 +71,22 @@ function createRegisteredCustomer(e) {
 		method: "POST",
 		body: RegisteredCustomer.toMongoJSON(),
 	})
+		.catch((err) => console.log(err))
 		.then((res) => {
+			console.log(res);
 			if (res.ok) {
-				fetch("./session_handler.php", {
+				fetch("../../aggregation/accounts/session_handler.php", {
 					method: "POST",
 					body: RegisteredCustomer.toMongoJSON(),
-				});
+				})
+					.then((res) => res.text())
+					.then((data) => console.log(data))
+					.then((_) => (window.location.href = "index.php"));
+			} else {
+				console.log(res);
 			}
 		})
-		.then((_) => window.location.href("index.php"));
+		.catch((err) => console.log(err));
 }
 /* 
 /**
