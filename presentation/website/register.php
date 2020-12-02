@@ -15,9 +15,8 @@ $session = new Session();
     <link rel="stylesheet" href="styles/register.css">
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel='stylesheet' href="../global/styles/global.css">
-    <script src="../../aggregation/accounts/login.js" type="module"></script>
+    <script src="../../aggregation/accounts/login.js" type="module" defer></script>
     <script src="../../aggregation/data_classes/user.js" type="module"></script>
-    <script src="../../persistence/db/documents.js" type="module"></script>
 </head>
 
 <body>

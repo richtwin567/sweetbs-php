@@ -16,7 +16,7 @@ async function authUsers(queryString) {
 
 insertString = "username="+someusername+"&email="+someemail+"&password="+somepas+"&type="+sometype
 async function insertUserintoDB(insertString) {
-	return await fetch("http://127.0.0.1:3000/users"+insertString.json(), {
+	return await fetch("https://sweetbs-backend.herokuapp.com/users"+insertString.json(), {
 		method: "POST"
 	})
 }
