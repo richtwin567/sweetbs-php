@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include_once("../data_classes/user.php");
 include_once("../../presentation/global/data_classes/session.php");
@@ -11,16 +12,13 @@ try {
 
     if ($data["type"] == "Customer") {
         $user = new Customer($data["username"], $data["email"], $data["password"], $data["card"], $data["realname"], "");
-    }else{
-        $user = new Admin($data["username"],$data["email"],$data["password"]);
+    } else {
+        $user = new Admin($data["username"], $data["email"], $data["password"]);
     }
 
-    $session=new Session();
-    if(!$session->isLoggedIn()){
-        $session->login($user);
-    }
-
-    echo "ok";
+    $_SESSION["user"] = serialize($user);
+    echo $_SESSION["user"];
+    die();
 } catch (\Throwable $th) {
     //throw $th;
 }

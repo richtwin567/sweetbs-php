@@ -94,9 +94,25 @@ function handleOrdersRequest(req, res) {
 			break;
 		case "POST":
 			let orderq = new OrderInsertQuery();
-			orderq.insertOneOrder(req).catch((err) => console.log(err));
-			setResponseHeaders(res);
-			res.end();
+			var body = "";
+			//console.log(req);
+			req.on("readable", () => (body += req.read()));
+			req.on("end", () => {
+				console.log(body);
+				if (body.endsWith("null")) {
+					body = body.slice(0, body.length - 4);
+				}
+				console.log(body);
+
+				orderq
+					.insertOneOrder(JSON.parse(body))
+					.catch((err) => console.log(err));
+
+				setResponseHeaders(res);
+				res.write("ok");
+				res.end();
+			});
+
 			break;
 		case "PATCH":
 			break;
@@ -119,11 +135,11 @@ function handleUsersRequest(req, res) {
 			const reqUrl = url.parse(req.url, true);
 			var body = "";
 			//console.log(req);
-			req.on("readable", () => body += req.read());
+			req.on("readable", () => (body += req.read()));
 			req.on("end", () => {
 				console.log(body);
-				if (body.endsWith("null")){
-					body = body.slice(0,body.length-4);
+				if (body.endsWith("null")) {
+					body = body.slice(0, body.length - 4);
 				}
 				console.log(body);
 

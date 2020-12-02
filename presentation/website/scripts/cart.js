@@ -226,8 +226,8 @@ async function checkoutOrder() {
 						var cart = new ShoppingCart(order);
 						cart.checkout().then((isSuccessful) =>
 							isSuccessful
-								? window.location.href("./success.php")
-								: window.location.href("./failed.php")
+								? window.location.href="./success.php"
+								: window.location.href="./failed.php"
 						);
 					})
 					.catch((err) => console.log(err));

@@ -1,6 +1,6 @@
 <?php
-include("../global/data_classes/session.php");
-$session = new Session();
+session_start();
+
 ?>
 
 <!DOCTYPE html>

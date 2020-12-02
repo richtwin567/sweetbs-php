@@ -77,6 +77,7 @@ class OrderInsertQuery extends InsertQuery {
 	 * @param {object} document The JSON object of an order
 	 */
 	async insertOneOrder(document) {
+        console.log(document);
 		const collection = this.client.db("sweetb").collection("orders");
 		let result = await collection.insertOne(document);
 		console.log(
