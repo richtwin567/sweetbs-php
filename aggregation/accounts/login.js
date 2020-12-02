@@ -30,14 +30,14 @@ function getURL() {
 } */
 
 var signup_form = document.getElementById("Registerform");
-signup_form.addEventListener("onsubmit", createRegisteredCustomer);
+signup_form.addEventListener("submit", (e) => createRegisteredCustomer(e));
 
 /**
  *
  * @param
  */
 function createRegisteredCustomer(e) {
-    e.preventDefault();
+	e.preventDefault();
 	var username = document.getElementById("username");
 	var email = document.getElementById("email");
 	var password = document.getElementById("password");
@@ -70,16 +70,27 @@ function createRegisteredCustomer(e) {
 	fetch("https://sweetbs-backend.herokuapp.com/users", {
 		method: "POST",
 		body: RegisteredCustomer.toMongoJSON(),
+		headers: {
+			"Content-Type": "Application/json",
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Headers": "X-Requested-With",
+			"Access-Control-Allow-Headers": "Content-Type",
+		},
 	})
+		.catch((err) => console.log(err))
 		.then((res) => {
+			console.log(res);
 			if (res.ok) {
 				fetch("./session_handler.php", {
 					method: "POST",
 					body: RegisteredCustomer.toMongoJSON(),
 				});
+			} else {
+				console.log(res);
 			}
 		})
-		.then((_) => window.location.href("index.php"));
+		.then((_) => window.location.href("index.php"))
+		.catch((err) => console.log(err));
 }
 /* 
 /**
