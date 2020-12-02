@@ -1,7 +1,7 @@
 <div class='sidebar-wrapper'>
     <div class='sidebar'>
         <ul>
-            <li><a href='#'>
+            <li><a href=''>
                 <div id='dashboard-icon'></div>
                 Dashboard
                 </a>

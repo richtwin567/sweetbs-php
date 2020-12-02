@@ -12,9 +12,15 @@
     box-sizing: border-box;
 }
 
-body{
-    margin:0;
+body {
+    margin: 0;
     font-size: 14px;
+    display: grid;
+    grid-template-columns: 2.5fr 12fr;
+    grid-template-rows: 2fr 20fr;
+    grid-template-areas:
+        'top-nav top-nav'
+        'side-nav main-content';
 }
 /* TODO - Make the Nav and Sidebar responsive */
 
@@ -52,17 +58,18 @@ ul img{
     margin:0 10px;
 }
 /* Styling the Sidebar */
-.sidebar-wrapper{
-    display:flex;
+.sidebar-wrapper {
+    display: flex;
+    grid-area: side-nav;
 }
 
-.sidebar-wrapper .sidebar{
-    position:fixed;
-    width:200px;
-    height:100%;
+.sidebar-wrapper .sidebar {
+    /* position: fixed; */
+    width: 100%;
+    height: 100%;
     background-color: var(--portal-side-navbar);
-    bottom:0;
-    top:63px;
+    /* bottom: 0; */
+    /* top: 63px; */
 }
 
 .sidebar-wrapper a{
@@ -99,6 +106,7 @@ svg path {
 #dashboard-icon{
     background-image: url('../../global/icons/dashboard-white-48dp.svg');
 }
+
 
 /* 
 #shopping-list-icon{
