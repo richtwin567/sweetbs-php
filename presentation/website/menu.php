@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include_once("../../aggregation/data_classes/order_item.php");
 include_once("../../aggregation/data_classes/order.php");

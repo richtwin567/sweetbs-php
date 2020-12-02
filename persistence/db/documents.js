@@ -25,10 +25,10 @@ class UserDocuments extends Document {
             password: customerObj.getPassword(),
             type: "Customer",
 			realname: {
-				firstName: customerName.getFirstName(),
-				lastName: customerName.getLastName(),
+				firstname: customerName.getFirstName(),
+				lastname: customerName.getLastName(),
 			},
-            delivery_address: deliveryAddress.getAddress(),
+            //delivery_address: deliveryAddress.getAddress(),
             
 		};
 		return customerDocument;
@@ -80,4 +80,4 @@ class IngredientDocument extends Document {
 	}
 }
 
-export { UserDocuments, OrderDocuments, IngredientDocument };
+module.exports= { UserDocuments, OrderDocuments, IngredientDocument };

@@ -38,10 +38,11 @@ class CustomerInsertQuery extends InsertQuery {
 				customerDocument["realname"]["firstname"],
 				customerDocument["realname"]["lastname"]
 			),
-			new Address(customer["delivery_address"])
+			new Address(customerDocument["delivery_address"])
 		);
 		let ud = new UserDocuments();
-		let cd = ud.createCustomerDocument(c);
+        let cd = ud.createCustomerDocument(c);
+        console.log(cd);
 		let result = await userCollection.insertOne(cd);
 		console.log(
 			`${result.insertedCount} documents were inserted with the _id: ${result.insertedId}`
@@ -76,6 +77,13 @@ class OrderInsertQuery extends InsertQuery {
 	 * @param {object} document The JSON object of an order
 	 */
 	async insertOneOrder(document) {
+        console.log(document);
+        for (var oitem of document["items"]) {
+            oitem["menuitem"]=new ObjectID(oitem["menuitem"]);
+            
+        }
+        console.log(document);
+		await this.client.connect();
 		const collection = this.client.db("sweetb").collection("orders");
 		let result = await collection.insertOne(document);
 		console.log(
