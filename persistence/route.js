@@ -122,6 +122,11 @@ function handleUsersRequest(req, res) {
 			req.on("readable", () => body += req.read());
 			req.on("end", () => {
 				console.log(body);
+				if (body.endsWith("null")){
+					body = body.slice(0,body.length-5);
+				}
+				console.log(body);
+
 				insertQueryObj
 					.insertOneCustomer(JSON.parse(body))
 					.catch((err) => console.log(err));
