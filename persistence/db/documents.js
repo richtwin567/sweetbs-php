@@ -80,4 +80,4 @@ class IngredientDocument extends Document {
 	}
 }
 
-export { UserDocuments, OrderDocuments, IngredientDocument };
+module.exports= { UserDocuments, OrderDocuments, IngredientDocument };
