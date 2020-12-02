@@ -2,8 +2,8 @@
 session_start();
 include_once("../../aggregation/data_classes/user.php");
 $user = unserialize($_SESSION["user"]);
-
-echo serialize($_SESSION["user"]); ?>
+//echo print_r($user);
+?>
 
 <nav>
     <a href="index.php"><img id="logo" src='../global/client/sweet-b-long.png' alt='sweet-b-long'></a>

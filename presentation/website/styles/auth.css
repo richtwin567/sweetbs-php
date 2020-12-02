@@ -1,4 +1,4 @@
-@import "colours.css";
+@import "../../global//styles/colours.css";
 
 main{
     height: 85vh;

@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-unset($_COOKIE["cart-order"]);
+setcookie("cart-order",null, -1,"/");
 ?>
 
 <!DOCTYPE html>

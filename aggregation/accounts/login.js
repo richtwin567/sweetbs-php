@@ -78,12 +78,14 @@ function createRegisteredCustomer(e) {
 				fetch("../../aggregation/accounts/session_handler.php", {
 					method: "POST",
 					body: RegisteredCustomer.toMongoJSON(),
-				}).then(res=>res.text()).then(data=>console.log(data));
+				})
+					.then((res) => res.text())
+					.then((data) => console.log(data))
+					.then((_) => (window.location.href = "index.php"));
 			} else {
 				console.log(res);
 			}
 		})
-		//.then((_) => window.location.href="index.php")
 		.catch((err) => console.log(err));
 }
 /* 

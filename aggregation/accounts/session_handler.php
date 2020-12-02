@@ -8,12 +8,12 @@ header("Access-Control-Allow-Methods: GET,POST, OPTIONS");
 header("Access-Control-Allow-Origin: *");
 
 $data = json_decode(file_get_contents('php://input'), true);
-try {
 
+try {
     if ($data["type"] == "Customer") {
-        $user = new Customer($data["username"], $data["email"], $data["password"], $data["card"], $data["realname"], "");
+        $user = new Customer($data["username"], $data["email"], $data["card"], $data["realname"], "");
     } else {
-        $user = new Admin($data["username"], $data["email"], $data["password"]);
+        $user = new Admin($data["username"], $data["email"]);
     }
 
     $_SESSION["user"] = serialize($user);
