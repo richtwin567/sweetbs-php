@@ -30,11 +30,11 @@ $session = new Session();
                 <div id="realname">
                     <div>
                         <label for="fname">First name</label>
-                        <input type="text" name="fname" id="fname">
+                        <input type="text" name="fname" id="fname" aria-required="true" pattern="[A-Za-z]+">
                     </div>
                     <div>
                         <label for="lname">Last name</label>
-                        <input type="text" name="lname" id="lname">
+                        <input type="text" name="lname" id="lname"aria-required="true" pattern="[A-Za-z]+">
                     </div>
                 </div>
                 <label>UserName</label>
