@@ -11,7 +11,7 @@ var pending = document.getElementById('pending-orders');
 window.addEventListener('load', function() {
     // Refresh the data for the collator every minute
     console.log('I still work');
-    setInterval(updateCollator(), 30000);
+    setInterval(updateCollator(), 5000);
 });
 
 /**

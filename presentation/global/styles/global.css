@@ -110,6 +110,6 @@ input, button{
     font-size: 40px;
 }
 
-input:invalid{
+input:invalid, input.invalid{
     border: var(--critical) 1px solid;
 }

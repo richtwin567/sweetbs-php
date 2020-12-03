@@ -15,15 +15,28 @@ async function login(e) {
 	})
 		.then((res) => (res.ok ? res.json() : null))
 		.then((data) => {
-            if(data!=null){
-            console.log(data[0]);
-			fetch("../../aggregation/accounts/session_handler.php", {
-				method: "POST",
-				body: JSON.stringify(data[0]),
-			})
-				.then((res) => res.text())
-				.then((data) => console.log(data))
-                .then((_) => (window.location.href = "index.php"));
-        }
+			if (data != null) {
+				console.log(data[0]);
+				fetch("../../aggregation/accounts/session_handler.php", {
+					method: "POST",
+					body: JSON.stringify(data[0]),
+				})
+					.then((res) => res.text())
+					.then((data) => console.log(data))
+					.then((_) => (window.location.href = "index.php"))
+					.catch((_) => {
+						var passwordfield = document.getElementById(
+							"logpassword"
+						);
+						passwordfield.classList.add("invalid");
+					});
+			} else {
+				var passwordfield = document.getElementById("logpassword");
+				passwordfield.classList.add("invalid");
+			}
+		})
+		.catch((_) => {
+			var passwordfield = document.getElementById("logpassword");
+			passwordfield.classList.add("invalid");
 		});
 }

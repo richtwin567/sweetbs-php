@@ -30,11 +30,11 @@ $session = new Session();
                 <div id="realname">
                     <div>
                         <label for="fname">First name</label>
-                        <input type="text" name="fname" id="fname" aria-required="true" pattern="[A-Za-z]+">
+                        <input type="text" name="fname" id="fname" required aria-required="true" pattern="[A-Za-z]+">
                     </div>
                     <div>
                         <label for="lname">Last name</label>
-                        <input type="text" name="lname" id="lname"aria-required="true" pattern="[A-Za-z]+">
+                        <input type="text" name="lname" id="lname" required aria-required="true" pattern="[A-Za-z]+">
                     </div>
                 </div>
                 <label>UserName</label>
@@ -45,27 +45,27 @@ $session = new Session();
                 <input type="password" id="password" name="password" required aria-required="true">
 
                 <label>Default Delivery Address</label>
-                <textarea name="address" id="address" cols="30" rows="10"></textarea>
+                <textarea name="address" id="address" cols="30" rows="10" required></textarea>
 
                 <h4>Card Details</h4>
                 <div id="card-num-cvv-group">
                     <div>
                         <label for="card-num">Card number</label>
-                        <input type="number" name="card-num" id="card-num">
+                        <input type="number" name="card-num" id="card-num" required>
                     </div>
                     <div>
                         <label for="cvv">CVV</label>
-                        <input type="number" name="cvv" id="cvv">
+                        <input type="number" name="cvv" id="cvv" required>
                     </div>
                 </div>
                 <div id="name-expiry-date-group">
                     <div>
                         <label for="name-on-card">Name on Card</label>
-                        <input type="text" name="name-on-card" id="name-on-card">
+                        <input type="text" name="name-on-card" id="name-on-card" required>
                     </div>
                     <div>
                         <label for="expiry-date">Expiry Date</label>
-                        <input type="date" me="expiry-date" id="expiry-date">
+                        <input type="date" me="expiry-date" id="expiry-date" required>
                     </div>
                 </div>
                 <input type="submit" id="submit" value="Sign up" class="btn btn-regular">

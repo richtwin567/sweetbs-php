@@ -66,6 +66,9 @@ $user = unserialize($_SESSION["user"]);
         await fetch("../../aggregation/accounts/logout.php", {
             method: "POST",
             body: "end session"
-        }).then(_ => window.location.href = "index.php").catch(err => console.log(err));
+        }).then(_ => {
+            window.location.href = "index.php";
+            window.location.reload();
+        }).catch(err => console.log(err));
     }
 </script>
