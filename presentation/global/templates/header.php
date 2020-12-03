@@ -43,6 +43,13 @@ $user = unserialize($_SESSION["user"]);
                 <span id="cart-counter"><?= is_array(unserialize($_COOKIE["cart-order"])) ? count(unserialize($_COOKIE["cart-order"])) : 0 ?></span>
             </div>
         </a>
+
+        <?php
+        if ($user != null) :
+        ?>
+        <p><?=$user->getUsername()?></p>
+        <?php endif; ?>
+
         <!--Profile SVG-->
         <a id="account-nav-link" href="#">
             <div id="account-icon"></div>

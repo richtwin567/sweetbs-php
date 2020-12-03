@@ -1,3 +1,10 @@
+<?php
+session_start();
+include_once("../../aggregation/data_classes/user.php");
+$user = unserialize($_SESSION["user"]);
+//echo print_r($user);
+?>
+
 <footer>
     <section id="footer-links">
         <div id='newsletter'>
@@ -14,9 +21,20 @@
         <div id='acc-details'>
             <h3>My Account</h3>
             <ul>
-                <li><a href='my_account.php'>Personal</a></li> 
-                <li><a href='login.php'>Login</a></li>
-                <li><a href='register.php'>Sign up</a></li>
+                <li><a href=''>Personal</a></li>
+
+                <?php
+                if ($user == null) :
+                ?>
+                    <li><a href='login.php'>Login</a></li>
+                    <li><a href='register.php'>Sign up</a></li>
+                <?php endif; ?>
+
+                <?php
+                if ($user != null) :
+                ?>
+                    <li><a href='' onclick="logout()">Logout</a></li>
+                <?php endif; ?>
             </ul>
         </div>
         <div id='shop'>
@@ -42,3 +60,12 @@
         </p>
     </section>
 </footer>
+
+<script>
+    async function logout() {
+        await fetch("../../aggregation/accounts/logout.php", {
+            method: "POST",
+            body: "end session"
+        }).then(_ => window.location.href = "index.php").catch(err => console.log(err));
+    }
+</script>
