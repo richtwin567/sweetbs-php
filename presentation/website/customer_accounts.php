@@ -1,14 +1,5 @@
 <?php
 session_start();
-/*if(session.isLoggedin()){
-    $user = $_SESSION["user"];
-    $fname = $user.getRealname().getFirstName();
-    $lname = $user.getRealname().getLastName();
-    $email = $user.getEmail();
-    $address = $user.getDeliveryAddress().getAddress();
-    $cardname = $user.getCard().getNameOnCard();
-    $cardnum = substr($user.getCard().getCardNumber(), -4); //Returns the last four digits of the card number
-}*/
 ?>
 
 <!DOCTYPE html>
