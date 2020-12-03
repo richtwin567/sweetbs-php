@@ -4,12 +4,13 @@
 	/* Primary colours */
 	--primary-main:#BC3B81;
 	--primary-dark:#9C3B82;
-	
+
 	/* accent colours */
 	--accent-pink-main: #F171AB;
 	--accent-pink-light: #F6C0D0;
 	--accent-blue-main: #B0DAD8;
 	--accent-blue-light: #D8F2F1;
+	--accent-black-light: rgba(0,0,0,0.2);
 
 	--light: #ffffff;
 	--medium: #EBEBEB;
@@ -20,7 +21,7 @@
 	--info:#0088E2;
 	--critical:#FF5C5C;
 	--warning:#FFAA00;
-		
+
 	/* background colours */
 	--bg-main: var(--light);
 	--bg-alt: var(--medium);
