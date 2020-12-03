@@ -40,7 +40,7 @@ $session = new Session();
                 <label>UserName</label>
                 <input type="text" id="username" name="username" required aria-required="true" pattern="[A-Za-z0-9]+">
                 <label>Email</label>
-                <input type="email" id="email" name="email" required aria-required="true">
+                <input type="email" id="email" name="email" required aria-required="true" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}">
                 <label>Password</label>
                 <input type="password" id="password" name="password" required aria-required="true">
 
