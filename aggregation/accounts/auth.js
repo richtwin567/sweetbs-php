@@ -14,6 +14,8 @@ async function authUsers(queryString) {
 	});
 }
 
+
+
 insertString = "username="+someusername+"&email="+someemail+"&password="+somepas+"&type="+sometype
 async function insertUserintoDB(insertString) {
 	return await fetch("https://sweetbs-backend.herokuapp.com/users"+insertString.json(), {
