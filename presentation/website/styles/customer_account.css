@@ -1,0 +1,155 @@
+@import "../../global/styles/colours.css";
+
+main {
+	display: flex;
+}
+
+#sign-up-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: 2em;
+}
+
+#sign-up-div form {
+	display: flex;
+	flex-direction: column;
+}
+
+#email-pass-addr-group,
+#card-num-name-group{
+    display: flex;
+	flex-direction: column;
+}
+
+#realname,
+#cvv-expiry-date-group {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+#realname div,
+#card-num-name-group div,
+#cvv-expiry-date-group div {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+#carts-table{
+    display: flex;
+    flex-direction: column;
+}
+
+table{
+    border-top: black solid;
+    border-bottom: black solid;
+}
+
+#td1{
+    width: 70%;
+}
+#td2{
+    text-align: right;
+    width: 30%;
+}
+
+#realname div:nth-child(1),
+#card-num-name-group div:nth-child(1),
+#cvv-expiry-date-group div:nth-child(1) {
+	margin-right: 0.8em;
+}
+
+#sign-up-div form input:not([type="submit"]),
+textarea {
+	border: var(--input-outline) 2px solid;
+	border-radius: 5px;
+	padding: 0.5em;
+	margin-bottom: 1em;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+#has-account {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+hr {
+	margin-top: 1em;
+}
+
+#sign-up-div input[type="submit"] {
+	margin-top: 1em;
+}
+
+#has-account a{
+    color: var(--body-text-on-light);
+}
+
+#has-account a:hover{
+    color: var(--accent-pink-main);
+}
+
+#sign-up-div h4{
+    margin-top: 2em;
+    color: var(--title-text-on-light);
+    margin-bottom: 0.5em;
+}
+
+textarea{
+    resize:none;
+}
+
+.warning-btn{
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    border-radius:10px;
+    padding: 0.8em 1.8em;
+    border:none;
+    cursor: pointer;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #FF5C5C;
+    margin: 5px;
+}
+
+#action-btn{
+    display: flex;
+    flex-direction: row;
+}
+
+#mutli-section{
+    display: flex;
+    flex-direction: row;
+}
+#nav-panel{
+    margin-top: 2em;
+    text-align: right;
+    padding-right: 20px;
+    font-weight: bold;
+    width: 50%;
+    height: 35%;
+    border-right: solid black 1px;
+}
+
+a:active, a:hover{
+    color: var(--title-text-on-light);
+}
+a{
+    color: inherit;
+  }

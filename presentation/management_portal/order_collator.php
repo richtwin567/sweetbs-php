@@ -1,12 +1,11 @@
 <?php
-include("../global/data_classes/session.php");
-$session = new Session();
-$user = $session->whoIsLoggedIn();
+session_start();
+include_once("../../aggregation/data_classes/user.php");
+$user = unserialize($_SESSION["user"]);
 ?>
 <?php if($user!=null && $user->getType()=="Admin"):?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,14 +53,6 @@ $user = $session->whoIsLoggedIn();
                     <hr>
                     <div id='new-orders'>
                     </div>  
-                        <!--
-                        <ul id='collapsible-header' class='hidden'>
-                            <li>Pastry</li>
-                            <li>Description</li>
-                            <li>Quantity</li>
-                        </ul>
-                    <hr>
-                    -->
                 </div>
             </div>
         </div>
@@ -70,7 +61,6 @@ $user = $session->whoIsLoggedIn();
 
 </html>
 
-
 <?php endif;?>
 
 <?php 
@@ -78,5 +68,4 @@ $user = $session->whoIsLoggedIn();
 if($user==null || $user->getType()=="Customer"){
     include("../global/templates/access_denied.php");
 }
-
 ?>

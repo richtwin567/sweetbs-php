@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include("../data_classes/user.php");
 include("../../presentation/global/data_classes/session.php");
@@ -21,6 +22,7 @@ try {
     }else{
         echo "";
     }
+    die();
 } catch (\Throwable $th) {
     //throw $th;
 }

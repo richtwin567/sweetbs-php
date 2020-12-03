@@ -15,9 +15,8 @@ $session = new Session();
     <link rel="stylesheet" href="styles/register.css">
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel='stylesheet' href="../global/styles/global.css">
-    <script src="../../aggregation/accounts/login.js" type="module"></script>
+    <script src="../../aggregation/accounts/login.js" type="module" defer></script>
     <script src="../../aggregation/data_classes/user.js" type="module"></script>
-    <script src="../../persistence/db/documents.js" type="module"></script>
 </head>
 
 <body>
@@ -31,17 +30,17 @@ $session = new Session();
                 <div id="realname">
                     <div>
                         <label for="fname">First name</label>
-                        <input type="text" name="fname" id="fname">
+                        <input type="text" name="fname" id="fname" aria-required="true" pattern="[A-Za-z]+">
                     </div>
                     <div>
                         <label for="lname">Last name</label>
-                        <input type="text" name="lname" id="lname">
+                        <input type="text" name="lname" id="lname"aria-required="true" pattern="[A-Za-z]+">
                     </div>
                 </div>
                 <label>UserName</label>
                 <input type="text" id="username" name="username" required aria-required="true" pattern="[A-Za-z0-9]+">
                 <label>Email</label>
-                <input type="email" id="email" name="email" required aria-required="true">
+                <input type="email" id="email" name="email" required aria-required="true" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}">
                 <label>Password</label>
                 <input type="password" id="password" name="password" required aria-required="true">
 
