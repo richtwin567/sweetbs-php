@@ -5,7 +5,7 @@ class MenuItem {
 	#price;
 	#picturelink;
     #ingredient_ids;
-    
+
 	constructor(id, name, desc, price, picturelink, ingredient_ids) {
 		this.#id = id;
 		this.#name = name;
@@ -64,7 +64,7 @@ class MenuItem {
 		var html = "";
 		//html += `<img class="feature-img" src="${this.picturelink}">`;
 
-		html += 
+		html +=
 		`<div id="${this.getId()}" class="menu-tile">
 			<img class="feature-img" src="../../presentation/global/images/cheesecake2.jpg">
 			<div class="menu-item-info">
