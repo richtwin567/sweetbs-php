@@ -6,7 +6,6 @@ $user = unserialize($_SESSION["user"]);
 <?php if($user!=null && $user->getType()=="Admin"):?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,7 +61,6 @@ $user = unserialize($_SESSION["user"]);
 
 </html>
 
-
 <?php endif;?>
 
 <?php 
@@ -70,5 +68,4 @@ $user = unserialize($_SESSION["user"]);
 if($user==null || $user->getType()=="Customer"){
     include("../global/templates/access_denied.php");
 }
-
 ?>

@@ -27,7 +27,7 @@ $user = unserialize($_SESSION["user"]);
         <li><a href='about.php'>ABOUT</a></li>
 
         <?php
-        if ($user != null && $user->getType() == "Admin") :
+            if ($user != null && $user->getType() == "Admin") :
         ?>
             <li>
                 <div class="nav-separator"></div>

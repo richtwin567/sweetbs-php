@@ -140,3 +140,6 @@ hr{
     height:50px;
 }
 
+.checked-off{
+    color:var(--medium);
+}
