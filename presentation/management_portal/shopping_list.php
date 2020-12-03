@@ -16,6 +16,7 @@ $user = unserialize($_SESSION["user"]);
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./styles/portal.css">
     <link rel="stylesheet" href="./styles/shopping_list.css">
+    <script src="../../business_logic/shopping_list/shopping_list.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -29,10 +30,9 @@ $user = unserialize($_SESSION["user"]);
                     <div id="header">
                         <h2>Item</h2>
                         <h2>Description</h2>
-                        <h2>Quantity</h2>
                     </div>
                 </div>
-                <button id="genbtn">Generate List</button>
+                <!-- <button id="genbtn">Generate List</button> -->
             </div>
         </section>
         <section id='menu-manager'>
@@ -46,7 +46,7 @@ $user = unserialize($_SESSION["user"]);
 
 <?php endif;?>
 
-<?php 
+<?php
 
 if($user==null || $user->getType()=="Customer"){
     include("../global/templates/access_denied.php");
