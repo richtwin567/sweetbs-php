@@ -1,1 +1,2 @@
-web: node ./persistence/server.js & vendor/bin/heroku-php-apache2
+web: vendor/bin/heroku-php-apache2
+server: node ./persistence/server.js
